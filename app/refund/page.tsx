@@ -1,65 +1,63 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React from "react";
+import Ribbon from "../../components/Ribbon";
+
+export default function RefundPolicy() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className=" h-full">
+      {/* Header / Ribbon */}
+      <Ribbon name="Refund Policy" showfont={false}/>
+
+      {/* Content Section */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 space-y-6">
+        <section className="footer p-6 rounded-xl shadow-md space-y-6">
+          <p className="about leading-relaxed">
+            At <span className="font-medium">SRIYOG Consulting Pvt. Ltd.</span>, we are committed to delivering high-quality products and services. This Refund Policy describes the situations in which refunds may be granted and the process to request them.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Eligibility for Refunds</h2>
+            <p className="about leading-relaxed mb-2">
+              Refunds may be provided under the following conditions:
+            </p>
+            <ul className="list-disc list-inside about space-y-1">
+              <li>Products or services received are defective or not as described.</li>
+              <li>Orders are not delivered within the expected timeframe.</li>
+              <li>Duplicate charges or payment errors occur.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Non-Refundable Cases</h2>
+            <p className="about leading-relaxed mb-2">
+              Refunds will not be issued in the following cases:
+            </p>
+            <ul className="list-disc list-inside about space-y-1">
+              <li>Change of mind after purchase.</li>
+              <li>Services or digital products that have already been fully delivered.</li>
+              <li>Unauthorized use or distribution of digital content.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Refund Process</h2>
+            <p className="about leading-relaxed mb-2">
+              To request a refund, please contact our support team at <span className="font-medium">support@sriyog.com</span> within 7 days of purchase. Include your order details, reason for the refund, and any supporting documentation.
+            </p>
+            <p className="about leading-relaxed">
+              Once your request is reviewed, we will respond within 5 business days. Approved refunds will be processed back to the original payment method within 7–10 business days.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Contact Us</h2>
+            <p className="about leading-relaxed mb-1">Email: support@sriyog.com</p>
+            <p className="about leading-relaxed mb-1">Phone: +977-XXXXXXXXXX</p>
+            <p className="about leading-relaxed">Address: [SRIYOG Consulting Address], Kathmandu, Nepal</p>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

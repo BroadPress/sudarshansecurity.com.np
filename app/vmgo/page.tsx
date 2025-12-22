@@ -1,65 +1,109 @@
-import Image from "next/image";
+'use client'
+import Image from 'next/image';
+import Ribbon from '../../components/Ribbon';
 
-export default function Home() {
+
+export default function Vmgo() {
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="min-h-screen ">
+      
+
+        <Ribbon name="Vission, Mission, Goals and Objectives" showfont={false}/>
+
+        {/* Into section */}
+        <section className='max-w-7xl mx-auto py-8'>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-12 place-content-center place-items-center'>
+                <div className='flex flex-col justify-center items-center gap-3'>
+                  <Image height={24} width={24} src="/images/vmgo/vision.webp" alt="" className="w-24 h-24 " />
+                  <p>Vision</p>
+                </div>
+                <div className='flex flex-col justify-center items-center gap-3'>
+                  <Image height={24} width={24} src="/images/vmgo/mission.webp" alt="" className="w-24 h-24 " />
+                  <p>Mission</p>
+                </div>
+                <div className='flex flex-col justify-center items-center gap-3'>
+                  <Image height={24} width={24} src="/images/vmgo/goals.webp" alt="" className="w-24 h-24 " />
+                  <p>Goals</p> 
+                </div>
+                <div className='flex flex-col justify-center items-center gap-3'>
+                  <Image height={24} width={24} src="/images/vmgo/Objectives.webp" alt="" className="w-24 h-24" /> 
+                  <p>Objectives</p>    
+                </div> 
+            </div>
+        </section>
+
+
+
+        {/* Vision Section */}
+        <section id="vision" className="flex justify-between gap-24 mb-12 py-8 max-w-5xl mx-auto">
+          <div className="hidden md:flex items-center mb-6 ">
+              <Image height={600} width={800} src="/images/vmgo/vision.webp" alt="" className="w-auto h-40 text-teal-700 " />
+          </div>
+          <div className="p-8 md:p-16 card space-y-4 max-w-3xl rounded-xl">
+            <h2 className="text-3xl font-bold text">Vision</h2>
+            <p className=" text-md leading-relaxed mb-4">
+              Our vision at SRIYOG is to create a future where every individual has access to opportunities that match their skills and aspirations.            </p>
+            <p className=" text-md leading-relaxed">
+              We envision a world where people searching for any service can easily connect
+              with skilled professionals rather than hiring hefty commission from any service
+              marketplace, and where an individual can have his/her digital profile showcasing
+              their expertise.
+            </p>
+          </div>
+        </section>
+
+        {/* Mission Section */}
+        <section id="mission" className="flex justify-between gap-24 mb-12  max-w-5xl mx-auto">
+          <div className="p-8 md:p-16 bg-teal-700 text-white space-y-4 max-w-3xl rounded-xl ">
+            <h2 className="text-3xl font-bold ">Mission</h2>
+            <p className="text-md leading-relaxed ">
+              At SRIYOG, our mission is to revolutionize the way work is connected with workers. We strive to provide a seamless platform that empowers individuals and businesses to find the perfect match for their needs, fostering opportunities for growth, collaboration, and success.            </p>
+          </div>
+          <div className="hidden md:flex items-center mb-6">
+              <Image height={600} width={800} src="/images/vmgo/mission.webp" alt="" className="w-auto h-40 " />
+          </div>
+        </section>
+
+        {/* Goals Section */}
+        <section id="goals" className="flex justify-between gap-24 py-8 max-w-5xl mx-auto">
+          <div className="hidden md:flex items-center  mb-6">   
+              <Image height={600} width={800} src="/images/vmgo/goals.webp" alt="" className="w-60 h-40 " />
+          </div>
+          <div className="p-8 md:p-16 space-y-4 card rounded-xl">
+            <h2 className="text-3xl font-bold text">Our Goals</h2>
+            {[
+              "Enable transparent and efficient interactions between professionals and businesses through our platform's tools and features.",
+              "Ensure trust through robust verification processes and accurate listings for all users.",
+              "Provide equal access to opportunities for professionals from all backgrounds.",
+              "Continuously enhance our platform with new technologies to deliver the best user experience."
+            ].map((goal, index) => (
+              <div key={index} className="flex  items-center gap-3 pl-4">
+                <ul className='list-disc'><li>{goal}</li></ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Objectives Section */}
+        <section id="objectives" className="flex justify-between gap-24 mb-12 py-8 max-w-5xl mx-auto">
+          <div className="p-8 md:p-16 space-y-4 text-white bg-teal-700 max-w-3xl rounded-xl">
+            <h2 className="text-3xl font-bold">Objectives</h2>
+            {[
+              "Expand our reach to new markets and demographics, ensuring that individuals and businesses from all backgrounds have access to our platform.",
+              "Continuously improve the user experience on our platform, making it easier and more intuitive for users to find what they're looking for.",
+              "Foster a strong community of professionals and businesses",
+              "Maintain high standards of security and privacy"
+            ].map((objective, index) => (
+              <div key={index} className="flex items-center gap-3 pl-4">
+                <ul className='list-disc'><li>{objective}</li></ul>
+              </div>
+            ))}
+          </div>
+          <div className="hidden md:flex items-center mb-6">
+              <Image height={600} width={800} src="/images/vmgo/Objectives.webp" alt="" className="w-auto h-44 text-teal-700" />
+          </div>
+        </section>
     </div>
   );
 }

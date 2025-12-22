@@ -1,65 +1,83 @@
-import Image from "next/image";
+'use client'
+import ClapFunction from '../../components/ClappingFunction';
+import Ribbon from '../../components/Ribbon';
+import Image from 'next/image';
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+const About = ()=> {
+
+    return (
+        <div className='about font-size'>
+            {/* Full-width Ribbon Header */}
+            <Ribbon name="About" showfont={true}/>
+           
+            <div className="max-w-7xl mx-auto px-4 md:px-8 pb-8">
+
+                <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+                     {/* Image on mobile - inserted here for better reading flow */}
+                        <div className="md:hidden overflow-hidden px-5 sm:px-0">
+                            <Image
+                              src="/images/about/1.png"
+                              alt="Logo"
+                              width={800}        // any number, not the final size
+                              height={600}       // any number
+                              className="w-full h-auto object-cover"
+                            />
+                        </div>
+                    {/* Left side - Text content */}
+                    <div className="md:w-2/3 space-y-4 md:space-y-6 leading-relaxed ">
+                        <p className="content-text ">
+                            Established on June 14, 2018, SRIYOG Consulting Pvt. Ltd., based in Kamalpokhari,
+                            Kathmandu, Nepal, is a leading provider of digital solutions dedicated to driving
+                            digital transformation in the healthcare, employment, and tourism sectors. Our mission
+                            is to empower organizations in these vital industries with innovative, scalable, technology-driven
+                            services that enhance operational efficiency and support long-term growth.
+                        </p>
+
+                        <p className="content-text ">
+                            At SRIYOG Consulting, we believe that smart technology is key to addressing sector-specific challenges.
+                            Our diverse IT services include data processing, software and web application development, digital
+                            marketing, database management, business process automation, and expert IT consultancy—each tailored
+                            to the unique needs of agriculture, employment platforms, and tourism operations.
+                        </p>
+
+                       
+
+                        <p className="content-text">
+                            By optimizing digital infrastructure, we help our clients streamline services, engage users effectively,
+                            and scale sustainably. We specialize in crafting robust, user-friendly web solutions with a focus on
+                            modern UI/UX design, full-stack development, and industry-specific platforms—whether for agritech,
+                            job-matching portals, or tourism management systems.
+                        </p>
+
+                        <p className="content-text ">
+                            Our offerings include e-commerce platforms, CMS, SaaS-based solutions, and Progressive Web Applications
+                            (PWAs) designed for mobile-first experiences with offline functionality.
+                        </p>
+
+                        <p className="content-text ">
+                            Our comprehensive IT services are tailored to the unique demands of healthcare, employment platforms,
+                            and tourism operations.
+                        </p>
+                    </div>
+
+                    {/* Right side - Images (Desktop only) */}
+                    <div className="hidden md:block md:w-1/3 space-y-6">
+                        <div className="overflow-hidden">
+                            <img
+                                src="/images/about/1.png"
+                                alt="About SRIYOG 1"
+                                className="w-full h-auto object-cover"
+                            />
+                        </div>
+                    </div>
+                </div>
+                
+                {/* Clap Button with better mobile spacing - aligned left */}
+                <div className="mt-6 md:mt-8 flex justify-start">
+                    <ClapFunction/>
+                </div>
+            </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    );
 }
+export default About

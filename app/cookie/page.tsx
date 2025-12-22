@@ -1,65 +1,88 @@
-import Image from "next/image";
+import React from 'react'
+import Ribbon from '../../components/Ribbon'
 
-export default function Home() {
+const cookiePolicy = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+     <div className="h-full">
+      {/* Header / Ribbon */}
+      <Ribbon name="Cookie Policy" showfont={false}/>
+
+      {/* Content Section */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 space-y-6">
+        <section className="footer p-6 rounded-xl shadow-md space-y-6">
+          <p className="about leading-relaxed">
+            At <span className="font-medium">SRIYOG Consulting Pvt. Ltd.</span>, 
+            At SRIYOG Consulting Pvt. Ltd., we value your privacy and are committed
+            to ensuring a transparent and secure browsing experience. This Cookie
+            Policy explains how and why cookies are used on our website, what types
+            of cookies we employ, and the choices you have to manage or disable them.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Introduction</h2>
+            <p className="about leading-relaxed mb-2">
+             SRIYOG Consulting uses cookies and similar tracking 
+             technologies on https://www.SRIYOG.com to improve your experience and to 
+             operate our services effectively. This Cookie Policy explains what cookies
+             are, how we use them, the types of cookies we use, and how you can manage
+             or disable them if you prefer.</p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">What are Cookies & Tracking Technologies</h2>
+            <ul className="list-disc list-inside about space-y-1">
+              <li>Cookies are small text files placed on your device by your web browser
+                 when you visit the Website. They store small amounts of data such as
+                  unique identifiers, preference settings, session information, and tracking data.</li>
+              <li>We may also use other tracking technologies (like scripts or similar) that have
+                 the same function as cookies (storing or accessing information on a device).</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">How We Use Cookies</h2>
+            <p className="about leading-relaxed mb-2">
+              We use cookies and tracking technologies for the following purposes:
+            </p>
+            <ul className="list-disc list-inside about space-y-1">
+              <li>To provide and maintain our services (e.g., user login, session management, navigation).</li>
+              <li>To remember your preferences and settings (e.g., language, display settings, session state).</li>
+              <li>To monitor and analyze how users use our Website (traffic, page views, performance, errors), in order to improve the Website and our services.</li>
+              <li>For security and fraud prevention (e.g., ensuring session integrity, preventing malicious activity).</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Consent and Cookie Settings</h2>
+            <ul className="list-disc list-inside about space-y-1">
+              <li>When you first visit our Website, you may see a “cookie banner” or notice asking for your consent (depending on region and the types of cookies used).</li>
+              <li>If you consent, cookies beyond strictly necessary ones may be set (performance, preferences, analytics, etc.).</li>
+              <li>You can manage or disable cookies via your browser settings.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Third-Party Services & Cookies</h2>
+            <p className="about leading-relaxed">
+                We may use third-party services — such as analytics tools, marketing/advertising
+                 services, or integrations — which may set cookies on your device. These cookies
+                  are not under our direct control and are governed by each provider’s policy.</p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Changes to this Cookie Policy</h2>
+            <p className="about leading-relaxed">
+                We may update this Cookie Policy from time to time. When we do,
+                 we will revise the “Last updated” date above.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Contact Us</h2>
+            <p className="about leading-relaxed mb-1">Email: support@sriyog.com</p>
+            <p className="about leading-relaxed mb-1">Phone: +977-XXXXXXXXXX</p>
+            <p className="about leading-relaxed">Address: [SRIYOG Consulting Address], Kathmandu, Nepal</p>
+          </div>
+        </section>
+      </div>
     </div>
-  );
+  )
 }
+
+export default cookiePolicy

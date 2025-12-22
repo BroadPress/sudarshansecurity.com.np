@@ -1,65 +1,108 @@
+'use client';
+
+import React from "react";
+import Ribbon from "../../components/Ribbon";
 import Image from "next/image";
 
-export default function Home() {
+const Payment = () => {
+  const breadcrumbItems = [
+    { label: "Home", path: "/" },
+    { label: "Payment", path: "/payment" },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div>
+
+      {/* Page Header */}
+      <Ribbon name="Payment" showfont={false}/>
+
+      {/* Main Payment Section */}
+      <section className=" flex flex-col justify-center items-center px-4 sm:px-0 py-8 sm:py-10">
+        <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          {/* ===== Left: Bank Details ===== */}
+          <div className=" space-y-3 text-center lg:text-left">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              width={600}
+              height={800}
+              src="/images/payment/image.webp"
+              alt="Sriyog Consulting Logo"
+              className="w-60 sm:w-56 mb-5 mx-auto lg:mx-0"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            <p className="flex flex-col text-xl">
+              <span>Account Name:</span> <span className="font-semibold">Sriyog Consulting Pvt Ltd.</span>
+            </p>
+            <p className="text-xl">
+              Account number: 00701017502051
+            </p>
+            <p className="text-xl">
+              Branch: Kathmandu
+            </p>
+            <p className="text-xl">
+              SWIFT CODE: NARBNPKA
+            </p>
+            <p className="text-xl">
+              URL:{" "}
+              <a
+                href="https://www.nabilbank.com"
+                target="_blank"
+                rel="noreferrer"
+                className=" underline"
+              >
+                www.nabilbank.com
+              </a>
+            </p>
+            <p className="pt-8 text-2xl ">
+              VAT Number: 606683203
+            </p>
+          </div>
+
+          {/* ===== Right: QR Code Section ===== */}
+          <div className="card flex flex-col justify-center items-center border  rounded-3xl w-full max-w-sm mx-auto shadow-sm">
+            {/* <img
+              src="/images/payment/image.webp"
+              alt="Sriyog Consulting Logo"
+              className="w-48 sm:w-60 mb-4 object-contain"
+            /> */}
+           <Image
+              width={600}
+              height={800}
+              src="/images/payment/image2.webp"
+              alt="Payment QR"
+              className="w-full h-full rounded-3xl object-contain "
+            />
+
+            {/* <div className="text-center  font-semibold space-y-2 text-sm sm:text-base">
+              <p className="text-lg sm:text-xl">Sriyog Consulting Pvt Ltd.</p>
+              <p>Account No: 00701017502051</p>
+              <p>Branch: Kathmandu</p>
+              <p>Bank: Nabil Bank Ltd.</p>
+
+              <div className="flex flex-col items-center gap-1 pt-3">
+                <div className="flex items-center gap-2">
+                  <img src="/icons/phone.svg" alt="Phone" className="w-4 h-4" />
+                  <a href="tel:9779851160868">+977 9851160868</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <img src="/icons/email.svg" alt="Mail" className="w-4 h-4" />
+                  <a href="mailto:info@sriyog.com.np">info@sriyog.com.np</a>
+                </div>
+              </div>
+
+              <a
+                href="https://www.sriyogconsulting.com"
+                target="_blank"
+                rel="noreferrer"
+                className="underline block pt-2 font-medium"
+              >
+                www.sriyogconsulting.com
+              </a>
+            </div> */}
+          </div>
         </div>
-      </main>
+      </section>
     </div>
   );
-}
+};
+
+export default Payment;

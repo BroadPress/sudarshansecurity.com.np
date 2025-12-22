@@ -1,65 +1,126 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import React from "react";
+import Ribbon from "../../components/Ribbon";
+
+const TermsofServices = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className=" min-h-screen">
+      {/* Header / Ribbon */}
+      <Ribbon name="Terms of Services" showfont={false}/>
+
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 space-y-6">
+        <section className="footer p-6 rounded-xl shadow-md space-y-6">
+
+          <p className="about leading-relaxed">
+            <span className="font-medium">Last updated:</span> 1st June, 2025
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+
+          <p className="about leading-relaxed">
+            Welcome to SRIYOG Consulting. Please read these Terms and Conditions (“Terms”, 
+            “Terms and Conditions”) carefully before using the website, mobile application, 
+            or social media platforms (the “Service”) operated by SRIYOG Consulting Pvt. Ltd. 
+            (“us”, “we”, or “our”).
+          </p>
+
+          <p className="about leading-relaxed">
+            By accessing or using the Service, you agree to be bound by these Terms. If you 
+            disagree with any part of the terms, please immediately stop using the Service.
+          </p>
+
+          {/* Section: Eligibility/Age */}
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Eligibility / Age</h2>
+            <p className="about leading-relaxed">
+              Anyone under the age of 18 is not authorized to provide or receive services on SRIYOG Consulting.
+            </p>
+          </div>
+
+          {/* Section: Accounts */}
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Accounts</h2>
+            <p className="about leading-relaxed">
+              You must provide accurate, complete, and current information when creating an account. 
+              Misleading information may result in termination of your account.
+            </p>
+            <p className="about leading-relaxed">
+              You are responsible for safeguarding your account details, including username and password. 
+              Notify us immediately if your account is compromised.
+            </p>
+          </div>
+
+          {/* Section: Understanding of our Platform */}
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Understanding of Our Platform</h2>
+            <p className="about leading-relaxed">
+              Established on June 14, 2018, SRIYOG Consulting Pvt. Ltd. is a premier Managed IT Services provider 
+              based in Kathmandu, Nepal. We specialize in innovative IT solutions but do not endorse or guarantee 
+              the services provided by users.
+            </p>
+            <p className="about leading-relaxed">
+              You agree not to hold us responsible for any issues or defaults arising from the services provided 
+              by independent providers. Complaints can be submitted to terminate providers violating our guidelines.
+            </p>
+          </div>
+
+          {/* Section: Links to Other Web Sites */}
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Links to Other Web Sites</h2>
+            <p className="about leading-relaxed">
+              Our Service may contain links to third-party websites. We are not responsible for their content, 
+              privacy policies, or practices. Users should review their terms and policies before use.
+            </p>
+          </div>
+
+          {/* Section: Delivery/Payment */}
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Delivery / Payment</h2>
+            <p className="about leading-relaxed">
+              SRIYOG Consulting does not deliver services or accept fees on behalf of users. Providers and service seekers 
+              are responsible for their own agreements, payments, and documents.
+            </p>
+          </div>
+
+          {/* Section: Copyrights/Intellectual Property */}
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Copyrights / Intellectual Property</h2>
+            <p className="about leading-relaxed">
+              All content on our platform is protected under copyright laws. Users shall not copy, modify, or distribute content 
+              that does not belong to them.
+            </p>
+          </div>
+
+          {/* Section: Termination */}
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Termination</h2>
+            <p className="about leading-relaxed">
+              Breach of Terms may lead to immediate suspension or termination of your account. Voluntary termination can be 
+              done by discontinuing use or contacting us.
+            </p>
+          </div>
+
+          {/* Section: Governing Law */}
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Governing Law</h2>
+            <p className="about leading-relaxed">
+              These Terms are governed by the laws of Nepal. If any part is held invalid, the remaining provisions remain effective.
+            </p>
+          </div>
+
+          {/* Section: Amendments */}
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Amendments</h2>
+            <p className="about leading-relaxed">
+              SRIYOG Consulting reserves the right to amend Terms at its discretion. Changes will be notified at least 15 days 
+              in advance. Continued use constitutes acceptance of revised Terms.
+            </p>
+          </div>
+
+        </section>
+      </div>
     </div>
   );
-}
+};
+
+export default TermsofServices;

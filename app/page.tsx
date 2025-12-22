@@ -1,65 +1,52 @@
-import Image from "next/image";
+import React from "react";
 
-export default function Home() {
+
+const Home = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="w-full">
+      {/* HERO SECTION */}
+      <section className="w-full sm:bg-[url('/images/home/1.jpg')] bg-cover bg-center bg-no-repeat min-h-[600px] flex flex-col sm:flex-row justify-between items-start sm:items-center md:p-0 md:pt-0 relative overflow-hidden">
+        {/*   header width and alignment */}
+        <div className="max-w-[1200px] mx-auto w-full flex flex-col sm:flex-row justify-between items-start sm:items-center sm:px-6">
+          
+          <div className="block sm:hidden w-full h-[300px] bg-[url('/images/home/1.jpg')] bg-center bg-cover bg-no-repeat">
+          </div>
+
+          {/* Text Content  Aligned directly below logo column */}
+          <div className="flex flex-col text2 justify-start sm:justify-center text-left  z-10 w-full sm:w-1/2 mt-4 px-6 sm:mt-0">
+            <div className="text-[23px] md:text-2xl lg:text-3xl font-semibold mb-3 leading-tight opacity-90">
+              Welcome to
+            </div>
+            <div className="font-bold text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight text-shadow-sm">
+              SRIYOG Consulting
+            </div>
+            <div className="mt-2 sm:mt-4 text-[18px] md:text-[18px] lg:text-[20px] max-w-[600px] leading-relaxed opacity-95 line-height-loose">
+              Empower organizations in these vital industries with innovative, scalable,
+              technology-driven services that enhance operational efficiency and support
+              long-term growth.
+            </div>
+            <div className="mt-8 mb-8 sm:mb-0 md:mt-10 flex flex-row  gap-4 md:gap-6">
+              <button className="cursor-pointer border-2 border-[#0D5D59] py-2 md:py-3 px-4 md:px-8 rounded-md text-[#0D5D59] font-semibold hover:bg-[#0D5D59] hover:text-white transition-all duration-300 ease-in-out min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                About
+              </button>
+              <button className="cursor-pointer bg-[#0D5D59] text-white px-4 md:px-10 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-all duration-300 ease-in-out min-w-[150px] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Book Meeting
+              </button>
+            </div>
+          </div>
+
+          {/* Spacer for mobile to push image below */}
+          <div className="w-full md:hidden h-px"> </div>
+
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-[#D0D0D0]/50 to-transparent md:from-transparent"></div> */}
+      </section>
     </div>
+    
   );
-}
+
+};
+
+export default Home;

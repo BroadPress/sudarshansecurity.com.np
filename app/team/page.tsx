@@ -1,65 +1,107 @@
-import Image from "next/image";
+'use client'
+import Ribbon from "../../components/Ribbon";
 
-export default function Home() {
+const teamMembers = [
+  { id: 1, name: "Alisha", role: "MERN Stack", image: "/images/team/3.png" },
+  { id: 2, name: "Bitika", role: "React.Js", image: "/images/team/3.png" },
+  { id: 3, name: "Hammoud", role: "MERN Stack", image: "/images/team/1.png" },
+  { id: 4, name: "Khaleed", role: "Full Stack", image: "/images/team/8.png" },
+  { id: 5, name: "Samyog", role: "Full stack", image: "/images/team/7.png" },
+  { id: 6, name: "Sanish", role: "Full stack", image: "/images/team/2.png" },
+  { id: 6, name: "Smriti", role: "React.js", image: "/images/team/3.png" },
+  { id: 7, name: "Sneha", role: "MERN Stack", image: "/images/team/3.png" },
+];
+
+const OurTeam = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="about-w-full ">
+      {/* Full-width Ribbon Header */}
+      <Ribbon name="Our Team" showfont={true}/>
+
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 md:py-10">
+
+        {/* PRESIDENT SECTION */}
+        <div className="rounded-lg  card  p-6 md:p-10">
+          <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
+            <div className="flex flex-col items-center">
+              <img
+                src="/images/team/1.png"
+                className="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover shadow-lg"
+                alt="Pracas"
+              />
+              <h2 className="text-[1em] md:text-[1.7em] font-bold mt-4 text-center">
+                Pracas
+              </h2>
+              <p className="text-[1em]  mt-1 text-center">C.T.O</p>
+            </div>
+
+            {/* Text */}
+            <div className="flex-1 leading-relaxed space-y-7">
+              <h1 className=" text-[1.8em]">About Pracas</h1>
+              <p className="text-[1em]">
+                Pracas Upreti's journey from a startup founder to a
+                technology-driven change-maker in Biratnagar, Nepal, exemplifies
+                the profound impact that individuals can have when they combine
+                innovation with a commitment to social responsibility. Through
+                his endeavors, Upreti has not only transformed his community but
+                has also set a precedent for how technology can be harnessed to
+                drive positive change and create a better future for all.
+              </p>
+              <p className="text-[1em]">Through his endeavors, Upreti has not only
+                 transformed his community but has also set a precedent for how technology
+                  can be harnessed to drive positive change and create a better future for all.</p>
+              <p  className="text-[1em]">
+                Upreti's journey into the realm of technology began over a
+                decade ago when he founded his first IT startup in 2007 A.D. as
+                PRACAS Infosys in Biratnagar. Recognizing the potential of
+                technology to bridge gaps and catalyze progress, he embarked on
+                a mission to leverage digital solutions to address local
+                challenges and foster economic development. His vision was not
+                merely to create successful businesses but to effect meaningful
+                change in his community.
+              </p>
+
+              {/* Social icons */}
+              <div className="mt-6">
+                <p className="font-normal text-base md:text-[1em]">
+                  Follow Pracas on social media:
+                </p>
+
+                <div className="flex gap-3 mt-2">
+                  <img
+                    src="/icons/x.svg"
+                    className="w-5 h-5 cursor-pointer hover:opacity-75"
+                  />
+                  <img
+                    src="/icons/linkedin.svg"
+                    className="w-5 h-5 cursor-pointer hover:opacity-75"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* TEAM GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-6 mt-10">
+          {teamMembers.map((member) => (
+            <div
+              key={member.id}
+              className=" card  rounded-lg p-6  flex flex-col items-center hover:shadow-md hover:-translate-y-1 transition-all"
+            >
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-28 h-28 md:w-full md:h-full rounded-full object-cover shadow"
+              />
+              <h3 className=" font-semibold mt-5 text-[1.2em] ">{member.name}</h3>
+              <p className=" text-sm mt-2">{member.role}</p>
+            </div>
+          ))}
         </div>
-      </main>
+      </div>
     </div>
   );
-}
+};
+
+export default OurTeam;
