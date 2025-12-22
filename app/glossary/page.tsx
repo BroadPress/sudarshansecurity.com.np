@@ -402,12 +402,12 @@ export default function Glossary() {
                     {glossaryTerms[selectedLetter]?.map((item, index) => (
                         <div
                             key={index}
-                            className="footer border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
+                            className="footer border border-gray-300 rounded-lg p-6 hover:shadow-lg transition-shadow"
                         >
-                            <h3 className="text-lg font-bold text mb-3">
+                            <h3 className="text-lg font-bold mb-3">
                                 {item.term}
                             </h3>
-                            <p className="card2 text-sm leading-relaxed">
+                            <p className=" text-sm text2 leading-relaxed">
                                 {item.definition}
                             </p>
                         </div>

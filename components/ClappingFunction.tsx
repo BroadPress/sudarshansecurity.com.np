@@ -39,7 +39,7 @@ return (
 
 export default ClapButton;
 
-const styles = {
+const styles: { [key: string]: React.CSSProperties } = {
 container: {
 textAlign: "left",
 marginTop: "20px",
