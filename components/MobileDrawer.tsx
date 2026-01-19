@@ -138,9 +138,9 @@ const MobileDrawer:React.FC<MobileDrawerProps> = ({isOpen,setIsOpen}) => {
           <div className="flex justify-between items-center mb-4 pb-4 border-b border-opacity-10 border-gray-300">
             <Link href="/" onClick={closeDrawer} className="block">
               <img
-                src="/images/Logo/sriyoglogo.svg"
+                src="/favicon/logo.png"
                 alt="Sriyog Logo"
-                className="w-36 h-auto"
+                className="w-36 h-auto "
               />
             </Link>
             <button

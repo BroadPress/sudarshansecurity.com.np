@@ -58,7 +58,7 @@ const Header = () => {
         <div className="flex items-center space-x-2">
           <Link href="/">
             <Image
-              src="/images/Logo/sriyoglogo.svg"
+              src="/favicon/logo.png"
               alt="Sriyog Logo"
               width={800}
               height={600}

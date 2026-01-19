@@ -22,14 +22,14 @@ const Footer = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               <img
-                src="/images/Logo/sriyoglogo.svg"
+                src="/favicon/logo.png"
                 alt="Sriyog Logo"
-                className="w-[200px] h-auto"
+                className="w-[200px] h-auto   borde rounded-xl"
               />
             </Link>
           </div>
 
-          <p className="text-[15px] leading-relaxed  mb-4">
+          {/* <p className="text-[15px] leading-relaxed  mb-4">
             Established on June 14, 2018, SRIYOG Consulting Pvt. Ltd., based in
             Kamalpokhari, Kathmandu, Nepal, is a leading provider of digital
             solutions dedicated href driving digital transformation in the
@@ -40,7 +40,8 @@ const Footer = () => {
             Our mission is href empower organizations in these vital industries
             with innovative, scalable, technology-driven services that enhance
             operational efficiency and support long-term growth.
-          </p>
+          </p> */}
+          <p  className="text-[15px] leading-relaxed  mb-4">We as a dedicated security team, works to meet the highest level of customer satisfaction and the best possible protection for our clients and their assets.</p>
         </div>
 
         {/* RIGHT COLUMNS */}
@@ -170,13 +171,13 @@ const Footer = () => {
           {/* EMAIL + PHONE */}
             <a href="mailto:info@sriyog.com" className={`flex items-center gap-2 border-2 rounded-lg px-7 py-3 w-full sm:w-auto `}>
               <img src="/icons/email.svg" alt="email" className="h-6 w-6" />
-              <span className="text-sm">info@sriyog.com</span>
+              <span className="text-sm">info@sudarshansecurity.com.np</span>
             </a>
 
 
             <a href="tel:+977014548068" className={`flex items-center gap-2 border-2 rounded-lg px-7 py-3 w-full sm:w-auto `}>
               <img src="/icons/phone.svg" alt="phone" className="h-6 w-6" />
-              <span className="text-sm">+977-01-4548068</span>
+              <span className="text-sm">+ 977-9852054100</span>
             </a>
       
           {/* WHATSAPP */}
@@ -197,10 +198,12 @@ const Footer = () => {
       {/* FOOTER BOTTOM */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 lg:mt-12 flex flex-col lg:flex-row justify-center items-center lg:justify-between text-[13px]  gap-3 text-center md:text-left font-semibold">
         <p className="flex flex-col md:flex-row gap-4 md:gap-1 items-center">
-          <span>All Rights Reserved. © 2018-{currentYear}</span>
-          <span>SRIYOG Consulting Pvt. Ltd.</span>
+          <span>All Rights Reserved © 2026 {currentYear}</span>
+          <span>Sudarshan Security Services</span>
           <span>Built with : <a href="https://broadpress.org" target="_blank" className="hover:border-b hover:border-black text-gray-500">BroadPress</a></span>
+          
         </p>
+        <p> Technology Partner : SRIYOG Consulting</p>
             
 
         <div className="flex gap-4 justify-center md:justify-end font-semibold mt-2 lg:mt-0">

@@ -19,9 +19,10 @@ export default function Services() {
             <Ribbon name="Services" showfont={false}/>
 
             {/* Services Grid */}
-            <div className="max-w-7xl mx-auto px-4 md:px-8 pb-16">
+            <div className="max-w-screen mx-auto px-4 md:px-8 pb-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {servicesList.map((service, index) => (
+                    
+                     {servicesList.map((service, index) => (
                         <div
                             key={index}
                             className="footer shadow space-y-6 sm:space-y-4 border-gray-400 rounded-lg hover:shadow-2xl transition-shadow duration-300 p-9 flex flex-col "
@@ -31,7 +32,7 @@ export default function Services() {
                                 <img
                                     src={service.image}
                                     alt={service.title}
-                                    className="w-28 h-28 object-contain"
+                                    className="w-100 h-100 object-contain"
                                 />
                             </div>
                             {/* Title */}
@@ -40,7 +41,7 @@ export default function Services() {
                             </h3>
 
                             {/* Description */}
-                            <p className=" text-l py-1 sm:py-0 leading-relaxed mb-4 grow text-justify">
+                            <p className=" text-l py-1 w-100 h-auto m-auto sm:py-0 leading-relaxed mb-4 grow text-justify">
                                 {service.ShortDesc}
                             </p>
 
@@ -53,7 +54,8 @@ export default function Services() {
                                 </Link>
                             </div>
                         </div>
-                    ))}
+                    ))} 
+                    
                 </div>
             </div>
         </div>
