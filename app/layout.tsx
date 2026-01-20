@@ -13,17 +13,17 @@ import { Suspense } from 'react';
 import ExitPopup from '@/components/ExitPopup';
 
 export const metadata = {
-  title: "SRIYOG Consulting | IT Consulting in Kathmandu, Nepal",
-  description: "Welcome to SRIYOG Consulting, your partner in IT solutions.",
-  keywords: "SRIYOG Consulting, IT Consulting, IT Solutions, Kathmandu, Nepal",
-  authors: [{ name: "SRIYOG Consulting" }],
+  title: "Sudarshan Security",
+  description: "Welcome to Sudarshan Security",
+  keywords: "Sudarshan Security , Security Guard,V.I.P. Scout Service, Personal Bodyguard,Unarmed Security Service, Event Management Services",
+  authors: [{ name: "Sudarshan Security" }],
   openGraph: {
-    title: "SRIYOG Consulting | IT Consulting in Kathmandu, Nepal",
-    description: "Welcome to SRIYOG Consulting, your partner in IT solutions.",
-    url: "https://sriyog.com",
+    title: "Sudarshan Security Nepal",
+    description: "Welcome to Sudarshan Security",
+    url: "https://sudarshansecurity.com.np",
     images: [
       {
-        url: "https://sriyog.com/images/og/default.jpg",
+        url: "https://sriyog.com/images/og/favicon.ico",
       },
     ],
     type: "website",
@@ -42,7 +42,7 @@ export default function RootLayout({ children }:Readonly<{
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
 
         {/* Google Tag Manager */}

@@ -32,7 +32,7 @@ export default function Services() {
                                 <img
                                     src={service.image}
                                     alt={service.title}
-                                    className="w-100 h-100 object-contain"
+                                    className="w-100 h-100 border-none object-contain  rounded-2xl"
                                 />
                             </div>
                             {/* Title */}
@@ -46,13 +46,13 @@ export default function Services() {
                             </p>
 
                             {/* Read More Button */}
-                            <div className="flex  py-1 sm:py-0 justify-center">
+                            {/* <div className="flex  py-1 sm:py-0 justify-center">
                                 <Link href={`/services/${index}`}>
                                 <button className="cursor-pointer px-6 py-2.5 border-2 border-teal-700  rounded-md hover:bg-teal-700 hover:text-white transition-all duration-300 font-medium text-sm">
                                     Browse More
                                 </button>
                                 </Link>
-                            </div>
+                            </div> */}
                         </div>
                     ))} 
                     

@@ -45,10 +45,10 @@ const ServiceInfo = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {relatedServices.map((item, i) => (
                         <div key={i} className=" flex flex-col space-y-2  rounded-lg max-w-[300px] hover:scale-[1.02] transition-all">
-                            <img src='/images/services/2.jpg' className=' h-full  rounded-xl' alt="" />
+                            <img src={item.image} className=' h-full  rounded-xl' alt="" />
                             <h3 className="text-xl font-semibold mb-2 pt-1">{item.title}</h3>
                             <p className="card2 text-sm mb-4 line-clamp-3 pt-2">
-                                {item.Desc}
+                                {item.ShortDesc}
                             </p>
                             <Link href={`/services/${services.indexOf(item)}`}>
                             <button 
