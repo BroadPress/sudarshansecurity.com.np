@@ -9,7 +9,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
+   const initialFormData = {
     firstName: '',
     lastName: '',
     email: '',
@@ -18,7 +18,8 @@ export default function Contact() {
     extension: '',
     topic: 'Sales',
     message: '',
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -33,6 +34,8 @@ export default function Contact() {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Add your form submission logic here
+    setFormData(initialFormData);
+    
   };
 
   const teamMembers = [
@@ -124,7 +127,7 @@ export default function Contact() {
             {/* Welcome Section */}
             <div className="border border-gray-300  rounded-lg p-6">
               <h2 className="text-2xl font-bold  mb-3">
-                Welcome to SRIYOG Consulting
+                Welcome to Sudarshan Security Services!
               </h2>
               <p className=" text-sm mb-4">
                 Welcome to Sudarshan Security Services! We're located at Hospital

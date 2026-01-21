@@ -3,7 +3,9 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import TestimonialsSection from "@/components/Testimonials";
+import Feedback from "@/components/Feedback";
+import CommitmentsSection from "@/components/Commitments";
+import { motion } from 'framer-motion';
 
 const HERO_SLIDES = [
   "/images/home/hero/slider1.jpg",
@@ -99,41 +101,68 @@ const Home = () => {
 
       {/* REST SECTION */}
       <section className="w-full max-w-350 m-auto h-full pt-24 pb-24 flex items-center justify-center">
-        <div className="flex flex-col md:flex-row gap-10 px-6">
-          <div>
-            <p className="font-mono text-blue-600 text-2xl text-left md:text-left">
-              Join us for service
-            </p>
-            <p className="font-sans text-black pt-8 font-extrabold text-3xl">
-              What we stand for
-            </p>
-            <p className="pt-8">
-              Since 1983, Sudarshan Security has been a leading name in Nepal's security sector. As the first registered security company, we have unmatched experience and knowledge. Our highly trained professionals deliver comprehensive security solutions, including advanced access control, close protection, and 24/7 surveillance. We offer high-quality services for individual, corporate, and major event security needs.
-            </p>
-            <p className="pt-4">
-              Our ISO 9001:2015 certification reflects our commitment to quality and excellence. With decades of experience, Sudarshan Security is the most reputable and reliable choice for safeguarding what matters most to you.
-            </p>
+      <div className="flex flex-col md:flex-row gap-10 px-6 items-center">
+        {/* TEXT: animate from left */}
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.25 }}
+          className="md:w-1/2"
+        >
+          <p className="font-mono text-blue-600 text-2xl text-left">
+            Join us for service
+          </p>
 
-            <Link href={"/about"}>
-              <button className="text-center bg-red-600 text-white w-42 h-14 p-2 rounded-full hover:bg-amber-400 mt-11">
-                DISCOVER MORE
-              </button>
-            </Link>
-          </div>
+          <p className="font-sans text-black pt-8 font-extrabold text-3xl">
+            What we stand for
+          </p>
 
+          <p className="pt-8">
+            Since 1983, Sudarshan Security has been a leading name in Nepal's
+            security sector. As the first registered security company, we have
+            unmatched experience and knowledge. Our highly trained professionals
+            deliver comprehensive security solutions, including advanced access
+            control, close protection, and 24/7 surveillance. We offer high-quality
+            services for individual, corporate, and major event security needs.
+          </p>
+
+          <p className="pt-4">
+            Our ISO 9001:2015 certification reflects our commitment to quality and
+            excellence. With decades of experience, Sudarshan Security is the most
+            reputable and reliable choice for safeguarding what matters most to you.
+          </p>
+
+          <Link href="/about">
+            <button className="text-center bg-red-600 text-white w-42 h-14 p-2 rounded-full hover:bg-amber-400 mt-11 transition-colors">
+              DISCOVER MORE
+            </button>
+          </Link>
+        </motion.div>
+
+        {/* IMAGE: animate from right */}
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: 'easeOut', delay: 0.05 }}
+          viewport={{ once: true, amount: 0.25 }}
+          className="md:w-1/2 w-full"
+        >
           <Image
             src="/images/home/img_2.jpg"
             alt="Join us"
             width={1000}
             height={800}
-            className="w-850 h-auto rounded-xl object-cover"
+            className="w-full h-auto rounded-xl object-cover"
             priority
           />
-        </div>
-      </section>
+        </motion.div>
+      </div>
+    </section>
 
       <section>
-        <TestimonialsSection />
+        <Feedback  />
+        <CommitmentsSection/>
       </section>
     </div>
   );

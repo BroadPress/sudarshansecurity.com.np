@@ -1,5 +1,6 @@
 'use client';
 
+import Feedback from '@/components/Feedback';
 import ClapFunction from '../../components/ClappingFunction';
 import Ribbon from '../../components/Ribbon';
 import Image from 'next/image';
@@ -13,7 +14,7 @@ const features = [
 ];
 
 const CheckIcon = () => (
-  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-yellow-400">
+  <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-yellow-400">
     <svg
       viewBox="0 0 24 24"
       className="h-4 w-4"
@@ -36,7 +37,7 @@ const About = () => {
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
-          {/* LEFT: OVERLAPPING IMAGES (SMALLER + TIGHTER OVERLAP) */}
+          {/* LEFT: OVERLAPPING IMAGES */}
           <div className="relative w-full max-w-md mx-auto md:mx-0 h-[320px] sm:h-[380px]">
             {/* soft backdrop */}
             <div className="absolute left-2 top-2 w-[88%] h-[62%] rounded-[24px] bg-white/45" />
@@ -44,22 +45,22 @@ const About = () => {
             {/* outline box behind */}
             <div className="absolute right-4 top-12 w-[82%] h-[70%] rounded-[24px] border-2 border-white/70" />
 
-            {/* image 1 (top) */}
-            <div className="absolute left-0 top-0 w-[78%] h-[56%] rounded-[24px] overflow-hidden shadow-lg z-10">
+            {/* image 1 (top) ✅ hide below 900px */}
+            <div className="absolute left-0 top-0 w-[78%] h-[56%] rounded-[24px] overflow-hidden shadow-lg z-10 max-[900px]:hidden">
               <Image
-                src="/images/about/img_1.jpg" // ✅ your first image
+                src="/images/about/img_1.jpg"
                 alt="Sudarshan Security - 1"
                 fill
                 priority
-                sizes="(min-width: 768px) 40vw, 90vw"
+                sizes="(min-width: 900px) 40vw, 0px"
                 className="object-cover"
               />
             </div>
 
-            {/* image 2 (bottom, overlapping) - tighter margin from top/left */}
+            {/* image 2 (bottom, overlapping) */}
             <div className="absolute left-6 sm:left-8 top-40 sm:top-44 w-[88%] h-[56%] rounded-[24px] overflow-hidden shadow-xl z-20">
               <Image
-                src="/images/about/img_2.jpg" // ✅ your second image
+                src="/images/about/img_2.jpg"
                 alt="Sudarshan Security - 2"
                 fill
                 sizes="(min-width: 768px) 45vw, 90vw"
@@ -85,23 +86,32 @@ const About = () => {
               class service throughout the country.
             </p>
 
-            <ul className="mt-8 space-y-4 max-w-xl mx-auto md:mx-0">
-              {features.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-center gap-3 justify-center md:justify-start"
-                >
-                  <CheckIcon />
-                  <span className="text-slate-800 font-medium">{item}</span>
-                </li>
-              ))}
-            </ul>
+            {/* ✅ LIST: starts from flex-start + discs aligned vertically */}
+            <div className="mt-8 flex justify-start ml-[72px] md:ml-0">
+
+              <ul className="space-y-4 text-left">
+                {features.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5">
+                      <CheckIcon />
+                    </span>
+                    <span className="text-slate-800 font-medium leading-6">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <div className="mt-10 flex justify-center md:justify-start">
               <ClapFunction />
             </div>
           </div>
         </div>
+      </section>
+
+      <section>
+        <Feedback />
       </section>
     </div>
   );

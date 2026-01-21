@@ -19,6 +19,10 @@
   --black: black;
 }
 
+::-webkit-scrollbar{
+  scroll-behavior: smooth;
+}
+
 .showScroll{
   --overflow : auto;
 }
