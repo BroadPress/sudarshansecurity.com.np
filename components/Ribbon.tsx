@@ -10,10 +10,11 @@ const Ribbon:React.FC<RibbonProps> = ({name,showfont}) => {
     <div className='bg-teal-800 text-white'>
      <div className="max-w-7xl mx-auto flex justify-between items-center py-12 px-4 md:px-8 mb-8 w-full">
         <div className=" px-4 md:px-8">
-          <h1 className="text-3xl sm:text-4xl">{name}</h1>
+          <h1 className="text-7xl sm:text-6xl">{name}</h1>
         </div>
         <div>
-         <FontSizeChanger showFont={showfont ?? false} />
+         {/* <FontSizeChanger showFont={showfont ?? false} /> */}
+         
          </div>
       </div>
     </div>

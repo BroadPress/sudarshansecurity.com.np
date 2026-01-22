@@ -13,27 +13,23 @@ import { Suspense } from 'react';
 import ExitPopup from '@/components/ExitPopup';
 
 export const metadata = {
-  title: "Sudarshan Security",
-  description: "Welcome to Sudarshan Security",
-  keywords: "Sudarshan Security , Security Guard,V.I.P. Scout Service, Personal Bodyguard,Unarmed Security Service, Event Management Services",
+  title: "Sudarshan Security Services | Nepal",
+  description: "Sudarshan Security Services | Nepal",
+  keywords:
+    "Sudarshan Security , Security Guard,V.I.P. Scout Service, Personal Bodyguard,Unarmed Security Service, Event Management Services",
   authors: [{ name: "Sudarshan Security" }],
   openGraph: {
-    title: "Sudarshan Security Nepal",
-    description: "Welcome to Sudarshan Security",
+    title: "Sudarshan Security Services | Nepal",
+    description: "Sudarshan Security Services | Nepal",
     url: "https://sudarshansecurity.com.np",
     images: [
       {
-        url: "https://sriyog.com/images/og/favicon.ico",
+        url: "https://i.imgur.com/ZILsdBl.jpg",
       },
     ],
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "SRIYOG Consulting | IT Consulting in Kathmandu, Nepal",
-    description: "Welcome to SRIYOG Consulting, your partner in IT solutions.",
-    images: ["https://sriyog.com/images/og/default.jpg"],
-  },
+ 
 };
 
 export default function RootLayout({ children }:Readonly<{

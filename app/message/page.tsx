@@ -1,7 +1,5 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-
-
 import Ribbon from "../../components/Ribbon";
 
 export const metadata: Metadata = {
@@ -14,7 +12,7 @@ type Person = {
   name: string;
   image: string;
   message: string;
-  phone: string; 
+  phone: string;
   email: string;
   whatsappLabel?: string;
   logo?: string;
@@ -57,15 +55,21 @@ const people: Person[] = [
 ];
 
 function toWhatsappLink(phone: string) {
-  // Convert "+977-985-202-0058" -> "9779852020058"
   const digits = phone.replace(/[^\d]/g, "");
   return `https://wa.me/${digits}`;
 }
 
 function BulletItem({ children }: { children: React.ReactNode }) {
   return (
-    <li className="flex items-center gap-3 text-gray-700">
-      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-yellow-400/90 text-white text-sm">
+    <li className="flex items-center gap-3" style={{ color: "var(--text2)" }}>
+      <span
+        className="inline-flex h-6 w-6 items-center justify-center rounded-full text-sm"
+        style={{
+          background: "var(--text)",
+          color: "var(--background)",
+          border: "1px solid var(--border)",
+        }}
+      >
         ✓
       </span>
       <span className="text-base">{children}</span>
@@ -73,12 +77,22 @@ function BulletItem({ children }: { children: React.ReactNode }) {
   );
 }
 
-function MessageBlock({ person }: { person: Person }) {
+function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+    <div
+      className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${
+        reverse ? "md:[&>div:first-child]:order-2 md:[&>div:last-child]:order-1" : ""
+      }`}
+    >
       {/* LEFT CARD */}
       <div className="relative">
-        <div className="bg-white rounded-3xl shadow-sm border border-gray-100 min-h-[320px] md:min-h-[360px] flex items-end justify-center p-10">
+        <div
+          className="rounded-3xl shadow-sm min-h-[320px] md:min-h-[360px] flex items-end justify-center p-10"
+          style={{
+            background: "var(--background)",
+            border: "1px solid var(--border)",
+          }}
+        >
           {person.logo ? (
             <Image
               src={person.logo}
@@ -88,13 +102,23 @@ function MessageBlock({ person }: { person: Person }) {
               className="opacity-80"
             />
           ) : (
-            <div className="h-20 w-20 rounded-full border border-gray-200" />
+            <div
+              className="h-20 w-20 rounded-full"
+              style={{ border: "1px solid var(--border)" }}
+            />
           )}
         </div>
 
         {/* avatar (overlapping) */}
         <div className="absolute -top-12 left-1/2 -translate-x-1/2">
-          <div className="relative h-36 w-36 md:h-44 md:w-44 rounded-full overflow-hidden ring-8 ring-white shadow">
+          <div
+            className="relative h-36 w-36 md:h-44 md:w-44 rounded-full overflow-hidden shadow"
+            style={{
+              // ring-8 ring-white but theme-aware
+              boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+              outline: "8px solid var(--background)",
+            }}
+          >
             <Image
               src={person.image}
               alt={person.name}
@@ -109,27 +133,41 @@ function MessageBlock({ person }: { person: Person }) {
 
       {/* RIGHT CONTENT */}
       <div className="px-2 md:px-0">
-        <p className="text-emerald-700 font-semibold italic tracking-wide">
+        <p className="font-semibold italic tracking-wide" style={{ color: "var(--text2)" }}>
           {person.role}
         </p>
 
-        <h2 className="mt-2 text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+        <h2
+          className="mt-2 text-4xl md:text-5xl font-extrabold leading-tight"
+          style={{ color: "var(--text)" }}
+        >
           {person.name}
         </h2>
 
-        <p className="mt-6 text-gray-600 leading-relaxed text-base md:text-lg">
+        <p
+          className="mt-6 leading-relaxed text-base md:text-lg"
+          style={{ color: "var(--text2)" }}
+        >
           {person.message}
         </p>
 
         <ul className="mt-8 space-y-4">
           <BulletItem>
-            <a className="hover:underline" href={`tel:${person.phone}`}>
+            <a
+              className="hover:underline"
+              style={{ color: "var(--text)" }}
+              href={`tel:${person.phone}`}
+            >
               {person.phone}
             </a>
           </BulletItem>
 
           <BulletItem>
-            <a className="hover:underline" href={`mailto:${person.email}`}>
+            <a
+              className="hover:underline"
+              style={{ color: "var(--text)" }}
+              href={`mailto:${person.email}`}
+            >
               {person.email}
             </a>
           </BulletItem>
@@ -137,6 +175,7 @@ function MessageBlock({ person }: { person: Person }) {
           <BulletItem>
             <a
               className="hover:underline"
+              style={{ color: "var(--text)" }}
               href={toWhatsappLink(person.phone)}
               target="_blank"
               rel="noreferrer"
@@ -152,15 +191,13 @@ function MessageBlock({ person }: { person: Person }) {
 
 export default function MessagePage() {
   return (
-    <main className="bg-[#F4F6FB]">
-      {/* Header */}
+    <main style={{ background: "var(--mainBackground)", color: "var(--text)" }}>
       <Ribbon name="Message" showfont={true} />
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
-        {/* ✅ Vertically stacked blocks */}
         <div className="space-y-16 md:space-y-20">
-          {people.map((person) => (
-            <MessageBlock key={person.email} person={person} />
+          {people.map((person, idx) => (
+            <MessageBlock key={person.email} person={person} reverse={idx % 2 === 1} />
           ))}
         </div>
       </section>

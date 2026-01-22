@@ -100,7 +100,7 @@ export const services = [
     },
     {
         title: "Office Supporting Staffs",
-        image: "/images/services/training.png",
+        image: "/images/services/multiple.png",
         ShortDesc: "We also provide well-trained and skilled business and office support staff members who can perform a variety of duties and are fully prepared to handle multiple tasks at the same time."
     },
     {
