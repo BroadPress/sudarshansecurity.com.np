@@ -65,8 +65,8 @@ function BulletItem({ children }: { children: React.ReactNode }) {
       <span
         className="inline-flex h-6 w-6 items-center justify-center rounded-full text-sm"
         style={{
-          background: "var(--text)",
-          color: "var(--background)",
+          background: "yellow",
+          color: "white",
           border: "1px solid var(--border)",
         }}
       >
@@ -99,7 +99,7 @@ function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }
               alt="Company mark"
               width={90}
               height={90}
-              className="opacity-80"
+              className="opacity-80 h-22 w-22 rounded-full"
             />
           ) : (
             <div

@@ -41,6 +41,9 @@ const Footer = () => {
             with innovative, scalable, technology-driven services that enhance
             operational efficiency and support long-term growth.
           </p> */}
+
+
+          
           <p  className="text-[15px] leading-relaxed  mb-4">We as a dedicated security team, works to meet the highest level of customer satisfaction and the best possible protection for our clients and their assets.</p>
         </div>
 

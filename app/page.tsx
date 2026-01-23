@@ -23,10 +23,20 @@ const Home = () => {
     return () => clearInterval(id);
   }, []);
 
+  const isDark =
+    typeof document !== "undefined" &&
+    document.documentElement.classList.contains("dark");
+
   return (
     <div className="w-full" style={{ background: "var(--background)", color: "var(--text)" }}>
       {/* HERO SECTION (Auto Slider) */}
-      <section className="w-full min-h-[600px] relative overflow-hidden flex flex-col sm:flex-row justify-between items-start sm:items-center">
+      <section
+        className="
+          w-full relative overflow-hidden
+          h-screen [height:100dvh]
+          sm:min-h-[600px] sm:h-auto
+        "
+      >
         {/* Slides */}
         <div className="absolute inset-0">
           {HERO_SLIDES.map((src, i) => (
@@ -45,67 +55,60 @@ const Home = () => {
             />
           ))}
 
-          {/* Overlay for readability (theme-aware) */}
+          {/* Overlay */}
           <div
             className="absolute inset-0"
             style={{
-              background:
-                // light mode: black overlay, dark mode: slightly softer overlay
-                document?.documentElement?.classList?.contains("dark")
-                  ? "rgba(0,0,0,0.55)"
-                  : "rgba(0,0,0,0.4)",
+              background: isDark ? "rgba(0,0,0,0.55)" : "rgba(0,0,0,0.4)",
             }}
           />
         </div>
 
-        {/* Content */}
-        <div className="max-w-[1200px] mx-auto w-full flex flex-col sm:flex-row justify-between items-start sm:items-center sm:px-6 relative z-10">
-          {/* Text Content */}
-          <div className="flex flex-col justify-start sm:justify-center text-left z-10 w-full sm:w-1/2 mt-6 sm:mt-0 px-6">
-            <div className="text-[23px] md:text-2xl lg:text-3xl font-semibold mb-3 leading-tight opacity-90 text-white">
-              Welcome to
-            </div>
+        <div className="absolute inset-x-0 bottom-0 z-10">
+          <div className="mx-auto w-full max-w-[1200px] px-6 pb-[calc(40px+env(safe-area-inset-bottom))]">
+            <div className="flex flex-col text-left w-full sm:w-1/2">
+              <div className="text-[23px] md:text-2xl lg:text-3xl font-semibold mb-3 leading-tight opacity-90 text-white">
+                Welcome to
+              </div>
 
-            <div className="font-bold text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight text-white">
-              Sudarshan Security.
-            </div>
+              <div className="font-bold text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight text-white">
+                Sudarshan Security.
+              </div>
 
-            <div className="mt-2 font-bold sm:mt-4 text-[18px] md:text-[18px] lg:text-[20px] max-w-[600px] leading-relaxed opacity-95 text-white">
-              Let's give them a elite service
-            </div>
+              <div className="mt-2 font-bold sm:mt-4 text-[18px] md:text-[18px] lg:text-[20px] max-w-[600px] leading-relaxed opacity-95 text-white">
+                Let's give them a elite service
+              </div>
 
-            <div className="mt-8 mb-8 sm:mb-0 md:mt-10 flex flex-row gap-4 md:gap-6">
-              <Link href="/about">
-                <button className="cursor-pointer text-white bg-[#0D5D59] border-2 border-[#0D5D59] py-2 md:py-3 px-4 md:px-8 rounded-md font-semibold hover:bg-[#0D5D59] hover:text-white transition-all duration-300 ease-in-out min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                  About
-                </button>
-              </Link>
+              <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 md:gap-6">
+                <Link href="/about">
+                  <button className="cursor-pointer text-white bg-[#364b4a] border-2 border-[#0D5D59] py-2 md:py-3 px-4 md:px-8 rounded-md font-semibold hover:bg-[#0D5D59] hover:text-white transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                    About
+                  </button>
+                </Link>
 
-              <Link href="/contact">
-                <button className="cursor-pointer bg-[#0D5D59] text-white px-4 md:px-10 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-all duration-300 ease-in-out min-w-[150px] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                  Book Service
-                </button>
-              </Link>
-            </div>
+                <Link href="/contact">
+                  <button className="cursor-pointer bg-[#0D5D59] text-white px-4 md:px-10 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[150px] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    Book Service
+                  </button>
+                </Link>
+              </div>
 
-            {/* Dots */}
-            <div className="mt-2 flex gap-2">
-              {HERO_SLIDES.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setSlide(i)}
-                  className="h-2.5 w-2.5 rounded-full transition-all"
-                  style={{
-                    background:
-                      i === slide ? "white" : "rgba(255,255,255,0.4)",
-                  }}
-                  aria-label={`Go to slide ${i + 1}`}
-                />
-              ))}
+              {/* Dots */}
+              <div className="mt-4 flex gap-2">
+                {HERO_SLIDES.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setSlide(i)}
+                    className="h-2.5 w-2.5 rounded-full transition-all"
+                    style={{
+                      background: i === slide ? "white" : "rgba(255,255,255,0.4)",
+                    }}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
-
-          <div className="w-full md:hidden h-px" />
         </div>
       </section>
 

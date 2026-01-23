@@ -18,8 +18,8 @@ const CheckIcon = () => (
   <span
     className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
     style={{
-      background: 'var(--text)',      // theme
-      color: 'var(--background)',     // theme
+      background: 'yellow',      
+      color: 'white',    
       border: '1px solid var(--border)',
     }}
   >

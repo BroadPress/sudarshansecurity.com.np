@@ -150,7 +150,7 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 overflow-visible">
         {/* Heading */}
         <div className="text-center mb-10 md:mb-14">
-          <p className="font-semibold italic text-lg md:text-xl" style={{ color: 'var(--text2)' }}>
+          <p className="font-semibold text-blue-700 italic text-lg md:text-xl" >
             Our testimonials
           </p>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight" style={{ color: 'var(--text)' }}>
