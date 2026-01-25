@@ -18,8 +18,8 @@ const CheckIcon = () => (
   <span
     className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
     style={{
-      background: 'yellow',      
-      color: 'white',    
+      background: 'yellow',
+      color: 'white',
       border: '1px solid var(--border)',
     }}
   >
@@ -40,7 +40,7 @@ const CheckIcon = () => (
 const About = () => {
   return (
     <div
-      className="about font-size"
+      className="about font-size pb-20"
       style={{ background: 'var(--mainBackground)', color: 'var(--text)' }}
     >
       {/* Full-width Ribbon Header */}
@@ -50,23 +50,14 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
           {/* LEFT: OVERLAPPING IMAGES */}
           <div className="relative w-full max-w-md mx-auto md:mx-0 h-[320px] sm:h-[380px]">
-            {/* soft backdrop */}
+            {/* soft backdrop (hide on small screens so it doesn't look weird) */}
             <div
-              className="absolute left-2 top-2 w-[88%] h-[62%] rounded-[24px]"
+              className="absolute left-2 top-2 w-[88%] h-[62%] rounded-[24px] max-[900px]:hidden"
               style={{
                 background: 'var(--background)',
                 opacity: 0.45,
               }}
             />
-
-            {/* outline box behind */}
-            {/* <div
-              className="absolute right-4 top-12 w-[82%] h-[70%] rounded-[24px] border-2"
-              style={{
-                borderColor: 'var(--border)',
-                opacity: 0.8,
-              }}
-            /> */}
 
             {/* image 1 (top) ✅ hide below 900px */}
             <div className="absolute left-0 top-0 w-[78%] h-[56%] rounded-[24px] overflow-hidden shadow-lg z-10 max-[900px]:hidden">
@@ -80,8 +71,18 @@ const About = () => {
               />
             </div>
 
-            {/* image 2 (bottom, overlapping) */}
-            <div className="absolute left-6 sm:left-8 top-40 sm:top-44 w-[88%] h-[56%] rounded-[24px] overflow-hidden shadow-xl z-20">
+          
+            <div
+              className="
+                absolute left-6 sm:left-8 top-40 sm:top-44 w-[88%] h-[56%]
+                rounded-[24px] overflow-hidden shadow-xl z-20
+
+                max-[900px]:left-0
+                max-[900px]:top-0
+                max-[900px]:w-full
+                max-[900px]:h-full
+              "
+            >
               <Image
                 src="/images/about/img_2.jpg"
                 alt="Sudarshan Security - 2"
@@ -94,10 +95,7 @@ const About = () => {
 
           {/* RIGHT: TEXT */}
           <div className="text-center md:text-left">
-            <p
-              className="font-semibold italic tracking-wide"
-              style={{ color: 'blue' }}
-            >
+            <p className="font-semibold text-2xl italic tracking-wide" style={{ color: 'blue' }}>
               About Sudarshan Security
             </p>
 
@@ -113,9 +111,9 @@ const About = () => {
               className="mt-6 text-lg leading-relaxed max-w-xl mx-auto md:mx-0"
               style={{ color: 'var(--text2)' }}
             >
-              Sudarshan Security Services as an experienced service provider,
-              takes pride in offering our clients an effective solution and world
-              class service throughout the country.
+              Sudarshan Security Services as an experienced service provider, takes pride
+              in offering our clients an effective solution and world class service
+              throughout the country.
             </p>
 
             {/* ✅ LIST */}
@@ -126,10 +124,7 @@ const About = () => {
                     <span className="mt-0.5">
                       <CheckIcon />
                     </span>
-                    <span
-                      className="font-medium leading-6"
-                      style={{ color: 'var(--text)' }}
-                    >
+                    <span className="font-medium leading-6" style={{ color: 'var(--text)' }}>
                       {item}
                     </span>
                   </li>

@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 type MobileDrawerProps = {
   isOpen: boolean;
@@ -138,11 +139,19 @@ const MobileDrawer:React.FC<MobileDrawerProps> = ({isOpen,setIsOpen}) => {
         <div className="p-6 overflow-y-auto h-full">
           <div className="flex justify-between items-center mb-4 pb-4 border-b border-opacity-10 border-gray-300">
             <Link href="/" onClick={closeDrawer} className="block">
-              <img
-                src="/favicon/logo.png"
-                alt="Sriyog Logo"
-                className="w-36 h-auto "
-              />
+             
+            <Image
+              src="/favicon/logo.png"
+              alt="Sriyog Logo"
+              width={800}
+              height={600}
+              className="w-[130px] md:w-[170px] h-auto"
+              style={{
+                filter:
+                  "brightness(0) saturate(80%) invert(15%) sepia(90%) saturate(3000%) hue-rotate(2deg) brightness(105%) contrast(120%)",
+              }}
+            />
+          
             </Link>
             <button
               onClick={closeDrawer}

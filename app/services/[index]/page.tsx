@@ -31,13 +31,13 @@ const ServiceInfo = () => {
     return (
         <div>
             <Ribbon name={service.title} showfont={false}/>
-            <div className="max-w-6xl mx-auto px-4 py-10">
+            <div className="max-w-6xl mx-auto px-4 py-10 overflow-hidden">
                 {/* Display content here */}
                 <div className='max-w-6xl mx-auto h-full'>
                    <img src='/images/services/2.jpg' alt=""  className='rounded-xl h-full w-full'/>
                 </div>
                 <h1 className='text-3xl text text-center mt-8'>{service.title}</h1>
-                <p className='py-8 text-[17px]'>{service.Desc}</p>
+                <p className='py-8 text-[17px]'>{service.ShortDesc}</p>
 
                 <div className="mt-10">
                 <h2 className="text-2xl font-bold mb-4">Related Services</h2>

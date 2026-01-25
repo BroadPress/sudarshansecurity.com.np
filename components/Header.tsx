@@ -63,6 +63,7 @@ const Header = () => {
     <header className="header">
       <div className="relative max-w-7xl mx-auto flex items-center justify-between py-4 pl-3 sm:px-6">
         {/* Logo */}
+        
         <div className="flex items-center space-x-2">
           <Link href="/">
             <Image
@@ -71,9 +72,14 @@ const Header = () => {
               width={800}
               height={600}
               className="w-[130px] md:w-[170px] h-auto"
+              style={{
+                filter:
+                  "brightness(0) saturate(80%) invert(15%) sepia(90%) saturate(3000%) hue-rotate(2deg) brightness(105%) contrast(120%)",
+              }}
             />
           </Link>
         </div>
+
 
         {/* Nav Links */}
         <nav className="flex items-center space-x-0 sm:space-x-4">
@@ -94,12 +100,12 @@ const Header = () => {
               <Link href="/message" className="text-[16px] hover:text-teal-700">
                 Message
               </Link>
-              <Link
+              {/* <Link
                 href="/feedback"
                 className="text-[16px] hover:text-teal-700"
               >
                 Feedback
-              </Link>
+              </Link> */}
               <Link href="/team" className="text-[16px] hover:text-teal-700">
                 Team
               </Link>
@@ -138,10 +144,9 @@ const Header = () => {
             <div
               className={`hidden md:flex relative bg-white ml-2 mr-8 z-20 py-0 border rounded-md focus:outline-none
                 transition-all duration-300 ease-in-out h-8
-                ${
-                  showSearch
-                    ? "sm:w-[250px] lg:w-[550px] opacity-100 px-3 py-1"
-                    : "w-0 opacity-0 px-0 py-0 overflow-hidden"
+                ${showSearch
+                  ? "sm:w-[250px] lg:w-[550px] opacity-100 px-3 py-1"
+                  : "w-0 opacity-0 px-0 py-0 overflow-hidden"
                 }`}
             >
               <button
@@ -159,11 +164,10 @@ const Header = () => {
                 placeholder="Search..."
                 className={`absolute search left-8 right-0 top-0 bottom-0 border-none outline-none rounded-r-md focus:outline-none focus:ring-none
                     transition-all duration-300 ease-in-out
-                    ${
-                      showSearch
-                        ? "md:w-[300px] lg:w-[517px] opacity-100"
-                        : "w-0 opacity-0 px-0 py-0 overflow-hidden"
-                    }`}
+                    ${showSearch
+                    ? "md:w-[300px] lg:w-[517px] opacity-100"
+                    : "w-0 opacity-0 px-0 py-0 overflow-hidden"
+                  }`}
               />
             </div>
           </div>
@@ -183,11 +187,10 @@ const Header = () => {
           <div className="hidden sm:block">
             <button
               onClick={TriggerTheme}
-              className={`text-2xl cursor-pointer ml-2 mr-0 lg:mr-0 rounded-full h-8 w-8 ${
-                DarkIcon
+              className={`text-2xl cursor-pointer ml-2 mr-0 lg:mr-0 rounded-full h-8 w-8 ${DarkIcon
                   ? "bg-black text-white rotate-45 pl-1"
                   : "bg-white text-black"
-              }`}
+                }`}
             >
               {DarkIcon ? "☽" : "☀︎"}
             </button>

@@ -9,7 +9,7 @@ export default function Services() {
 
   return (
     <div
-      className="min-h-screen"
+      className="min-h-screen pb-20"
       style={{ background: 'var(--background)', color: 'var(--text)' }}
     >
       {/* Header Section */}
@@ -52,14 +52,15 @@ export default function Services() {
 
               {/* Description */}
               <p
-                className="text-l py-1 w-100 h-auto m-auto sm:py-0 leading-relaxed mb-4 grow text-justify"
-                style={{ color: 'var(--text2)' }}
+                className="w-full min-w-0 break-words whitespace-normal py-1 sm:py-0 leading-relaxed mb-4 grow text-justify"
+                style={{ color: "var(--text2)" }}
               >
                 {service.ShortDesc}
               </p>
 
+
               {/* Read More Button (theme-ready if you uncomment) */}
-              {/*
+              
               <div className="flex py-1 sm:py-0 justify-center">
                 <Link href={`/services/${index}`}>
                   <button
@@ -82,7 +83,7 @@ export default function Services() {
                   </button>
                 </Link>
               </div>
-              */}
+              
             </div>
           ))}
         </div>

@@ -20,7 +20,7 @@ function CommitmentCard({ title, description, Icon }: CommitmentCardProps) {
       "
       style={{
         background: "var(--background)",
-        border: "6px solid var(--border)",
+        border: "6px solid #EEE9DB",
         color: "var(--text)",
       }}
     >
@@ -62,8 +62,8 @@ export default function CommitmentsSection() {
         {/* Heading */}
         <div className="text-center">
           <p
-            className="font-semibold italic tracking-wide"
-            style={{ color: "var(--text2)" }}
+            className="font-semibold text-2xl italic tracking-wide"
+            style={{ color: "blue" }}
           >
             Our commitments
           </p>

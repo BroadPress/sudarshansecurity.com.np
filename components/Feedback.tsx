@@ -197,7 +197,7 @@ export default function Feedback() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 overflow-visible">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-14">
-          <p className="font-semibold italic text-base md:text-xl" style={{ color: 'blue' }}>
+          <p className="font-semibold italic text-base text-2xl" style={{ color: 'blue' }}>
             Feedback
           </p>
           <h2 className="mt-3 text-2xl md:text-4xl font-bold tracking-tight" style={{ color: 'var(--text)' }}>
@@ -211,17 +211,12 @@ export default function Feedback() {
             {feedbacks.map((t) => (
               <div
                 key={t.id}
-                className="
-                  w-[88vw] max-w-[340px]
-                  sm:w-[380px] sm:max-w-none
-                  md:w-[520px]
-                  flex-shrink-0
-                  overflow-visible
-                  snap-center
-                "
+                className="  w-[calc(100vw-2rem)] max-w-none  sm:w-[380px] sm:max-w-none  md:w-[520px]  flex-shrink-0   overflow-visible   snap-center
+  "
               >
                 <TestimonialCard t={t} />
               </div>
+
             ))}
           </div>
         </div>

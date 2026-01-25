@@ -51,7 +51,6 @@ const QuoteBadge = () => (
       group-hover:scale-105 group-hover:-rotate-6
     "
     style={{
-      // keeps badge readable in both themes
       background: 'var(--text)',
       color: 'var(--background)',
       border: '1px solid var(--border)',
@@ -61,7 +60,9 @@ const QuoteBadge = () => (
   </div>
 );
 
-function TestimonialCard({ t }: { t: any }) {
+type Testimonial = (typeof testimonials)[number];
+
+function TestimonialCard({ t }: { t: Testimonial }) {
   return (
     <div className="relative overflow-visible pt-14 group">
       {/* Avatar circle (overlapping) */}
@@ -99,7 +100,7 @@ function TestimonialCard({ t }: { t: any }) {
       <div
         className="
           relative rounded-[18px] overflow-visible
-          h-[420px] sm:h-[440px] md:h-[460px]
+          h-[440px] sm:h-[460px] md:h-[480px]
           flex flex-col
           shadow-md
           transition-all duration-300 ease-out
@@ -112,7 +113,7 @@ function TestimonialCard({ t }: { t: any }) {
       >
         <QuoteBadge />
 
-        <div className="px-8 pb-8 pt-10 flex flex-col flex-1">
+        <div className="px-8 pt-10 pb-[10px] flex flex-col flex-1">
           {/* Fixed title height so all names align */}
           <h3
             className="text-3xl font-extrabold mb-6 text-center min-h-[40px] flex items-center justify-center"
@@ -146,25 +147,40 @@ function TestimonialCard({ t }: { t: any }) {
 
 export default function Testimonials() {
   return (
-    <section className="w-full py-14 md:py-20 overflow-visible" style={{ background: 'var(--mainBackground)' }}>
+    <section
+      className="w-full py-14 md:py-20 overflow-visible"
+      style={{ background: 'var(--mainBackground)' }}
+    >
       <div className="max-w-7xl mx-auto px-4 md:px-8 overflow-visible">
         {/* Heading */}
         <div className="text-center mb-10 md:mb-14">
-          <p className="font-semibold text-blue-700 italic text-lg md:text-xl" >
+          <p className="font-semibold text-2xl text-blue-700 italic  md:text-2xl">
             Our testimonials
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight" style={{ color: 'var(--text)' }}>
+          <h2
+            className="mt-3 text-3xl md:text-4xl font-bold tracking-tight"
+            style={{ color: 'var(--text)' }}
+          >
             What they’re talking about sudarshan
           </h2>
         </div>
 
-        {/* Slider */}
-        <div className="overflow-x-auto overflow-y-visible pb-6">
-          <div className="flex gap-8 md:gap-10 min-w-max items-stretch">
+        <div
+          className="
+            overflow-x-auto overflow-y-visible pb-6
+            snap-x snap-mandatory scroll-smooth
+          "
+        >
+          <div className="flex items-stretch gap-6 md:gap-10">
             {testimonials.map((t) => (
               <div
                 key={t.id}
-                className="w-[320px] sm:w-[380px] md:w-[520px] flex-shrink-0 overflow-visible"
+                className="
+                  flex-shrink-0 overflow-visible snap-center
+                  w-full min-w-full
+                  sm:w-[380px] sm:min-w-[380px]
+                  md:w-[520px] md:min-w-[520px]
+                "
               >
                 <TestimonialCard t={t} />
               </div>

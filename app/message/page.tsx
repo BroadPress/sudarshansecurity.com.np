@@ -191,10 +191,10 @@ function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }
 
 export default function MessagePage() {
   return (
-    <main style={{ background: "var(--mainBackground)", color: "var(--text)" }}>
+    <main style={{ background: "var(--mainBackground)", color: "var(--text)" }} className="pb-20">
       <Ribbon name="Message" showfont={true} />
 
-      <section className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
+      <section className="max-w-7xl mx-auto px-4  md:px-8 py-12 md:py-16">
         <div className="space-y-16 md:space-y-20">
           {people.map((person, idx) => (
             <MessageBlock key={person.email} person={person} reverse={idx % 2 === 1} />

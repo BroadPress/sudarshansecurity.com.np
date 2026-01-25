@@ -28,7 +28,7 @@ const Home = () => {
     document.documentElement.classList.contains("dark");
 
   return (
-    <div className="w-full" style={{ background: "var(--background)", color: "var(--text)" }}>
+    <div className="w-full pb-20" style={{ background: "var(--background)", color: "var(--text)" }}>
       {/* HERO SECTION (Auto Slider) */}
       <section
         className="
@@ -67,7 +67,7 @@ const Home = () => {
         <div className="absolute inset-x-0 bottom-0 z-10">
           <div className="mx-auto w-full max-w-[1200px] px-6 pb-[calc(40px+env(safe-area-inset-bottom))]">
             <div className="flex flex-col text-left w-full sm:w-1/2">
-              <div className="text-[23px] md:text-2xl lg:text-3xl font-semibold mb-3 leading-tight opacity-90 text-white">
+              <div className="  text-yellow-500 text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 leading-tight opacity-90 text-white">
                 Welcome to
               </div>
 
@@ -81,7 +81,7 @@ const Home = () => {
 
               <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 md:gap-6">
                 <Link href="/about">
-                  <button className="cursor-pointer text-white bg-[#364b4a] border-2 border-[#0D5D59] py-2 md:py-3 px-4 md:px-8 rounded-md font-semibold hover:bg-[#0D5D59] hover:text-white transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button className="cursor-pointer bg-transparent  text-white border-2 border-[#0D5D59] py-2 md:py-3 px-4 md:px-8 rounded-md font-semibold hover:bg-[#0D5D59] hover:text-white transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     About
                   </button>
                 </Link>
