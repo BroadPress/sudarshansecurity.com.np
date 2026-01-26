@@ -61,7 +61,7 @@ export default function Services() {
 
               {/* Read More Button (theme-ready if you uncomment) */}
               
-              <div className="flex py-1 sm:py-0 justify-center">
+              {/* <div className="flex py-1 sm:py-0 justify-center">
                 <Link href={`/services/${index}`}>
                   <button
                     className="cursor-pointer px-6 py-2.5 rounded-md transition-all duration-300 font-medium text-sm"
@@ -82,7 +82,7 @@ export default function Services() {
                     Browse More
                   </button>
                 </Link>
-              </div>
+              </div> */}
               
             </div>
           ))}

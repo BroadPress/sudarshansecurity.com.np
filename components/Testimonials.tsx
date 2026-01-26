@@ -2,13 +2,22 @@
 
 import Image from 'next/image';
 
-const testimonials = [
+type Testimonial = {
+  id: number;
+  name: string;
+  avatar: string;
+  quote: string; // use \n\n to separate paragraphs
+  company?: string;
+  position?: string;
+};
+
+const testimonials: Testimonial[] = [
   {
     id: 1,
     name: 'Geeta Bhattarai',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years.',
+      'The best way to describe this organization is "Excellent Service!"\n\nThey have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
@@ -17,7 +26,7 @@ const testimonials = [
     name: 'Kishor Pathak',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years.',
+      'The best way to describe this organization is "Excellent Service!"\n\nThey have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
@@ -26,7 +35,7 @@ const testimonials = [
     name: 'Samir Poudel',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'I’m new to the Sudarshan Security team. As Property Managers, we are frequently concerned with making the right recommendations to our Boards. The staff assigned to my guardhouse has turned me into a hero in the eyes of the Board. Their customer service is outstanding.',
+      'The best way to describe this organization is "Excellent Service!"\n\nThey have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
@@ -35,7 +44,7 @@ const testimonials = [
     name: 'Rakesh Mehta',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
+      'The best way to describe this organization is "Excellent Service!"\n\nThey have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
@@ -59,8 +68,6 @@ const QuoteBadge = () => (
     <span className="text-4xl leading-none -mt-1">”</span>
   </div>
 );
-
-type Testimonial = (typeof testimonials)[number];
 
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
@@ -91,6 +98,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
               width={96}
               height={96}
               className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+              sizes="96px"
             />
           </div>
         </div>
@@ -114,7 +122,6 @@ function TestimonialCard({ t }: { t: Testimonial }) {
         <QuoteBadge />
 
         <div className="px-8 pt-10 pb-[10px] flex flex-col flex-1">
-          {/* Fixed title height so all names align */}
           <h3
             className="text-3xl font-extrabold mb-6 text-center min-h-[40px] flex items-center justify-center"
             style={{ color: 'var(--text)' }}
@@ -122,22 +129,27 @@ function TestimonialCard({ t }: { t: Testimonial }) {
             {t.name}
           </h3>
 
-          {/* Clamp quote so all cards look identical */}
-          <p
-            className="text-lg leading-9 whitespace-pre-line line-clamp-6"
-            style={{ color: 'var(--text2)' }}
-          >
-            {t.quote}
-          </p>
+          {/* Quote in TWO paragraphs */}
+          <div className="text-lg leading-9" style={{ color: 'var(--text2)' }}>
+            {t.quote.split('\n\n').map((para, i) => (
+              <p key={i} className="mb-4 last:mb-0 line-clamp-3">
+                {para}
+              </p>
+            ))}
+          </div>
 
-          {/* Always stays at bottom in every card */}
           <div className="mt-auto pt-10">
-            <p className="text-2xl font-medium" style={{ color: 'var(--text)' }}>
-              {t.company}
-            </p>
-            <p className="text-lg" style={{ color: 'var(--text2)' }}>
-              {t.position}
-            </p>
+            {t.company ? (
+              <p className="text-2xl font-medium" style={{ color: 'var(--text)' }}>
+                {t.company}
+              </p>
+            ) : null}
+
+            {t.position ? (
+              <p className="text-lg" style={{ color: 'var(--text2)' }}>
+                {t.position}
+              </p>
+            ) : null}
           </div>
         </div>
       </div>
@@ -148,13 +160,13 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 export default function Testimonials() {
   return (
     <section
-      className="w-full py-14 md:py-20 overflow-visible"
+      className="w-screen py-14 md:py-20 overflow-visible"
       style={{ background: 'var(--mainBackground)' }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 overflow-visible">
         {/* Heading */}
         <div className="text-center mb-10 md:mb-14">
-          <p className="font-semibold text-2xl text-blue-700 italic  md:text-2xl">
+          <p className="font-semibold text-2xl text-blue-700 italic md:text-2xl">
             Our testimonials
           </p>
           <h2
@@ -169,17 +181,20 @@ export default function Testimonials() {
           className="
             overflow-x-auto overflow-y-visible pb-6
             snap-x snap-mandatory scroll-smooth
+            lg:max-w-[1120px] lg:mx-auto
           "
         >
-          <div className="flex items-stretch gap-6 md:gap-10">
+          <div className="flex w-full items-stretch gap-6 md:gap-10">
             {testimonials.map((t) => (
               <div
                 key={t.id}
                 className="
-                  flex-shrink-0 overflow-visible snap-center
+                  flex-shrink-0 overflow-visible
+                  snap-center lg:snap-start
                   w-full min-w-full
-                  sm:w-[380px] sm:min-w-[380px]
-                  md:w-[520px] md:min-w-[520px]
+                  sm:w-[400px] sm:min-w-[400px]
+                  md:w-[540px] md:min-w-[540px]
+                  lg:w-[540px] lg:min-w-[540px]
                 "
               >
                 <TestimonialCard t={t} />

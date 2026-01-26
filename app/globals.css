@@ -2,10 +2,10 @@
 
 :root {
   --background: #ffffff;
-  --mainBackground : #ffffff;
+  --mainBackground : #EDEDF8;
   --text : black;
   --text2 : #6a7282;
-  --border : #d1d5dc;
+  --border : #e1e1e1;
    --app-font-size: 1rem;
   --black:white;
 }

@@ -7,13 +7,15 @@ type CommitmentCardProps = {
   Icon: React.ElementType;
 };
 
+
 function CommitmentCard({ title, description, Icon }: CommitmentCardProps) {
   return (
     <div
       className="
         group
         rounded-[28px]
-        px-8 py-10 sm:px-10 sm:py-12
+        px-[calc(2rem+20px)] py-[calc(2.5rem+20px)]
+        sm:px-[calc(2.5rem+20px)] sm:py-[calc(3rem+20px)]
         shadow-md
         transition-all duration-300 ease-out
         hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.02]
@@ -22,6 +24,7 @@ function CommitmentCard({ title, description, Icon }: CommitmentCardProps) {
         background: "var(--background)",
         border: "6px solid #EEE9DB",
         color: "var(--text)",
+        minHeight: "calc(100% + 20px)", // ensures extra length even if content is short
       }}
     >
       <div className="flex items-center justify-center gap-3 mb-6">
@@ -48,6 +51,7 @@ function CommitmentCard({ title, description, Icon }: CommitmentCardProps) {
     </div>
   );
 }
+
 
 export default function CommitmentsSection() {
   return (

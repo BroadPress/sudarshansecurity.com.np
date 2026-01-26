@@ -10,7 +10,7 @@ const Navbar = () => {
     <div className='max-w-7xl mx-auto py-2.5 px-5  md:space-y-0'>
         <div className='w-full flex flex-col gap-3 sm:flex-row items-center justify-between md:gap-4'>
              <div>
-             <p className='text-center text-sm sm:text-[13px] lg:text-sm md:pb-0'> Hurry up.” to “Sudarshan Security Services is hiring.”</p>
+             <p className='text-center text-sm sm:text-[13px] lg:text-sm md:pb-0'> “Sudarshan Security Services is hiring.”</p>
              </div>
              <div className='flex gap-3 items-center'> 
     

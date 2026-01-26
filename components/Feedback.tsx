@@ -18,8 +18,8 @@ const feedbacks: Feedback[] = [
     avatar: '/images/testimonials/nameste.jpg',
     quote:
       "Our Sudarshan employees on-site always provide excellent service and are extremely customer-focused. Their management team responds quickly to our needs and consistently offers strong support. We've been a client for several years.",
-    company: 'Apartment Community',
-    position: 'Property Manager',
+    company: 'Company Name',
+    position: 'Position',
   },
   {
     id: 2,
@@ -27,8 +27,8 @@ const feedbacks: Feedback[] = [
     avatar: '/images/testimonials/nameste.jpg',
     quote:
       "I'm new to the Sudarshan Security team. As Property Managers, we are frequently concerned with making the right recommendations to our Boards. The staff assigned to my guardhouse has turned me into a hero in the eyes of the Board. Their customer service is outstanding.",
-    company: 'Residential Complex',
-    position: 'Property Manager',
+    company: 'Company Name',
+    position: 'Position',
   },
   {
     id: 3,
@@ -36,8 +36,8 @@ const feedbacks: Feedback[] = [
     avatar: '/images/testimonials/nameste.jpg',
     quote:
       'The best way to describe this organization is “Excellent Service!” They have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
-    company: 'Business Center',
-    position: 'Operations Manager',
+    company: 'Company Name',
+    position: 'Position',
   },
   {
     id: 4,
@@ -45,8 +45,8 @@ const feedbacks: Feedback[] = [
     avatar: '/images/testimonials/nameste.jpg',
     quote:
       'Sudarshan Security is reliable, disciplined, and always responsive. Their guards are well-trained and punctual, and the supervision team regularly checks performance. We feel safer and more confident with their service.',
-    company: 'Corporate Office',
-    position: 'Admin Officer',
+    company: 'Company Name',
+    position: 'Position',
   },
 ];
 
@@ -197,26 +197,36 @@ export default function Feedback() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 overflow-visible">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-14">
-          <p className="font-semibold italic text-base text-2xl" style={{ color: 'blue' }}>
-            Feedback
-          </p>
-          <h2 className="mt-3 text-2xl md:text-4xl font-bold tracking-tight" style={{ color: 'var(--text)' }}>
-            What they&apos;re talking about SSS
-          </h2>
-        </div>
+  <p className="font-semibold italic text-2xl text-blue-700">
+    Feedback
+  </p>
+  <h2
+    className="mt-3 text-4xl md:text-2xl text-blue-700 font-bold tracking-tight"
+    style={{ color: 'var(--text)' }}
+  >
+    What they&apos;re talking about SSS
+  </h2>
+</div>
 
-        {/* Slider (mobile-friendly + snap) */}
-        <div className="overflow-x-auto overflow-y-visible pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth">
+
+        {/* Slider (single row + scroll, shows only 2 cards on big screens) */}
+        <div className="overflow-x-auto overflow-y-visible pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
           <div className="flex gap-6 sm:gap-8 md:gap-10 min-w-max items-stretch pr-2">
             {feedbacks.map((t) => (
               <div
                 key={t.id}
-                className="  w-[calc(100vw-2rem)] max-w-none  sm:w-[380px] sm:max-w-none  md:w-[520px]  flex-shrink-0   overflow-visible   snap-center
-  "
+                className="
+                  w-[calc(100vw-2rem)] max-w-none
+                  sm:w-[400px] sm:max-w-none
+                  md:w-[540px] md:min-w-[540px]
+                  lg:w-[540px] lg:min-w-[540px]
+                  flex-shrink-0
+                  overflow-visible
+                  snap-center
+                "
               >
                 <TestimonialCard t={t} />
               </div>
-
             ))}
           </div>
         </div>

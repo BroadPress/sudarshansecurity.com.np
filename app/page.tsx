@@ -114,7 +114,7 @@ const Home = () => {
 
       {/* REST SECTION */}
       <section
-        className="w-full max-w-350 m-auto h-full pt-24 pb-24 flex items-center justify-center"
+        className="w-screen p-2 sm:p-8 md:pl-22 md:pr-32 m-auto h-full pt-24 pb-24 flex items-center justify-center"
         style={{ background: "var(--mainBackground)" }}
       >
         <div className="flex flex-col md:flex-row gap-10 px-6 items-center">
