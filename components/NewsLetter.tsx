@@ -3,7 +3,7 @@ import React from "react";
 
 const NewsLetter = () => {
   return (
-    <section className="bg-teal-900 text-white py-10 px-4 sm:px-6">
+    <section className="bg-red-800 text-white py-10 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-10">
         
         {/* Heading */}

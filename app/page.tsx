@@ -28,7 +28,7 @@ const Home = () => {
     document.documentElement.classList.contains("dark");
 
   return (
-    <div className="w-full pb-20" style={{ background: "var(--background)", color: "var(--text)" }}>
+    <div className="w-screen  pb-20" style={{ background: "var(--background)", color: "var(--text)" }}>
       {/* HERO SECTION (Auto Slider) */}
       <section
         className="
@@ -81,13 +81,13 @@ const Home = () => {
 
               <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 md:gap-6">
                 <Link href="/about">
-                  <button className="cursor-pointer bg-transparent  text-white border-2 border-[#0D5D59] py-2 md:py-3 px-4 md:px-8 rounded-md font-semibold hover:bg-[#0D5D59] hover:text-white transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button className="cursor-pointer bg-transparent  text-white border-2 border-red-800 py-2 md:py-3 px-4 md:px-8 rounded-md font-semibold hover:bg-red-800 hover:text-black transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     About
                   </button>
                 </Link>
 
                 <Link href="/contact">
-                  <button className="cursor-pointer bg-[#0D5D59] text-white px-4 md:px-10 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[150px] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                  <button className="cursor-pointer bg-red-800 text-white px-4 md:px-10 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[150px] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                     Book Service
                   </button>
                 </Link>
@@ -153,7 +153,7 @@ const Home = () => {
               <button
                 className="text-center w-42 h-14 p-2 rounded-full mt-11 transition-colors border"
                 style={{
-                  background: "var(--text)",
+                  background: "red",
                   color: "var(--background)",
                   borderColor: "var(--border)",
                 }}

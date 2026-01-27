@@ -62,7 +62,7 @@ const QuoteBadge = () => (
     style={{
       background: 'var(--text)',
       color: 'var(--background)',
-      border: '1px solid var(--border)',
+      border: '4px solid var(--border)',
     }}
   >
     <span className="text-4xl leading-none -mt-1">”</span>
@@ -107,8 +107,8 @@ function TestimonialCard({ t }: { t: Testimonial }) {
       {/* Card */}
       <div
         className="
-          relative rounded-[18px] overflow-visible
-          h-[440px] sm:h-[460px] md:h-[480px]
+          relative rounded-[18px] pb-10 overflow-visible
+          h-[440px] sm:h-[460px]
           flex flex-col
           shadow-md
           transition-all duration-300 ease-out

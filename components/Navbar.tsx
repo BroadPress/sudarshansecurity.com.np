@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <>
     {visible && 
-    <div className='relative w-full bg-[#074842] text-white  '>
+    <div className='relative w-full bg-red-800 text-white  '>
     <div className='max-w-7xl mx-auto py-2.5 px-5  md:space-y-0'>
         <div className='w-full flex flex-col gap-3 sm:flex-row items-center justify-between md:gap-4'>
              <div>

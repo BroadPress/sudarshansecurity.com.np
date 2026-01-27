@@ -74,6 +74,9 @@ const QuoteBadge = () => (
   </div>
 );
 
+
+// فقط TestimonialCard component भित्र यो भाग update गर्नुहोस्
+
 function TestimonialCard({ t }: { t: Feedback }) {
   return (
     <div className="relative overflow-visible pt-12 sm:pt-14">
@@ -119,14 +122,14 @@ function TestimonialCard({ t }: { t: Feedback }) {
           relative rounded-[22px]
           overflow-visible
           flex flex-col
-          h-auto
-          min-h-[360px] sm:min-h-[420px] md:min-h-[460px]
+          h-[460px]
+          pb-8
           transition-all duration-300 ease-out
           md:hover:-translate-y-3
         "
         style={{
           background: 'var(--background)',
-          border: '1px solid var(--border)',
+          border: '4px solid var(--border)',
           boxShadow: '0 18px 55px -40px rgba(15,23,42,0.45)',
         }}
         onMouseEnter={(e) => {
@@ -139,7 +142,7 @@ function TestimonialCard({ t }: { t: Feedback }) {
         <QuoteBadge />
 
         {/* Content */}
-        <div className="px-6 sm:px-8 pb-7 sm:pb-8 pt-9 sm:pt-10 pr-16 sm:pr-24 flex flex-col flex-1">
+        <div className="px-6 sm:px-8 pt-9 sm:pt-10 pr-16 sm:pr-24 flex flex-col flex-1 min-h-0">
           <h3
             className="
               text-2xl sm:text-3xl
@@ -156,12 +159,14 @@ function TestimonialCard({ t }: { t: Feedback }) {
             {t.name}
           </h3>
 
+          {/* Quote fills the space */}
           <p
             className="
               text-base sm:text-lg
               leading-7 sm:leading-9
               whitespace-pre-line
               line-clamp-8 sm:line-clamp-6 md:line-clamp-7
+              flex-1 min-h-0 overflow-hidden
               transition-opacity duration-300
               group-hover:opacity-95
             "
@@ -170,20 +175,23 @@ function TestimonialCard({ t }: { t: Feedback }) {
             {t.quote}
           </p>
 
-          {/* Bottom info */}
-          <div className="mt-auto pt-6 sm:pt-8">
-            <p
-              className="text-lg sm:text-xl font-semibold transition-opacity duration-300 group-hover:opacity-95"
-              style={{ color: 'var(--text)' }}
-            >
-              {t.company}
-            </p>
-            <p
-              className="text-sm sm:text-base transition-opacity duration-300 group-hover:opacity-95"
-              style={{ color: 'var(--text2)' }}
-            >
-              {t.position}
-            </p>
+          <div className="mt-auto pb-5">
+            <div className="h-[52px] sm:h-[56px] flex flex-col justify-end">
+              <p
+                className="text-lg sm:text-xl font-semibold truncate transition-opacity duration-300 group-hover:opacity-95"
+                style={{ color: 'var(--text)' }}
+                title={t.company}
+              >
+                {t.company}
+              </p>
+              <p
+                className="text-sm sm:text-base truncate transition-opacity duration-300 group-hover:opacity-95"
+                style={{ color: 'var(--text2)' }}
+                title={t.position}
+              >
+                {t.position}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -191,23 +199,18 @@ function TestimonialCard({ t }: { t: Feedback }) {
   );
 }
 
+
 export default function Feedback() {
   return (
     <section className="w-full py-12 md:py-20 overflow-visible" style={{ background: 'var(--mainBackground)' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-8 overflow-visible">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-14">
-  <p className="font-semibold italic text-2xl text-blue-700">
-    Feedback
-  </p>
-  <h2
-    className="mt-3 text-4xl md:text-2xl text-blue-700 font-bold tracking-tight"
-    style={{ color: 'var(--text)' }}
-  >
-    What they&apos;re talking about SSS
-  </h2>
-</div>
-
+          <p className="font-semibold italic text-2xl text-blue-700">Feedback</p>
+          <h2 className="mt-3 text-4xl md:text-2xl text-blue-700 font-bold tracking-tight" style={{ color: 'var(--text)' }}>
+            What they&apos;re talking about SSS
+          </h2>
+        </div>
 
         {/* Slider (single row + scroll, shows only 2 cards on big screens) */}
         <div className="overflow-x-auto overflow-y-visible pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">

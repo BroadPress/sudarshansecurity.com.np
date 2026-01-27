@@ -244,9 +244,9 @@ export default function Contact() {
               <div className="flex justify-center pt-2">
                 <button
                   type="submit"
-                  className="h-14 px-10 rounded-full font-semibold transition"
+                  className="h-14 px-10 bg-red-800 hover:bg-red-500 rounded-full font-semibold transition"
                   style={{
-                    background: 'var(--text)',
+                    
                     color: 'var(--background)',
                     border: '1px solid var(--border)',
                   }}

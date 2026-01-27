@@ -48,46 +48,45 @@ const About = () => {
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
-          {/* LEFT: OVERLAPPING IMAGES */}
-          <div className="relative w-full max-w-md mx-auto md:mx-0 h-[320px] sm:h-[380px]">
-            {/* soft backdrop (hide on small screens so it doesn't look weird) */}
+          {/* LEFT: OVERLAPPING IMAGES (fixed for md & smaller) */}
+          <div className="relative w-full max-w-md mx-auto md:mx-0 h-[320px] sm:h-[380px] lg:h-[420px] overflow-hidden lg:overflow-visible">
+            {/* soft backdrop (only show on large screens) */}
             <div
-              className="absolute left-2 top-2 w-[88%] h-[62%] rounded-[24px] max-[900px]:hidden"
+              className="hidden lg:block absolute left-2 top-2 w-[88%] h-[62%] rounded-[24px]"
               style={{
                 background: 'var(--background)',
                 opacity: 0.45,
               }}
             />
 
-            {/* image 1 (top) ✅ hide below 900px */}
-            <div className="absolute left-0 top-0 w-[78%] h-[56%] rounded-[24px] overflow-hidden shadow-lg z-10 max-[900px]:hidden">
+            {/* image 1 (top) only on large screens */}
+            <div className="hidden lg:block absolute left-0 top-0 w-[78%] h-[56%] rounded-[24px] overflow-hidden shadow-lg z-10">
               <Image
                 src="/images/about/img_1.jpg"
                 alt="Sudarshan Security - 1"
                 fill
                 priority
-                sizes="(min-width: 900px) 40vw, 0px"
+                sizes="(min-width: 1024px) 40vw, 0px"
                 className="object-cover"
               />
             </div>
 
-          
+            {/* image 2: normal on md & smaller, overlapping only on lg+ */}
             <div
               className="
-                absolute left-6 sm:left-8 top-40 sm:top-44 w-[88%] h-[56%]
+                relative w-full h-full
                 rounded-[24px] overflow-hidden shadow-xl z-20
 
-                max-[900px]:left-0
-                max-[900px]:top-0
-                max-[900px]:w-full
-                max-[900px]:h-full
+                lg:absolute
+                lg:left-6 lg:top-40
+                lg:w-[88%] lg:h-[56%]
               "
             >
               <Image
                 src="/images/about/img_2.jpg"
                 alt="Sudarshan Security - 2"
                 fill
-                sizes="(min-width: 768px) 45vw, 90vw"
+                sizes="(min-width: 1024px) 45vw, 90vw"
                 className="object-cover"
               />
             </div>
@@ -95,7 +94,10 @@ const About = () => {
 
           {/* RIGHT: TEXT */}
           <div className="text-center md:text-left">
-            <p className="font-semibold text-2xl italic tracking-wide" style={{ color: 'blue' }}>
+            <p
+              className="font-semibold text-2xl italic tracking-wide"
+              style={{ color: 'blue' }}
+            >
               About Sudarshan Security
             </p>
 
@@ -111,20 +113,23 @@ const About = () => {
               className="mt-6 text-lg leading-relaxed max-w-xl mx-auto md:mx-0"
               style={{ color: 'var(--text2)' }}
             >
-              Sudarshan Security Services as an experienced service provider, takes pride
-              in offering our clients an effective solution and world class service
-              throughout the country.
+              Sudarshan Security Services as an experienced service provider, takes
+              pride in offering our clients an effective solution and world class
+              service throughout the country.
             </p>
 
             {/* ✅ LIST */}
-            <div className="mt-8 flex justify-start ml-[72px] md:ml-0">
+            <div className="mt-8 flex justify-start ml-4  md:ml-0">
               <ul className="space-y-4 text-left">
                 {features.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-0.5">
                       <CheckIcon />
                     </span>
-                    <span className="font-medium leading-6" style={{ color: 'var(--text)' }}>
+                    <span
+                      className="font-medium leading-6"
+                      style={{ color: 'var(--text)' }}
+                    >
                       {item}
                     </span>
                   </li>

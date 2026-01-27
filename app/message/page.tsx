@@ -80,19 +80,19 @@ function BulletItem({ children }: { children: React.ReactNode }) {
 function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }) {
   return (
     <div
-      className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${
-        reverse ? "md:[&>div:first-child]:order-2 md:[&>div:last-child]:order-1" : ""
-      }`}
+      className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${reverse ? "md:[&>div:first-child]:order-2 md:[&>div:last-child]:order-1" : ""
+        }`}
     >
       {/* LEFT CARD */}
       <div className="relative">
         <div
-          className="rounded-3xl shadow-sm min-h-[320px] md:min-h-[360px] flex items-end justify-center p-10"
+          className="rounded-3xl shadow-sm min-h-[320px] md:min-h-[360px] flex items-end justify-end p-10"
           style={{
             background: "var(--background)",
             border: "1px solid var(--border)",
           }}
         >
+
           {person.logo ? (
             <Image
               src={person.logo}
@@ -133,7 +133,7 @@ function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }
 
       {/* RIGHT CONTENT */}
       <div className="px-2 md:px-0">
-        <p className="font-semibold italic tracking-wide" style={{ color: "var(--text2)" }}>
+        <p className="font-semibold text-blue-800 italic tracking-wide">
           {person.role}
         </p>
 
@@ -195,7 +195,7 @@ export default function MessagePage() {
       <Ribbon name="Message" showfont={true} />
 
       <section className="max-w-7xl mx-auto px-4  md:px-8 py-12 md:py-16">
-        <div className="space-y-16 md:space-y-20">
+        <div className="space-y-[120px]">
           {people.map((person, idx) => (
             <MessageBlock key={person.email} person={person} reverse={idx % 2 === 1} />
           ))}
