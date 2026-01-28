@@ -6,45 +6,45 @@ type Testimonial = {
   id: number;
   name: string;
   avatar: string;
-  quote: string; // use \n\n to separate paragraphs
-  company?: string;
-  position?: string;
+  quote: string;
+  company: string;
+  position: string;
 };
 
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: 'Geeta Bhattarai',
+    name: 'Sumnima Rai',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'The best way to describe this organization is "Excellent Service!"\n\nThey have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
+      "Our Sudarshan employees on-site always provide excellent service and are extremely customer-focused. Their management team responds quickly to our needs and consistently offers strong support. We've been a client for several years.",
     company: 'Company Name',
     position: 'Position',
   },
   {
     id: 2,
-    name: 'Kishor Pathak',
+    name: 'Samir Poudel',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'The best way to describe this organization is "Excellent Service!"\n\nThey have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
+      "I'm new to the Sudarshan Security team. As Property Managers, we are frequently concerned with making the right recommendations to our Boards. The staff assigned to my guardhouse has turned me into a hero in the eyes of the Board. Their customer service is outstanding.",
     company: 'Company Name',
     position: 'Position',
   },
   {
     id: 3,
-    name: 'Samir Poudel',
+    name: 'Rakesh Mehta',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'The best way to describe this organization is "Excellent Service!"\n\nThey have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
+      'The best way to describe this organization is “Excellent Service!” They have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
   {
     id: 4,
-    name: 'Rakesh Mehta',
+    name: 'Geeta Bhattarai',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'The best way to describe this organization is "Excellent Service!"\n\nThey have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
+      'Sudarshan Security is reliable, disciplined, and always responsive. Their guards are well-trained and punctual, and the supervision team regularly checks performance. We feel safer and more confident with their service.',
     company: 'Company Name',
     position: 'Position',
   },
@@ -52,33 +52,41 @@ const testimonials: Testimonial[] = [
 
 const QuoteBadge = () => (
   <div
+    aria-hidden="true"
     className="
-      absolute -top-7 right-8 h-14 w-14 rounded-full
-      flex items-center justify-center z-30
+      absolute top-4 right-4 sm:top-6 sm:right-6
+      h-10 w-10 sm:h-12 sm:w-12
+      rounded-xl
+      flex items-center justify-center
       shadow-md
-      transition-transform duration-300 ease-out
-      group-hover:scale-105 group-hover:-rotate-6
+      transition-all duration-300 ease-out
+      group-hover:scale-110 group-hover:rotate-6
     "
     style={{
-      background: 'var(--text)',
-      color: 'var(--background)',
-      border: '4px solid var(--border)',
+      background: '#00715D',
+      color: 'white',
+      border: '1px solid var(--border)',
     }}
   >
-    <span className="text-4xl leading-none -mt-1">”</span>
+    <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-6 sm:w-6" fill="currentColor">
+      <path d="M10.3 5.5H6.9C5.3 5.5 4 6.8 4 8.4v3.2c0 1.6 1.3 2.9 2.9 2.9h1.7c-.2 1.8-1.4 3.2-3.4 3.8v1.7c3.6-.8 5.8-3.6 5.8-7.4V8.4c0-1.6-1.3-2.9-2.7-2.9Zm9.7 0h-3.4c-1.6 0-2.9 1.3-2.9 2.9v3.2c0 1.6 1.3 2.9 2.9 2.9h1.7c-.2 1.8-1.4 3.2-3.4 3.8v1.7c3.6-.8 5.8-3.6 5.8-7.4V8.4c0-1.6-1.3-2.9-2.7-2.9Z" />
+    </svg>
   </div>
 );
 
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
-    <div className="relative overflow-visible pt-14 group">
-      {/* Avatar circle (overlapping) */}
-      <div className="absolute -top-2 left-8 z-40">
+    <div className="relative overflow-visible pt-12 sm:pt-14">
+      {/* Avatar */}
+      <div className="absolute -top-3 left-5 sm:left-8 z-20">
         <div
           className="
-            h-28 w-28 rounded-full flex items-center justify-center
-            transition-transform duration-300 ease-out
-            group-hover:-translate-y-1
+            h-24 w-24 sm:h-28 sm:w-28
+            rounded-full
+            flex items-center justify-center
+            shadow-lg
+            transition-transform duration-300
+            group-hover:scale-105
           "
           style={{
             background: 'var(--mainBackground)',
@@ -86,10 +94,10 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           }}
         >
           <div
-            className="h-24 w-24 rounded-full overflow-hidden shadow-md"
+            className="h-20 w-20 sm:h-24 sm:w-24 rounded-full shadow-md overflow-hidden"
             style={{
               background: 'var(--background)',
-              border: '5px solid var(--background)',
+              border: '4px solid var(--background)',
             }}
           >
             <Image
@@ -97,8 +105,8 @@ function TestimonialCard({ t }: { t: Testimonial }) {
               alt={t.name}
               width={96}
               height={96}
-              className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
-              sizes="96px"
+              sizes="(max-width: 640px) 80px, 96px"
+              className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover"
             />
           </div>
         </div>
@@ -107,49 +115,79 @@ function TestimonialCard({ t }: { t: Testimonial }) {
       {/* Card */}
       <div
         className="
-          relative rounded-[18px] pb-10 overflow-visible
-          h-[440px] sm:h-[460px]
+          group
+          relative rounded-[22px]
+          overflow-visible
           flex flex-col
-          shadow-md
+          h-[480px]
+          pb-8
           transition-all duration-300 ease-out
-          hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.01]
+          md:hover:-translate-y-3
+          shadow-[0_18px_55px_-40px_rgba(15,23,42,0.45)]
+          hover:shadow-[0_25px_70px_-35px_rgba(15,23,42,0.55)]
         "
         style={{
           background: 'var(--background)',
-          border: '2px solid var(--border)',
+          border: '4px solid var(--border)',
         }}
       >
+
+        <div
+          className="
+            absolute z-30 -translate-y-full
+            text-2xl sm:text-3xl font-extrabold
+            whitespace-nowrap truncate
+            pointer-events-none
+            transition-opacity duration-300
+            group-hover:opacity-95
+          "
+          style={{
+            top: '-10px',
+            left: '140px',
+            right: '16px',
+            color: 'var(--text)',
+          }}
+        >
+          <span className="hidden sm:inline">{t.name}</span>
+          <span className="sm:hidden">{t.name}</span>
+        </div>
+
         <QuoteBadge />
 
-        <div className="px-8 pt-10 pb-[10px] flex flex-col flex-1">
-          <h3
-            className="text-3xl font-extrabold mb-6 text-center min-h-[40px] flex items-center justify-center"
-            style={{ color: 'var(--text)' }}
+        {/* Content */}
+        <div className="px-6 sm:px-8 pt-10 sm:pt-11 pr-16 sm:pr-24 flex flex-col flex-1 min-h-0">
+          <p
+            className="
+              text-base sm:text-lg
+              leading-7 sm:leading-9
+              whitespace-pre-line
+              line-clamp-8 sm:line-clamp-6 md:line-clamp-7
+              flex-1 min-h-0 overflow-hidden
+              transition-opacity duration-300
+              group-hover:opacity-95
+            "
+            style={{ color: 'var(--text2)' }}
           >
-            {t.name}
-          </h3>
+            {t.quote}
+          </p>
 
-          {/* Quote in TWO paragraphs */}
-          <div className="text-lg leading-9" style={{ color: 'var(--text2)' }}>
-            {t.quote.split('\n\n').map((para, i) => (
-              <p key={i} className="mb-4 last:mb-0 line-clamp-3">
-                {para}
-              </p>
-            ))}
-          </div>
-
-          <div className="mt-auto pt-10">
-            {t.company ? (
-              <p className="text-2xl font-medium" style={{ color: 'var(--text)' }}>
+          <div className="mt-auto pb-5">
+            <div className="h-[52px] sm:h-[56px] flex flex-col justify-end">
+              <p
+                className="text-lg sm:text-xl font-semibold truncate transition-opacity duration-300 group-hover:opacity-95"
+                style={{ color: 'var(--text)' }}
+                title={t.company}
+              >
                 {t.company}
               </p>
-            ) : null}
-
-            {t.position ? (
-              <p className="text-lg" style={{ color: 'var(--text2)' }}>
+              <p
+                className="text-sm sm:text-base truncate transition-opacity duration-300 group-hover:opacity-95"
+                style={{ color: 'var(--text2)' }}
+                title={t.position}
+              >
                 {t.position}
               </p>
-            ) : null}
+            </div>
           </div>
         </div>
       </div>
@@ -159,42 +197,30 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 
 export default function Testimonials() {
   return (
-    <section
-      className="w-screen py-14 md:py-20 overflow-visible"
-      style={{ background: 'var(--mainBackground)' }}
-    >
+    <section className="w-full py-12 md:py-20 overflow-visible" style={{ background: 'var(--mainBackground)' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-8 overflow-visible">
         {/* Heading */}
-        <div className="text-center mb-10 md:mb-14">
-          <p className="font-semibold text-2xl text-blue-700 italic md:text-2xl">
-            Our testimonials
-          </p>
-          <h2
-            className="mt-3 text-3xl md:text-4xl font-bold tracking-tight"
-            style={{ color: 'var(--text)' }}
-          >
-            What they’re talking about sudarshan
+        <div className="text-center mb-8 md:mb-14">
+          <p className="font-semibold italic text-2xl text-blue-700">Our testimonials</p>
+          <h2 className="mt-3 text-4xl md:text-2xl font-bold tracking-tight" style={{ color: 'var(--text)' }}>
+            What they&apos;re talking about sudarshan
           </h2>
         </div>
 
-        <div
-          className="
-            overflow-x-auto overflow-y-visible pb-6
-            snap-x snap-mandatory scroll-smooth
-            lg:max-w-[1120px] lg:mx-auto
-          "
-        >
-          <div className="flex w-full items-stretch gap-6 md:gap-10">
+        {/* Slider */}
+        <div className="overflow-x-auto overflow-y-visible pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
+          <div className="flex gap-6 sm:gap-8 md:gap-10 min-w-max items-stretch pr-2">
             {testimonials.map((t) => (
               <div
                 key={t.id}
                 className="
-                  flex-shrink-0 overflow-visible
-                  snap-center lg:snap-start
-                  w-full min-w-full
-                  sm:w-[400px] sm:min-w-[400px]
+                  w-[calc(100vw-2rem)] max-w-none
+                  sm:w-[400px] sm:max-w-none
                   md:w-[540px] md:min-w-[540px]
                   lg:w-[540px] lg:min-w-[540px]
+                  flex-shrink-0
+                  overflow-visible
+                  snap-center
                 "
               >
                 <TestimonialCard t={t} />

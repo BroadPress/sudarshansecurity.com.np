@@ -63,8 +63,8 @@ const QuoteBadge = () => (
       group-hover:scale-110 group-hover:rotate-6
     "
     style={{
-      background: 'var(--text)',
-      color: 'var(--background)',
+      background: '#00715D',
+      color: 'white',
       border: '1px solid var(--border)',
     }}
   >
@@ -73,9 +73,6 @@ const QuoteBadge = () => (
     </svg>
   </div>
 );
-
-
-// فقط TestimonialCard component भित्र यो भाग update गर्नुहोस्
 
 function TestimonialCard({ t }: { t: Feedback }) {
   return (
@@ -122,7 +119,7 @@ function TestimonialCard({ t }: { t: Feedback }) {
           relative rounded-[22px]
           overflow-visible
           flex flex-col
-          h-[460px]
+          h-[480px]
           pb-8
           transition-all duration-300 ease-out
           md:hover:-translate-y-3
@@ -139,27 +136,33 @@ function TestimonialCard({ t }: { t: Feedback }) {
           e.currentTarget.style.boxShadow = '0 18px 55px -40px rgba(15,23,42,0.45)';
         }}
       >
+        <div
+          className="
+            absolute
+            z-30
+            -translate-y-full
+            text-2xl sm:text-3xl
+            font-extrabold
+            whitespace-nowrap
+            truncate
+            pointer-events-none
+            transition-opacity duration-300
+            group-hover:opacity-95
+          "
+          style={{
+            top: '-10px',
+            left: '153px', 
+            right: '16px',
+            color: 'var(--text)',
+          }}
+        >
+          {t.name}
+        </div>
+
         <QuoteBadge />
 
         {/* Content */}
-        <div className="px-6 sm:px-8 pt-9 sm:pt-10 pr-16 sm:pr-24 flex flex-col flex-1 min-h-0">
-          <h3
-            className="
-              text-2xl sm:text-3xl
-              font-extrabold
-              mb-4 sm:mb-6
-              text-center
-              min-h-[40px] sm:min-h-[44px]
-              flex items-center justify-center
-              transition-opacity duration-300
-              group-hover:opacity-95
-            "
-            style={{ color: 'var(--text)' }}
-          >
-            {t.name}
-          </h3>
-
-          {/* Quote fills the space */}
+        <div className="px-6 sm:px-8 pt-10 sm:pt-11 pr-16 sm:pr-24 flex flex-col flex-1 min-h-0">
           <p
             className="
               text-base sm:text-lg
@@ -199,7 +202,6 @@ function TestimonialCard({ t }: { t: Feedback }) {
   );
 }
 
-
 export default function Feedback() {
   return (
     <section className="w-full py-12 md:py-20 overflow-visible" style={{ background: 'var(--mainBackground)' }}>
@@ -207,12 +209,15 @@ export default function Feedback() {
         {/* Heading */}
         <div className="text-center mb-8 md:mb-14">
           <p className="font-semibold italic text-2xl text-blue-700">Feedback</p>
-          <h2 className="mt-3 text-4xl md:text-2xl text-blue-700 font-bold tracking-tight" style={{ color: 'var(--text)' }}>
+          <h2
+            className="mt-3 text-4xl md:text-2xl text-blue-700 font-bold tracking-tight"
+            style={{ color: 'var(--text)' }}
+          >
             What they&apos;re talking about SSS
           </h2>
         </div>
 
-        {/* Slider (single row + scroll, shows only 2 cards on big screens) */}
+        {/* Slider */}
         <div className="overflow-x-auto overflow-y-visible pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
           <div className="flex gap-6 sm:gap-8 md:gap-10 min-w-max items-stretch pr-2">
             {feedbacks.map((t) => (
