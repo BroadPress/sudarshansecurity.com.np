@@ -20,7 +20,7 @@ const NewsLetter = () => {
               w-full sm:w-[340px] md:w-[420px] lg:w-[460px]
               py-3 px-5
               bg-transparent
-              border border-white
+              border border-[#EDEDF8]
               rounded-xl
               text-base sm:text-lg md:text-xl
               font-semibold

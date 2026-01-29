@@ -28,7 +28,7 @@ const Home = () => {
     document.documentElement.classList.contains("dark");
 
   return (
-    <div className="w-screen  pb-20" style={{ background: "var(--background)", color: "var(--text)" }}>
+    <div className="w-screen  pb-20 bg-[#EDEDF8]" >
       {/* HERO SECTION (Auto Slider) */}
       <section
         className="
@@ -49,7 +49,7 @@ const Home = () => {
               sizes="100vw"
               className={[
                 "object-cover object-center",
-                "transition-opacity duration-1000 ease-in-out",
+                "transition-opacity duration-3000 ease-in-out",
                 i === slide ? "opacity-100" : "opacity-0",
               ].join(" ")}
             />
@@ -64,30 +64,30 @@ const Home = () => {
           />
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 z-10">
-          <div className="mx-auto w-full max-w-[1200px] px-6 pb-[calc(40px+env(safe-area-inset-bottom))]">
+        <div className="absolute ml:0 md:ml-16 inset-x-0 bottom-0 z-10">
+          <div className="mx-auto w-full max-w-[1600px] px-6 pb-[calc(40px+env(safe-area-inset-bottom))]">
             <div className="flex flex-col text-left w-full sm:w-1/2">
               <div className="  text-yellow-500 text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 leading-tight opacity-90 text-white">
                 Welcome to
               </div>
 
-              <div className="font-bold text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight text-white">
+              <div className="font-bold text-4xl md:text-4xl lg:text-5xl mb-6 leading-tight text-white">
                 Sudarshan Security.
               </div>
 
-              <div className="mt-2 font-bold sm:mt-4 text-[18px] md:text-[18px] lg:text-[20px] max-w-[600px] leading-relaxed opacity-95 text-white">
+              <div className="mt-2 font-bold sm:mt-4 text-[21px] md:text-[18px] lg:text-[20px] max-w-[600px] leading-relaxed opacity-95 text-white">
                 Let's give them a elite service
               </div>
 
               <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 md:gap-6">
                 <Link href="/about">
-                  <button className="cursor-pointer bg-transparent  text-white border-2 border-red-800 py-2 md:py-3 px-4 md:px-8 rounded-md font-semibold hover:bg-red-800 hover:text-black transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button className="cursor-pointer bg-transparent  text-white border-2 border-red-800  hover:bg-[#00715D] py-3 md:py-3 px-4 md:px-8 rounded-md font-semibold  hover:text-black hover:border-none transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     About
                   </button>
                 </Link>
 
                 <Link href="/contact">
-                  <button className="cursor-pointer bg-red-800 text-white px-4 md:px-10 py-3 rounded-md font-semibold hover:bg-opacity-90 transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[150px] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                  <button className="cursor-pointer bg-red-800 text-white px-4 md:px-10 py-3 border-2 border-red-800 rounded-md font-semibold hover:bg-[#00715D] hover:border-none transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[150px] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                     Book Service
                   </button>
                 </Link>
@@ -126,11 +126,11 @@ const Home = () => {
             viewport={{ once: true, amount: 0.25 }}
             className="md:w-1/2"
           >
-            <p className="font-mono text-2xl text-left" style={{ color: "blue" }}>
+            <p className="font-mono text-xl text-left" style={{ color: "#00715D" }}>
               Join us for service
             </p>
 
-            <p className="font-sans pt-8 font-extrabold text-3xl" style={{ color: "var(--text)" }}>
+            <p className="font-sans pt-4 font-extrabold text-3xl" style={{ color: "var(--text)" }}>
               What we stand for
             </p>
 
@@ -151,18 +151,7 @@ const Home = () => {
 
             <Link href="/about">
               <button
-                className="text-center w-42 h-14 p-2 rounded-full mt-11 transition-colors border"
-                style={{
-                  background: "red",
-                  color: "var(--background)",
-                  borderColor: "var(--border)",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.background = "var(--text2)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.background = "var(--text)";
-                }}
+                className="text-center w-42 h-14 p-2 rounded-full mt-11 transition-colors border bg-red-500  hover:bg-[#00715D] "
               >
                 DISCOVER MORE
               </button>

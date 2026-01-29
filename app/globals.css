@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+
+body{
+  line-height: 1;
+}
 :root {
   --background: #ffffff;
   --mainBackground : #EDEDF8;
@@ -20,6 +24,7 @@
 }
 
 ::-webkit-scrollbar{
+  scrollbar-width: none;
   scroll-behavior: smooth;
 }
 

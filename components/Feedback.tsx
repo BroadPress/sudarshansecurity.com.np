@@ -119,7 +119,7 @@ function TestimonialCard({ t }: { t: Feedback }) {
           relative rounded-[22px]
           overflow-visible
           flex flex-col
-          h-[480px]
+          sm:h-[480px] md:h-[430px]
           pb-8
           transition-all duration-300 ease-out
           md:hover:-translate-y-3
@@ -166,6 +166,7 @@ function TestimonialCard({ t }: { t: Feedback }) {
           <p
             className="
               text-base sm:text-lg
+              py-8
               leading-7 sm:leading-9
               whitespace-pre-line
               line-clamp-8 sm:line-clamp-6 md:line-clamp-7
@@ -208,9 +209,9 @@ export default function Feedback() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 overflow-visible">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-14">
-          <p className="font-semibold italic text-2xl text-blue-700">Feedback</p>
+          <p className="font-semibold italic text-2xl text-[#00715D]">Feedback</p>
           <h2
-            className="mt-3 text-4xl md:text-2xl text-blue-700 font-bold tracking-tight"
+            className="not-prose mt-3 text-4xl md:text-4xl text-blue-700 font-bold tracking-tight"
             style={{ color: 'var(--text)' }}
           >
             What they&apos;re talking about SSS

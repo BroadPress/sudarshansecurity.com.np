@@ -84,9 +84,9 @@ function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }
         }`}
     >
       {/* LEFT CARD */}
-      <div className="relative">
+      <div className="relative px-8">
         <div
-          className="rounded-3xl shadow-sm min-h-[320px] md:min-h-[360px] flex items-end justify-end p-10"
+          className="rounded-3xl shadow-sm min-h-[250px] md:min-h-[250px] flex items-end justify-end p-10"
           style={{
             background: "var(--background)",
             border: "1px solid var(--border)",
@@ -104,7 +104,7 @@ function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }
           ) : (
             <div
               className="h-20 w-20 rounded-full"
-              style={{ border: "1px solid var(--border)" }}
+              
             />
           )}
         </div>
@@ -114,9 +114,8 @@ function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }
           <div
             className="relative h-36 w-36 md:h-44 md:w-44 rounded-full overflow-hidden shadow"
             style={{
-              // ring-8 ring-white but theme-aware
               boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
-              outline: "8px solid var(--background)",
+              outline: "1px solid var(--background)",
             }}
           >
             <Image
@@ -133,7 +132,7 @@ function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }
 
       {/* RIGHT CONTENT */}
       <div className="px-2 md:px-0">
-        <p className="font-semibold text-blue-800 italic tracking-wide">
+        <p className="font-semibold text-[#00715D] italic tracking-wide">
           {person.role}
         </p>
 

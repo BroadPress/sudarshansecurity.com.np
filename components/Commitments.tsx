@@ -14,6 +14,7 @@ function CommitmentCard({ title, description, Icon }: CommitmentCardProps) {
       className="
         group
         rounded-[28px]
+        h-112
         px-[calc(2rem+20px)] py-[calc(2.5rem+20px)]
         sm:px-[calc(2.5rem+20px)] sm:py-[calc(3rem+20px)]
         shadow-md
@@ -58,16 +59,16 @@ export default function CommitmentsSection() {
     <section
       className="w-full py-16 sm:py-20"
       style={{
-        // replace the gradient with theme-safe surface
+       
         background: "var(--mainBackground)",
       }}
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-2 sm:px-6">
         {/* Heading */}
         <div className="text-center">
           <p
             className="font-semibold text-2xl italic tracking-wide"
-            style={{ color: "blue" }}
+            style={{ color: "#00715D" }}
           >
             Our commitments
           </p>

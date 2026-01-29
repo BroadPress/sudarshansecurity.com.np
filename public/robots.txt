@@ -2,3 +2,5 @@ User-agent: *
 Disallow: /admin/
 Allow: /
 Sitemap: https://www.sriyog.com/sitemap.xml
+
+

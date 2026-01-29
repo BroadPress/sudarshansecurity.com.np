@@ -119,7 +119,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           relative rounded-[22px]
           overflow-visible
           flex flex-col
-          h-[480px]
+          sm:h-[480px] md:h-[430px]
           pb-8
           transition-all duration-300 ease-out
           md:hover:-translate-y-3
@@ -143,7 +143,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           "
           style={{
             top: '-10px',
-            left: '140px',
+            left: '180px',
             right: '16px',
             color: 'var(--text)',
           }}
@@ -158,7 +158,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
         <div className="px-6 sm:px-8 pt-10 sm:pt-11 pr-16 sm:pr-24 flex flex-col flex-1 min-h-0">
           <p
             className="
-              text-base sm:text-lg
+              text-base py-8 sm:text-lg
               leading-7 sm:leading-9
               whitespace-pre-line
               line-clamp-8 sm:line-clamp-6 md:line-clamp-7
@@ -201,8 +201,8 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 overflow-visible">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-14">
-          <p className="font-semibold italic text-2xl text-blue-700">Our testimonials</p>
-          <h2 className="mt-3 text-4xl md:text-2xl font-bold tracking-tight" style={{ color: 'var(--text)' }}>
+          <p className="font-semibold italic text-2xl text-[#00715D]">Our testimonials</p>
+          <h2 className="mt-3 text-4xl md:text-4xl font-bold tracking-tight" style={{ color: 'var(--text)' }}>
             What they&apos;re talking about sudarshan
           </h2>
         </div>
