@@ -53,10 +53,9 @@ const feedbacks: Feedback[] = [
 function TestimonialCard({ t }: { t: Feedback }) {
   return (
     <div className="h-full w-full">
-      
       <div
         className="
-        h-full
+          h-full
           w-full
           rounded-[22px]
           bg-white
@@ -71,10 +70,7 @@ function TestimonialCard({ t }: { t: Feedback }) {
         "
       >
         {/* Avatar */}
-        <div
-          className="rounded-full p-3"
-          
-        >
+        <div className="rounded-full p-3">
           <div className="h-20 w-20 rounded-full overflow-hidden bg-white">
             <Image
               src={t.avatar}
@@ -88,7 +84,10 @@ function TestimonialCard({ t }: { t: Feedback }) {
         </div>
 
         {/* Company */}
-        <h3 className="mt-5 text-lg sm:text-xl font-medium" style={{ color: 'var(--text)' }}>
+        <h3
+          className="mt-5 text-lg sm:text-xl font-medium"
+          style={{ color: 'var(--text)' }}
+        >
           {t.company}
         </h3>
 
@@ -109,11 +108,17 @@ function TestimonialCard({ t }: { t: Feedback }) {
         </p>
 
         {/* Signature */}
-        <div className="pt-6">
-          <p className="text-base sm:text-lg font-medium" style={{ color: 'var(--text)' }}>
+        <div className="pt-0">
+          <p
+            className="text-base sm:text-lg font-medium"
+            style={{ color: 'var(--text)' }}
+          >
             {t.name}
           </p>
-          <p className="mt-1 text-sm sm:text-base" style={{ color: 'var(--text2)' }}>
+          <p
+            className="mt-1 text-sm sm:text-base"
+            style={{ color: 'var(--text2)' }}
+          >
             {t.position}
           </p>
         </div>
@@ -124,12 +129,20 @@ function TestimonialCard({ t }: { t: Feedback }) {
 
 export default function Feedback() {
   return (
-    <section className="w-full pt-12 py-12 md:py-28" style={{ background: 'var(--mainBackground)' }}>
+    <section
+      className="w-full pt-12 py-12 md:py-28"
+      style={{ background: 'var(--mainBackground)' }}
+    >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-14">
-          <p className="font-semibold italic text-2xl text-[#00715D]">Feedback</p>
-          <h2 className="not-prose mt-3 text-4xl md:text-4xl font-bold tracking-tight" style={{ color: 'var(--text)' }}>
+          <p className="font-semibold italic text-2xl text-[#00715D]">
+            Feedback
+          </p>
+          <h2
+            className="not-prose mt-3 text-4xl md:text-4xl font-bold tracking-tight"
+            style={{ color: 'var(--text)' }}
+          >
             What they&apos;re talking about SSS
           </h2>
         </div>
@@ -147,10 +160,10 @@ export default function Feedback() {
                   lg:w-[540px] lg:min-w-[540px]
                   flex-shrink-0
                   snap-center
-                  h-[520px] sm:h-[480px] md:h-[480px]
+                  h-[570px] sm:h-[530px] md:h-[530px]
                 "
               >
-                {/* Card fills wrapper height, so no overflow */}
+                
                 <TestimonialCard t={t} />
               </div>
             ))}

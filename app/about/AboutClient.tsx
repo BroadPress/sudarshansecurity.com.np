@@ -5,13 +5,7 @@ import Ribbon from '../../components/Ribbon';
 import Image from 'next/image';
 import Testimonials from '@/components/Testimonials';
 
-const features = [
-  'Security Guard',
-  'V.I.P. Scout Service',
-  'Personal Bodyguard',
-  'Unarmed Security Service',
-  'Event Management Services',
-];
+
 
 const CheckIcon = () => (
   <span

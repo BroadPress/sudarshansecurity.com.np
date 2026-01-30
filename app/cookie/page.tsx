@@ -113,13 +113,13 @@ const CookiePolicy = () => {
           <div>
             <h2 className="text-2xl font-semibold text-teal-800 mb-2">Contact Us</h2>
             <p className="about leading-relaxed mb-1">
-              Email: <span className="font-medium">info@sudarshansecurity.com</span>
+              Email: <span className="font-medium">info@sudarshansecurity.com.np</span>
             </p>
             <p className="about leading-relaxed mb-1">
-              Phone: <span className="font-medium">+977-XXXXXXXXXX</span>
+              Phone: <span className="font-medium">+ 977-9852054100</span>
             </p>
             <p className="about leading-relaxed">
-              Address: <span className="font-medium">[Company Address], Nepal</span>
+              Address: <span className="font-medium">Sunsari, Nepal, Nepal</span>
             </p>
           </div>
         </section>

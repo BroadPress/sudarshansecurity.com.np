@@ -35,9 +35,6 @@ const Footer = () => {
             </div>
 
 
-
-
-
             <p className="text-[15px] leading-relaxed pt-8  mb-4">We as a dedicated security team, works to meet the highest level of customer satisfaction and the best possible protection for our clients and their assets.</p>
             <p className="text-[15px] leading-relaxed pt-2  mb-4"> Sudarshan Security has been a leading name in Nepal's security sector.</p>
           </div>

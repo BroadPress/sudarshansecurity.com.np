@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useEffect, useMemo, useState } from 'react';
 
 type Testimonial = {
   id: number;
@@ -17,7 +18,7 @@ const testimonials: Testimonial[] = [
     name: 'Sumnima Rai',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      "Our Sudarshan employees on-site always provide excellent service and are extremely customer-focused. Their management team responds quickly to our needs and consistently offers strong support. We've been a client for several years.",
+      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. \n\nTheir commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
@@ -26,7 +27,7 @@ const testimonials: Testimonial[] = [
     name: 'Samir Poudel',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      "I'm new to the Sudarshan Security team. As Property Managers, we are frequently concerned with making the right recommendations to our Boards. The staff assigned to my guardhouse has turned me into a hero in the eyes of the Board. Their customer service is outstanding.",
+      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. \n\nTheir commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
@@ -35,7 +36,7 @@ const testimonials: Testimonial[] = [
     name: 'Rakesh Mehta',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'The best way to describe this organization is “Excellent Service!” They have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
+      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. \n\nTheir commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
@@ -44,13 +45,35 @@ const testimonials: Testimonial[] = [
     name: 'Geeta Bhattarai',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'Sudarshan Security is reliable, disciplined, and always responsive. Their guards are well-trained and punctual, and the supervision team regularly checks performance. We feel safer and more confident with their service.',
+      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. \n\nTheir commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
 ];
 
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia(query);
+    const update = () => setMatches(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, [query]);
+
+  return matches;
+}
+
 function TestimonialCard({ t }: { t: Testimonial }) {
+  const isLgUp = useMediaQuery('(min-width: 1024px)');
+
+  // lg+ => convert double line breaks to single line break
+  const displayQuote = useMemo(() => {
+    if (!isLgUp) return t.quote; // keep same for smaller screens
+    return t.quote.replace(/\n\s*\n+/g, '\n'); // \n\n -> \n
+  }, [isLgUp, t.quote]);
+
   return (
     <div className="h-full w-full">
       <div
@@ -68,7 +91,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           overflow-hidden
         "
       >
-        {/* Avatar (top-center, like feedback) */}
+        {/* Avatar */}
         <div className="flex justify-center">
           <div
             className="rounded-full p-3"
@@ -87,12 +110,12 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           </div>
         </div>
 
-        {/* Company (center title) */}
+        {/* Company */}
         <h3 className="mt-5 text-lg sm:text-xl font-medium" style={{ color: 'var(--text)' }}>
           {t.company}
         </h3>
 
-        {/* Quote (clamped so no vertical scrollbar) */}
+        {/* Quote */}
         <p
           className="
             mt-4
@@ -105,10 +128,10 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           "
           style={{ color: 'var(--text2)' }}
         >
-          {t.quote}
+          {displayQuote}
         </p>
 
-        {/* Signature (bottom-center) */}
+        {/* Signature */}
         <div className="pt-6">
           <p className="text-base sm:text-lg font-medium" style={{ color: 'var(--text)' }}>
             {t.name}
@@ -129,12 +152,15 @@ export default function Testimonials() {
         {/* Heading */}
         <div className="text-center mb-8 md:mb-14">
           <p className="font-semibold italic text-2xl text-[#00715D]">Our testimonials</p>
-          <h2 className="mt-3 text-4xl md:text-4xl font-bold tracking-tight" style={{ color: 'var(--text)' }}>
+          <h2
+            className="mt-3 text-4xl md:text-4xl font-bold tracking-tight"
+            style={{ color: 'var(--text)' }}
+          >
             What they&apos;re talking about sudarshan
           </h2>
         </div>
 
-        {/* Slider (NO vertical scroll) */}
+        {/* Slider */}
         <div className="overflow-x-auto overflow-y-hidden pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
           <div className="flex gap-6 sm:gap-8 md:gap-10 min-w-max items-stretch pr-2">
             {testimonials.map((t) => (
