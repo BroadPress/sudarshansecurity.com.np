@@ -15,7 +15,7 @@ const feedbacks: Feedback[] = [
   {
     id: 1,
     name: 'Sumnima Rai',
-    avatar: '/images/testimonials/nameste.jpg',
+    avatar: '/images/feedback/nameste.jpg',
     quote:
       "Our Sudarshan employees on-site always provide excellent service and are extremely customer-focused. Their management team responds quickly to our needs and consistently offers strong support. We've been a client for several years.",
     company: 'Company Name',
@@ -24,7 +24,7 @@ const feedbacks: Feedback[] = [
   {
     id: 2,
     name: 'Samir Poudel',
-    avatar: '/images/testimonials/nameste.jpg',
+    avatar: '/images/feedback/nameste.jpg',
     quote:
       "I'm new to the Sudarshan Security team. As Property Managers, we are frequently concerned with making the right recommendations to our Boards. The staff assigned to my guardhouse has turned me into a hero in the eyes of the Board. Their customer service is outstanding.",
     company: 'Company Name',
@@ -33,7 +33,7 @@ const feedbacks: Feedback[] = [
   {
     id: 3,
     name: 'Rakesh Mehta',
-    avatar: '/images/testimonials/nameste.jpg',
+    avatar: '/images/feedback/nameste.jpg',
     quote:
       'The best way to describe this organization is “Excellent Service!” They have consistently provided us with excellent service for many years. Their commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
@@ -42,7 +42,7 @@ const feedbacks: Feedback[] = [
   {
     id: 4,
     name: 'Geeta Bhattarai',
-    avatar: '/images/testimonials/nameste.jpg',
+    avatar: '/images/feedback/nameste.jpg',
     quote:
       'Sudarshan Security is reliable, disciplined, and always responsive. Their guards are well-trained and punctual, and the supervision team regularly checks performance. We feel safer and more confident with their service.',
     company: 'Company Name',
@@ -50,153 +50,71 @@ const feedbacks: Feedback[] = [
   },
 ];
 
-const QuoteBadge = () => (
-  <div
-    aria-hidden="true"
-    className="
-      absolute top-4 right-4 sm:top-6 sm:right-6
-      h-10 w-10 sm:h-12 sm:w-12
-      rounded-xl
-      flex items-center justify-center
-      shadow-md
-      transition-all duration-300 ease-out
-      group-hover:scale-110 group-hover:rotate-6
-    "
-    style={{
-      background: '#00715D',
-      color: 'white',
-      border: '1px solid var(--border)',
-    }}
-  >
-    <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-6 sm:w-6" fill="currentColor">
-      <path d="M10.3 5.5H6.9C5.3 5.5 4 6.8 4 8.4v3.2c0 1.6 1.3 2.9 2.9 2.9h1.7c-.2 1.8-1.4 3.2-3.4 3.8v1.7c3.6-.8 5.8-3.6 5.8-7.4V8.4c0-1.6-1.3-2.9-2.7-2.9Zm9.7 0h-3.4c-1.6 0-2.9 1.3-2.9 2.9v3.2c0 1.6 1.3 2.9 2.9 2.9h1.7c-.2 1.8-1.4 3.2-3.4 3.8v1.7c3.6-.8 5.8-3.6 5.8-7.4V8.4c0-1.6-1.3-2.9-2.7-2.9Z" />
-    </svg>
-  </div>
-);
-
 function TestimonialCard({ t }: { t: Feedback }) {
   return (
-    <div className="relative overflow-visible pt-12 sm:pt-14">
-      {/* Avatar */}
-      <div className="absolute -top-3 left-5 sm:left-8 z-20">
+    <div className="h-full w-full">
+      {/* IMPORTANT: h-full so it never overflows the wrapper (no vertical scroll) */}
+      <div
+        className="
+          w-full
+          rounded-[22px]
+          bg-white
+          shadow-sm
+          ring-1 ring-black/5
+          px-6 sm:px-8
+          py-10
+          flex flex-col
+          items-center
+          text-center
+          overflow-hidden
+        "
+      >
+        {/* Avatar */}
         <div
-          className="
-            h-24 w-24 sm:h-28 sm:w-28
-            rounded-full
-            flex items-center justify-center
-            shadow-lg
-            transition-transform duration-300
-            group-hover:scale-105
-          "
-          style={{
-            background: 'var(--mainBackground)',
-            border: '1px solid var(--border)',
-          }}
+          className="rounded-full p-3"
+          
         >
-          <div
-            className="h-20 w-20 sm:h-24 sm:w-24 rounded-full shadow-md overflow-hidden"
-            style={{
-              background: 'var(--background)',
-              border: '4px solid var(--background)',
-            }}
-          >
+          <div className="h-20 w-20 rounded-full overflow-hidden bg-white">
             <Image
               src={t.avatar}
               alt={t.name}
               width={96}
               height={96}
-              sizes="(max-width: 640px) 80px, 96px"
-              className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover"
+              sizes="80px"
+              className="h-full w-full object-cover"
             />
           </div>
         </div>
-      </div>
 
-      {/* Card */}
-      <div
-        className="
-          group
-          relative rounded-[22px]
-          overflow-visible
-          flex flex-col
-          sm:h-[480px] md:h-[430px]
-          pb-8
-          transition-all duration-300 ease-out
-          md:hover:-translate-y-3
-        "
-        style={{
-          background: 'var(--background)',
-          border: '4px solid var(--border)',
-          boxShadow: '0 18px 55px -40px rgba(15,23,42,0.45)',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.boxShadow = '0 25px 70px -35px rgba(15,23,42,0.55)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.boxShadow = '0 18px 55px -40px rgba(15,23,42,0.45)';
-        }}
-      >
-        <div
+        {/* Company */}
+        <h3 className="mt-5 text-lg sm:text-xl font-medium" style={{ color: 'var(--text)' }}>
+          {t.company}
+        </h3>
+
+        {/* Quote (clamped so it never causes overflow) */}
+        <p
           className="
-            absolute
-            z-30
-            -translate-y-full
-            text-2xl sm:text-3xl
-            font-extrabold
-            whitespace-nowrap
-            truncate
-            pointer-events-none
-            transition-opacity duration-300
-            group-hover:opacity-95
+            mt-4
+            text-base sm:text-lg
+            leading-7 sm:leading-8
+            whitespace-pre-line
+            line-clamp-7
+            flex-1
+            w-full
           "
-          style={{
-            top: '-10px',
-            left: '153px', 
-            right: '16px',
-            color: 'var(--text)',
-          }}
+          style={{ color: 'var(--text2)' }}
         >
-          {t.name}
-        </div>
+          {t.quote}
+        </p>
 
-        <QuoteBadge />
-
-        {/* Content */}
-        <div className="px-6 sm:px-8 pt-10 sm:pt-11 pr-16 sm:pr-24 flex flex-col flex-1 min-h-0">
-          <p
-            className="
-              text-base sm:text-lg
-              py-8
-              leading-7 sm:leading-9
-              whitespace-pre-line
-              line-clamp-8 sm:line-clamp-6 md:line-clamp-7
-              flex-1 min-h-0 overflow-hidden
-              transition-opacity duration-300
-              group-hover:opacity-95
-            "
-            style={{ color: 'var(--text2)' }}
-          >
-            {t.quote}
+        {/* Signature */}
+        <div className="pt-6">
+          <p className="text-base sm:text-lg font-medium" style={{ color: 'var(--text)' }}>
+            {t.name}
           </p>
-
-          <div className="mt-auto pb-5">
-            <div className="h-[52px] sm:h-[56px] flex flex-col justify-end">
-              <p
-                className="text-lg sm:text-xl font-semibold truncate transition-opacity duration-300 group-hover:opacity-95"
-                style={{ color: 'var(--text)' }}
-                title={t.company}
-              >
-                {t.company}
-              </p>
-              <p
-                className="text-sm sm:text-base truncate transition-opacity duration-300 group-hover:opacity-95"
-                style={{ color: 'var(--text2)' }}
-                title={t.position}
-              >
-                {t.position}
-              </p>
-            </div>
-          </div>
+          <p className="mt-1 text-sm sm:text-base" style={{ color: 'var(--text2)' }}>
+            {t.position}
+          </p>
         </div>
       </div>
     </div>
@@ -205,21 +123,18 @@ function TestimonialCard({ t }: { t: Feedback }) {
 
 export default function Feedback() {
   return (
-    <section className="w-full py-12 md:py-20 overflow-visible" style={{ background: 'var(--mainBackground)' }}>
-      <div className="max-w-7xl mx-auto px-4 md:px-8 overflow-visible">
+    <section className="w-full pt-12 py-12 md:py-28" style={{ background: 'var(--mainBackground)' }}>
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-14">
           <p className="font-semibold italic text-2xl text-[#00715D]">Feedback</p>
-          <h2
-            className="not-prose mt-3 text-4xl md:text-4xl text-blue-700 font-bold tracking-tight"
-            style={{ color: 'var(--text)' }}
-          >
+          <h2 className="not-prose mt-3 text-4xl md:text-4xl font-bold tracking-tight" style={{ color: 'var(--text)' }}>
             What they&apos;re talking about SSS
           </h2>
         </div>
 
-        {/* Slider */}
-        <div className="overflow-x-auto overflow-y-visible pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
+        {/* Slider (NO vertical scroll: overflow-y-hidden) */}
+        <div className="overflow-x-auto overflow-y-hidden pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
           <div className="flex gap-6 sm:gap-8 md:gap-10 min-w-max items-stretch pr-2">
             {feedbacks.map((t) => (
               <div
@@ -230,10 +145,11 @@ export default function Feedback() {
                   md:w-[540px] md:min-w-[540px]
                   lg:w-[540px] lg:min-w-[540px]
                   flex-shrink-0
-                  overflow-visible
                   snap-center
+                  h-[520px] sm:h-[480px] md:h-[480px]
                 "
               >
+                {/* Card fills wrapper height, so no overflow */}
                 <TestimonialCard t={t} />
               </div>
             ))}

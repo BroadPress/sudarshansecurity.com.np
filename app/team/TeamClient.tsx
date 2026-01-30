@@ -33,7 +33,7 @@ const OurTeam = () => {
       }}
     >
       {/* Full-width Ribbon Header */}
-      <Ribbon name="Our Team" showfont={true} />
+      <Ribbon name="Team" showfont={true} />
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="flex flex-wrap justify-center gap-8 md:gap-10">

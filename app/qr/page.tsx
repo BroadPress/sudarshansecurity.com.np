@@ -5,7 +5,7 @@ const cardData = [
   {
     id: 1,
     title: "Payment QR",
-    image: "/images/qr/payment.jpg",
+    image: "/images/qr/placeholder.png",
     link: "#payment",
     description: "Scan this QR code to make secure payments for services.",
   },
@@ -19,28 +19,28 @@ const cardData = [
   {
     id: 3,
     title: "Google Reviews",
-    image: "/images/qr/google.jpg",
+    image: "/images/qr/google.png",
     link: "tel:+9779852024365",
     description: "Get in touch with our team for consultations and support.",
   },
   {
     id: 4,
     title: "Appointment",
-    image: "/images/qr/appointment.jpg",
+    image: "/images/qr/placeholder.png",
     link: "mailto:info@sriyogconsulting.com",
     description: "Reach out via email for inquiries and project discussions.",
   },
   {
     id: 5,
     title: "Instagram",
-    image: "/images/qr/instagram.jpg",
+    image: "/images/qr/placeholder.png",
     link: "https://dashboard.sriyogconsulting.com",
     description: "Access your personalized dashboard for project updates.",
   },
   {
     id: 6,
     title: "Location",
-    image: "/images/qr/location.jpg",
+    image: "/images/qr/map.png",
     link: "https://www.google.com/maps/place/Sriyog+Consulting/",
     description: "Find our office location on Google Maps for visits.",
   },
@@ -51,7 +51,7 @@ function Qr() {
     <div>
 
       {/* Page Header */}
-      <Ribbon name= "QR Codes" showfont={false}/>
+      <Ribbon name="QR Codes" showfont={false} />
 
       {/* Cards */}
       <section className="max-w-7xl mx-auto px-6 sm:px-10 py-10">

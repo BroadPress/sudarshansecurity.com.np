@@ -53,7 +53,7 @@ const Header = () => {
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
-    { name: "Message", href: "/message" }, // ✅ message here
+    { name: "Message", href: "/message" }, 
     { name: "Feedback", href: "/feedback" },
     { name: "Team", href: "/team" },
     { name: "Contact", href: "/contact" },
@@ -71,7 +71,7 @@ const Header = () => {
               alt="Sriyog Logo"
               width={800}
               height={600}
-              className="w-[130px] md:w-[170px] h-auto"
+              className="w-[250px] h-auto"
               style={{
                 filter:
                   "brightness(0) saturate(80%) invert(15%) sepia(90%) saturate(3000%) hue-rotate(2deg) brightness(105%) contrast(120%)",

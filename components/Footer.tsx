@@ -25,7 +25,7 @@ const Footer = () => {
                   alt="Sriyog Logo"
                   width={800}
                   height={600}
-                  className="w-[130px] md:w-[170px] h-auto"
+                  className="w-[200px] sm:w-[350px]  h-auto"
                   style={{
                     filter:
                       "brightness(0) saturate(100%) invert(15%) sepia(90%) saturate(7000%) hue-rotate(2deg) brightness(105%) contrast(120%)",
@@ -38,7 +38,8 @@ const Footer = () => {
 
 
 
-            <p className="text-[15px] leading-relaxed pt-12  mb-4">We as a dedicated security team, works to meet the highest level of customer satisfaction and the best possible protection for our clients and their assets.</p>
+            <p className="text-[15px] leading-relaxed pt-8  mb-4">We as a dedicated security team, works to meet the highest level of customer satisfaction and the best possible protection for our clients and their assets.</p>
+            <p className="text-[15px] leading-relaxed pt-2  mb-4"> Sudarshan Security has been a leading name in Nepal's security sector.</p>
           </div>
 
           {/* RIGHT COLUMNS */}
@@ -138,29 +139,31 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:justify-between gap-8 mt-10">
 
           {/* SOCIAL ICONS */}
-          <div className="flex gap-6 justify-center">
-            <a href="#" className="flex items-center hover:opacity-60 transition hover:scale-110">
-              <img src={`/icons/x.svg`} className="h-5 w-5 sm:h-6 sm:w-6 cursor-pointer" />
-            </a>
-            <a href="#" className="flex items-center hover:opacity-60 transition hover:scale-110">
-              <img src={`/icons/linkedin.svg`} className="h-5 w-5 sm:h-6 sm:w-6 cursor-pointer" />
-            </a>
-            <a href="#" className="flex items-center hover:opacity-60 transition hover:scale-110 ">
-              <img src={`/icons/youtube.svg`} className="h-5 w-5 sm:h-6 sm:w-6 cursor-pointer" />
-            </a>
-            <a href="#" className="flex items-center hover:opacity-60 transition hover:scale-110">
-              <img src={`/icons/trello.svg`} className="h-5 w-5 sm:h-6 sm:w-6 cursor-pointer" />
-            </a>
-            <a href="#" className="flex items-center hover:opacity-60 transition hover:scale-110">
-              <img src={`/icons/signal.svg`} className="h-[22px] w-[22px] sm:h-[26px] sm:w-[26px] cursor-pointer" />
-            </a>
-            <a href="#" className="flex items-center hover:opacity-60 transition hover:scale-110">
-              <img src={`/icons/discord.svg`} className="h-5 w-5 sm:h-6 sm:w-6 cursor-pointer" />
-            </a>
-            <a href="#" className="flex items-center hover:opacity-60 transition hover:scale-110">
-              <img src={`/icons/viber.svg`} className="h-[22px] w-[22px] sm:h-[26px] sm:w-[26px] cursor-pointer" />
-            </a>
+          <div className="flex flex-wrap gap-6 justify-center">
+            {[
+              { href: "#", src: "/icons/facebook.svg", alt: "Viber" },
+              { href: "#", src: "/icons/x.svg", alt: "X" },
+              { href: "#", src: "/icons/linkedin.svg", alt: "LinkedIn" },
+              { href: "#", src: "/icons/youtube.svg", alt: "YouTube" },
+              { href: "#", src: "/icons/trello.svg", alt: "Trello" },
+              { href: "#", src: "/icons/viber.svg", alt: "Viber" },
+              
+            ].map((item) => (
+              <a
+                key={item.alt}
+                href={item.href}
+                className="grid place-items-center h-10 w-10 sm:h-11 sm:w-11 rounded-full hover:opacity-60 transition hover:scale-110"
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className={`h-5 w-5 sm:h-6 sm:w-6 object-contain ${item.extra ?? ""}`}
+                />
+              </a>
+            ))}
           </div>
+
+
 
           {/* CONTACT BOXES */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -172,10 +175,7 @@ const Footer = () => {
             </a>
 
 
-            <a href="tel:+977014548068" className={`flex items-center gap-2 border-2 rounded-lg px-7 py-3 w-full sm:w-auto `}>
-              <img src="/icons/phone.svg" alt="phone" className="h-6 w-6" />
-              <span className="text-sm">+ 977-9852054100</span>
-            </a>
+           
 
             {/* WHATSAPP */}
             <a

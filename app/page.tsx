@@ -149,11 +149,11 @@ const Home = () => {
               reputable and reliable choice for safeguarding what matters most to you.
             </p>
 
-            <Link href="/about">
+            <Link href="/contact">
               <button
-                className="text-center w-42 h-14 p-2 rounded-full mt-11 transition-colors border bg-red-500  hover:bg-[#00715D] "
+                className="text-center w-42 h-14 p-2 rounded-full mt-11 transition-colors text-[#ffffff] border bg-red-600  hover:bg-[#00715D] "
               >
-                DISCOVER MORE
+                Hire a service
               </button>
             </Link>
           </motion.div>

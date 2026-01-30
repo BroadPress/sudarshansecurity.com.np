@@ -1,426 +1,393 @@
-'use client'
-import React, { useState } from 'react';
+'use client';
+
+import React, { useMemo, useState } from 'react';
 import Ribbon from '../../components/Ribbon';
 
+type Term = {
+  term: string;
+  definition: string;
+};
+
+type TermsByLetter = {
+  [key: string]: Term[];
+};
+
 export default function Glossary() {
-    const [selectedLetter, setSelectedLetter] = useState<string>('A');
-    type Term = {
-        term : string ,
-        definition : string
-    }
-    type TermsByLetter = {
-        [key: string]: Term[]; // keys like 'A', 'B', 'C'
-    };
-    const glossaryTerms:TermsByLetter = {
-        A: [
-            {
-                term: "API (Application Programming Interface)",
-                definition: "A set of protocols and tools that allows different software applications to communicate with each other."
-            },
-            {
-                term: "Agile Methodology",
-                definition: "An iterative approach to software development that emphasizes flexibility, collaboration, and customer feedback."
-            },
-            {
-                term: "Authentication",
-                definition: "The process of verifying the identity of a user or system before granting access to resources."
-            },
-            {
-                term: "AWS (Amazon Web Services)",
-                definition: "A comprehensive cloud computing platform that provides on-demand services like storage, computing power, and databases."
-            }
-        ],
-        B: [
-            {
-                term: "Backend",
-                definition: "The server-side of a website or application that handles data processing, storage, and business logic."
-            },
-            {
-                term: "Bootstrap",
-                definition: "A popular front-end framework for developing responsive and mobile-first websites."
-            },
-            {
-                term: "Bug",
-                definition: "An error or flaw in software that causes it to produce incorrect or unexpected results."
-            },
-            {
-                term: "Bandwidth",
-                definition: "The maximum rate of data transfer across a network connection, typically measured in Mbps or Gbps."
-            }
-        ],
-        C: [
-            {
-                term: "Cache",
-                definition: "A temporary storage area that saves frequently accessed website data to improve load times and performance."
-            },
-            {
-                term: "CMS (Content Management System)",
-                definition: "A software platform that allows users to create, edit, organize, and publish digital content without needing to code."
-            },
-            {
-                term: "Cloud Hosting",
-                definition: "Hosting website data on virtual cloud servers, for scalability, flexibility, and cost-effectiveness."
-            },
-            {
-                term: "CSS (Cascading Style Sheets)",
-                definition: "A web language that controls the layout and visual style of content, including fonts, colors, spacing, and alignment."
-            },
-            {
-                term: "Cybersecurity",
-                definition: "The protection of digital assets and user data from unauthorized access, attacks, or breaches through secure CMS practices."
-            },
-            {
-                term: "CTA (Call to Action)",
-                definition: "A prompt, such as a button or link, that encourages users to take a specific action like signing up or purchasing."
-            }
-        ],
-        D: [
-            {
-                term: "Database",
-                definition: "An organized collection of structured data that can be easily accessed, managed, and updated."
-            },
-            {
-                term: "DevOps",
-                definition: "A set of practices that combines software development and IT operations to shorten development cycles."
-            },
-            {
-                term: "DNS (Domain Name System)",
-                definition: "A system that translates domain names into IP addresses so browsers can load websites."
-            },
-            {
-                term: "Docker",
-                definition: "A platform that uses containerization to package applications and their dependencies for consistent deployment."
-            }
-        ],
-        E: [
-            {
-                term: "E-commerce",
-                definition: "The buying and selling of goods or services over the internet through online platforms."
-            },
-            {
-                term: "Encryption",
-                definition: "The process of converting data into a coded format to prevent unauthorized access."
-            },
-            {
-                term: "ERP (Enterprise Resource Planning)",
-                definition: "Integrated software that manages core business processes like accounting, HR, inventory, and supply chain."
-            }
-        ],
-        F: [
-            {
-                term: "Frontend",
-                definition: "The client-side of a website or application that users interact with directly through their browser."
-            },
-            {
-                term: "Framework",
-                definition: "A pre-built structure or set of tools that helps developers build applications more efficiently."
-            },
-            {
-                term: "Firewall",
-                definition: "A network security system that monitors and controls incoming and outgoing traffic based on security rules."
-            },
-            {
-                term: "FTP (File Transfer Protocol)",
-                definition: "A standard protocol used to transfer files between a client and server over a network."
-            }
-        ],
-        G: [
-            {
-                term: "Git",
-                definition: "A version control system that tracks changes in code and enables collaboration among developers."
-            },
-            {
-                term: "GUI (Graphical User Interface)",
-                definition: "A visual way for users to interact with software through icons, buttons, and windows."
-            },
-            {
-                term: "GitHub",
-                definition: "A web-based platform for version control and collaboration using Git repositories."
-            }
-        ],
-        H: [
-            {
-                term: "HTML (HyperText Markup Language)",
-                definition: "The standard markup language used to create and structure content on the web."
-            },
-            {
-                term: "HTTP/HTTPS",
-                definition: "Protocols for transmitting data over the web; HTTPS is the secure version with encryption."
-            },
-            {
-                term: "Hosting",
-                definition: "A service that provides server space and resources for websites to be accessible on the internet."
-            }
-        ],
-        I: [
-            {
-                term: "IDE (Integrated Development Environment)",
-                definition: "A software application that provides comprehensive tools for software development in one place."
-            },
-            {
-                term: "IT Consulting",
-                definition: "Professional advisory services that help organizations optimize their technology infrastructure and strategies."
-            },
-            {
-                term: "IoT (Internet of Things)",
-                definition: "A network of physical devices connected to the internet, collecting and sharing data."
-            }
-        ],
-        J: [
-            {
-                term: "JavaScript",
-                definition: "A programming language that enables interactive and dynamic content on websites."
-            },
-            {
-                term: "JSON (JavaScript Object Notation)",
-                definition: "A lightweight data format used for storing and exchanging data between systems."
-            },
-            {
-                term: "jQuery",
-                definition: "A fast JavaScript library that simplifies HTML document manipulation, event handling, and animation."
-            }
-        ],
-        K: [
-            {
-                term: "Kubernetes",
-                definition: "An open-source platform for automating deployment, scaling, and management of containerized applications."
-            },
-            {
-                term: "Keyword",
-                definition: "A specific word or phrase that users type into search engines, crucial for SEO optimization."
-            }
-        ],
-        L: [
-            {
-                term: "Linux",
-                definition: "An open-source operating system widely used for servers, development, and enterprise applications."
-            },
-            {
-                term: "Load Balancing",
-                definition: "The process of distributing network traffic across multiple servers to ensure optimal performance."
-            }
-        ],
-        M: [
-            {
-                term: "Machine Learning",
-                definition: "A subset of AI that enables systems to learn and improve from experience without explicit programming."
-            },
-            {
-                term: "MySQL",
-                definition: "An open-source relational database management system commonly used for web applications."
-            },
-            {
-                term: "Metadata",
-                definition: "Data that provides information about other data, such as file creation dates or image properties."
-            }
-        ],
-        N: [
-            {
-                term: "Node.js",
-                definition: "A JavaScript runtime environment that allows developers to run JavaScript on the server-side."
-            },
-            {
-                term: "NoSQL",
-                definition: "A database system that stores data in formats other than traditional relational tables."
-            }
-        ],
-        O: [
-            {
-                term: "Open Source",
-                definition: "Software with source code that anyone can inspect, modify, and enhance."
-            },
-            {
-                term: "Operating System",
-                definition: "System software that manages computer hardware and software resources, like Windows, macOS, or Linux."
-            }
-        ],
-        P: [
-            {
-                term: "PHP",
-                definition: "A server-side scripting language widely used for web development and dynamic content generation."
-            },
-            {
-                term: "PWA (Progressive Web App)",
-                definition: "A type of web application that works offline and provides an app-like experience on mobile devices."
-            },
-            {
-                term: "Python",
-                definition: "A high-level programming language known for its simplicity and versatility in web, data science, and AI."
-            }
-        ],
-        Q: [
-            {
-                term: "Query",
-                definition: "A request for data or information from a database, typically written in SQL."
-            },
-            {
-                term: "QA (Quality Assurance)",
-                definition: "The process of testing software to ensure it meets quality standards and functions correctly."
-            }
-        ],
-        R: [
-            {
-                term: "React",
-                definition: "A JavaScript library for building user interfaces, particularly single-page applications."
-            },
-            {
-                term: "Responsive Design",
-                definition: "A web design approach that ensures websites adapt seamlessly to different screen sizes and devices."
-            },
-            {
-                term: "REST API",
-                definition: "An architectural style for APIs that uses HTTP requests to access and manipulate data."
-            }
-        ],
-        S: [
-            {
-                term: "SaaS (Software as a Service)",
-                definition: "Cloud-based software that users access via the internet, typically through a subscription model."
-            },
-            {
-                term: "SEO (Search Engine Optimization)",
-                definition: "The practice of optimizing websites to rank higher in search engine results and increase organic traffic."
-            },
-            {
-                term: "SSL Certificate",
-                definition: "A digital certificate that authenticates a website's identity and enables encrypted connections."
-            },
-            {
-                term: "SQL (Structured Query Language)",
-                definition: "A standard language for managing and manipulating relational databases."
-            },
-            {
-                term: "Scrum",
-                definition: "An agile framework for managing complex projects through iterative sprints and team collaboration."
-            }
-        ],
-        T: [
-            {
-                term: "TypeScript",
-                definition: "A superset of JavaScript that adds static typing for improved code quality and developer experience."
-            },
-            {
-                term: "TLS (Transport Layer Security)",
-                definition: "A cryptographic protocol that provides secure communication over a computer network."
-            }
-        ],
-        U: [
-            {
-                term: "UI (User Interface)",
-                definition: "The visual elements and layout that users interact with in a software application or website."
-            },
-            {
-                term: "UX (User Experience)",
-                definition: "The overall experience a user has when interacting with a product, focusing on usability and satisfaction."
-            },
-            {
-                term: "URL (Uniform Resource Locator)",
-                definition: "The address used to access resources on the internet, commonly known as a web address."
-            }
-        ],
-        V: [
-            {
-                term: "Version Control",
-                definition: "A system that tracks changes to files over time, allowing multiple developers to collaborate efficiently."
-            },
-            {
-                term: "Virtual Machine",
-                definition: "A software emulation of a physical computer that runs an operating system and applications."
-            },
-            {
-                term: "VPN (Virtual Private Network)",
-                definition: "A secure connection that encrypts internet traffic and protects online privacy."
-            }
-        ],
-        W: [
-            {
-                term: "Web Development",
-                definition: "The process of creating, building, and maintaining websites and web applications."
-            },
-            {
-                term: "WordPress",
-                definition: "A popular open-source content management system used for building websites and blogs."
-            },
-            {
-                term: "Wireframe",
-                definition: "A visual blueprint or skeletal outline of a website or app's layout and structure."
-            }
-        ],
-        X: [
-            {
-                term: "XML (Extensible Markup Language)",
-                definition: "A markup language that defines rules for encoding documents in a format that is both human and machine-readable."
-            }
-        ],
-        Y: [
-            {
-                term: "YAML",
-                definition: "A human-readable data serialization language commonly used for configuration files."
-            }
-        ],
-        Z: [
-            {
-                term: "Zero-Day Vulnerability",
-                definition: "A security flaw in software that is exploited by attackers before the developer has a chance to fix it."
-            }
-        ]
-    };
+  const [selectedLetter, setSelectedLetter] = useState<string>('A');
 
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    const availableLetters = Object.keys(glossaryTerms);
+  // ✅ Sudarshan Security Services glossary (security-focused)
+  const glossaryTerms: TermsByLetter = useMemo(
+    () => ({
+      A: [
+        {
+          term: 'Access Control',
+          definition:
+            'Methods used to regulate who can enter a site, building, or restricted area, including ID checks, passes, and entry logs.',
+        },
+        {
+          term: 'Alarm Response',
+          definition:
+            'A security team’s action after receiving an alarm signal, including verification, dispatch, and coordination with authorities if required.',
+        },
+        {
+          term: 'Asset Protection',
+          definition:
+            'Security practices focused on preventing loss, theft, or damage to property, equipment, cash, and other valuables.',
+        },
+      ],
+      B: [
+        {
+          term: 'Bag Check',
+          definition:
+            'A screening procedure to prevent prohibited items from entering premises and to reduce theft risks when leaving the site.',
+        },
+        {
+          term: 'Beat Patrol',
+          definition:
+            'Routine rounds by a guard along a fixed route to deter incidents and spot unusual activity early.',
+        },
+        {
+          term: 'Breach',
+          definition:
+            'An unauthorized entry or violation of security rules, such as forced access, trespassing, or bypassing checkpoints.',
+        },
+      ],
+      C: [
+        {
+          term: 'CCTV (Closed-Circuit Television)',
+          definition:
+            'Camera surveillance used to monitor activity in real-time and review footage for investigations and reporting.',
+        },
+        {
+          term: 'Control Room',
+          definition:
+            'The central point where surveillance, alarms, communication, and incident coordination are managed.',
+        },
+        {
+          term: 'Crowd Control',
+          definition:
+            'Organizing and directing people during events or busy areas to prevent disorder, conflict, or unsafe situations.',
+        },
+      ],
+      D: [
+        {
+          term: 'Deterrence',
+          definition:
+            'Preventing incidents by maintaining visible security presence, clear rules, and strong access control.',
+        },
+        {
+          term: 'Daily Occurrence Book (DOB)',
+          definition:
+            'A site logbook used to record shifts, incidents, visitor entries, patrol times, and important observations.',
+        },
+        {
+          term: 'Duty Post',
+          definition:
+            'A guard’s assigned location and responsibilities, including schedules, patrol points, and reporting lines.',
+        },
+      ],
+      E: [
+        {
+          term: 'Emergency Response',
+          definition:
+            'Planned actions during emergencies such as fire, medical incidents, fights, threats, or natural disasters.',
+        },
+        {
+          term: 'Evacuation',
+          definition:
+            'Moving people safely out of a dangerous area following a defined route and assembly point procedure.',
+        },
+      ],
+      F: [
+        {
+          term: 'First Aid',
+          definition:
+            'Immediate basic medical assistance provided until professional medical help arrives.',
+        },
+        {
+          term: 'Fire Watch',
+          definition:
+            'Dedicated monitoring of fire risks and systems, especially when fire alarms/sprinklers are under maintenance.',
+        },
+      ],
+      G: [
+        {
+          term: 'Gate Pass',
+          definition:
+            'A written or approved authorization document for entry/exit of people, vehicles, or materials.',
+        },
+        {
+          term: 'Guard Tour',
+          definition:
+            'A scheduled patrol route with checkpoints to confirm patrol completion and maintain site coverage.',
+        },
+      ],
+      H: [
+        {
+          term: 'Hazard Identification',
+          definition:
+            'Spotting and reporting unsafe conditions (blocked exits, spills, exposed wires) before incidents occur.',
+        },
+        {
+          term: 'Handover',
+          definition:
+            'Shift change briefing where pending issues, incidents, keys, and instructions are transferred to the next team.',
+        },
+      ],
+      I: [
+        {
+          term: 'Incident Report',
+          definition:
+            'A written record of what happened, when, where, who was involved, actions taken, and evidence available.',
+        },
+        {
+          term: 'Intrusion',
+          definition:
+            'Unauthorized entry into premises or restricted zones, often detected through guards, alarms, or CCTV.',
+        },
+      ],
+      J: [
+        {
+          term: 'Joint Patrol',
+          definition:
+            'Patrol conducted by two or more guards to improve safety, visibility, and coverage in sensitive areas.',
+        },
+      ],
+      K: [
+        {
+          term: 'Key Control',
+          definition:
+            'System for issuing, tracking, and storing keys to prevent misuse and maintain accountability.',
+        },
+      ],
+      L: [
+        {
+          term: 'Lockdown',
+          definition:
+            'Securing entrances/exits and restricting movement due to a threat or serious incident.',
+        },
+        {
+          term: 'Loss Prevention',
+          definition:
+            'Measures to reduce theft, shrinkage, and damage through monitoring, checks, and proper procedures.',
+        },
+      ],
+      M: [
+        {
+          term: 'Metal Detector (Screening)',
+          definition:
+            'Device used to identify metallic objects during entry screening to enhance safety and prevent prohibited items.',
+        },
+        {
+          term: 'Monitoring',
+          definition:
+            'Continuous observation of people, vehicles, alarms, and CCTV feeds to identify risks or unusual activity.',
+        },
+      ],
+      N: [
+        {
+          term: 'Night Patrol',
+          definition:
+            'Security rounds conducted during night hours when risk of intrusion and theft is typically higher.',
+        },
+      ],
+      O: [
+        {
+          term: 'Observation',
+          definition:
+            'A guard’s ability to notice details, changes, and suspicious behavior and report them accurately.',
+        },
+        {
+          term: 'On-Site Supervisor',
+          definition:
+            'A leader responsible for guard discipline, post checks, reporting quality, and coordination with the client.',
+        },
+      ],
+      P: [
+        {
+          term: 'Perimeter Security',
+          definition:
+            'Protection of boundaries such as fences, walls, gates, and outer areas to prevent unauthorized entry.',
+        },
+        {
+          term: 'Post Orders',
+          definition:
+            'Written instructions that define duties, rules, emergency actions, and reporting requirements for a security post.',
+        },
+        {
+          term: 'Patrol Log',
+          definition:
+            'A record of patrol times, routes, observations, and any action taken during rounds.',
+        },
+      ],
+      Q: [
+        {
+          term: 'Quick Response Team (QRT)',
+          definition:
+            'A mobile team deployed to handle alarms, urgent incidents, and support guards during high-risk situations.',
+        },
+      ],
+      R: [
+        {
+          term: 'Risk Assessment',
+          definition:
+            'Identifying threats, evaluating likelihood/impact, and planning controls to reduce safety and security risks.',
+        },
+        {
+          term: 'Report Writing',
+          definition:
+            'Clear, factual documentation of incidents, observations, and actions taken for client and internal records.',
+        },
+      ],
+      S: [
+        {
+          term: 'Site Security',
+          definition:
+            'Protection services at a specific location, including guarding, access control, patrols, and monitoring.',
+        },
+        {
+          term: 'Suspicious Activity',
+          definition:
+            'Unusual behavior or presence that may indicate theft, intrusion, or threat and should be reported immediately.',
+        },
+        {
+          term: 'Search Procedure',
+          definition:
+            'Standard method for checking persons/vehicles/materials while respecting safety, policy, and local rules.',
+        },
+      ],
+      T: [
+        {
+          term: 'Threat',
+          definition:
+            'Any situation, person, or event that could cause harm, loss, or disruption to people and property.',
+        },
+        {
+          term: 'Trespassing',
+          definition:
+            'Entering or staying on property without permission, especially in restricted zones.',
+        },
+      ],
+      U: [
+        {
+          term: 'Uniform & Turnout',
+          definition:
+            'Professional appearance standards for guards including uniform, ID badge, grooming, and readiness.',
+        },
+      ],
+      V: [
+        {
+          term: 'Visitor Management',
+          definition:
+            'Process of verifying visitors, recording entry/exit, issuing passes, and escorting when required.',
+        },
+        {
+          term: 'Vehicle Check',
+          definition:
+            'Inspection of vehicles entering/leaving premises, including ID verification, gate pass confirmation, and material checks.',
+        },
+      ],
+      W: [
+        {
+          term: 'Watchman / Security Guard',
+          definition:
+            'A trained professional responsible for protecting people, property, and maintaining order at the assigned site.',
+        },
+        {
+          term: 'Workplace Safety',
+          definition:
+            'Practices that reduce accidents and ensure safe conditions, supported by hazard reporting and compliance.',
+        },
+      ],
+      X: [
+        {
+          term: 'X-Ray Screening',
+          definition:
+            'Security screening method used at high-security sites to inspect bags and parcels for prohibited items.',
+        },
+      ],
+      Y: [
+        {
+          term: 'Yard / Perimeter Round',
+          definition:
+            'Security patrol around open areas and boundary lines to detect breaches, damage, or suspicious movement.',
+        },
+      ],
+      Z: [
+        {
+          term: 'Zero Tolerance Policy',
+          definition:
+            'A strict rule set where serious violations (violence, theft, substance use on duty) lead to immediate action.',
+        },
+      ],
+    }),
+    []
+  );
 
-    return (
-        <div className="h-full">
-            {/* Header Section */}
-            <Ribbon name="Glossary" showfont={false}/>
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const availableLetters = Object.keys(glossaryTerms);
 
-            <div className="max-w-7xl mx-auto px-4 md:px-8 pb-16">
-                {/* Alphabet Navigation */}
-                <div className="card rounded-lg py-4 px-6 mb-8">
-                    <div className="flex flex-wrap justify-center gap-3">
-                        {alphabet.map((letter) => (
-                            <button
-                                key={letter}
-                                onClick={() => availableLetters.includes(letter) && setSelectedLetter(letter)}
-                                className={`w-8 h-8 flex items-center justify-center font-bold text-sm rounded transition-all ${
-                                    availableLetters.includes(letter)
-                                        ? selectedLetter === letter
-                                            ? 'bg-teal-700 text-white'
-                                            : 'bg-white text-gray-800 hover:bg-teal-100'
-                                        : 'text-gray-400 cursor-not-allowed'
-                                }`}
-                                disabled={!availableLetters.includes(letter)}
-                            >
-                                {letter}
-                            </button>
-                        ))}
-                    </div>
-                </div>
+  return (
+    <div className="h-full">
+      <Ribbon name="Security Glossary" showfont={false} />
 
-                {/* Terms Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {glossaryTerms[selectedLetter]?.map((item, index) => (
-                        <div
-                            key={index}
-                            className="footer border border-gray-300 rounded-lg p-6 hover:shadow-lg transition-shadow"
-                        >
-                            <h3 className="text-lg font-bold mb-3">
-                                {item.term}
-                            </h3>
-                            <p className=" text-sm text2 leading-relaxed">
-                                {item.definition}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Empty State */}
-                {!glossaryTerms[selectedLetter] && (
-                    <div className="text-center py-12">
-                        <p className="text-gray-500 text-lg">No terms available for letter {selectedLetter}</p>
-                    </div>
-                )}
-            </div>
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pb-16">
+        {/* Intro */}
+        <div className="mb-6">
+          <p className="text2 text-sm md:text-base leading-relaxed">
+            Explore common security terms used at Sudarshan Security Services—use the letters below to jump to each section.
+          </p>
         </div>
-    );
+
+        {/* Alphabet Navigation */}
+        <div className="card rounded-lg py-4 px-6 mb-8">
+          <div className="flex flex-wrap justify-center gap-3">
+            {alphabet.map((letter) => {
+              const enabled = availableLetters.includes(letter);
+              const active = selectedLetter === letter;
+
+              return (
+                <button
+                  key={letter}
+                  onClick={() => enabled && setSelectedLetter(letter)}
+                  className={`w-8 h-8 flex items-center justify-center font-bold text-sm rounded transition-all
+                    ${enabled
+                      ? active
+                        ? 'bg-teal-700 text-white'
+                        : 'bg-white text-gray-800 hover:bg-teal-100'
+                      : 'text-gray-400 cursor-not-allowed'
+                    }`}
+                  disabled={!enabled}
+                >
+                  {letter}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Terms Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {glossaryTerms[selectedLetter]?.map((item, index) => (
+            <div
+              key={index}
+              className="footer border border-gray-300 rounded-lg p-6 hover:shadow-lg transition-shadow"
+            >
+              <h3 className="text-lg font-bold mb-3">{item.term}</h3>
+              <p className="text-sm text2 leading-relaxed">{item.definition}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Empty State */}
+        {!glossaryTerms[selectedLetter] && (
+          <div className="text-center py-12">
+            <p className="text-gray-500 text-lg">
+              No terms available for letter {selectedLetter}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }

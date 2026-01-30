@@ -50,145 +50,72 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-const QuoteBadge = () => (
-  <div
-    aria-hidden="true"
-    className="
-      absolute top-4 right-4 sm:top-6 sm:right-6
-      h-10 w-10 sm:h-12 sm:w-12
-      rounded-xl
-      flex items-center justify-center
-      shadow-md
-      transition-all duration-300 ease-out
-      group-hover:scale-110 group-hover:rotate-6
-    "
-    style={{
-      background: '#00715D',
-      color: 'white',
-      border: '1px solid var(--border)',
-    }}
-  >
-    <svg viewBox="0 0 24 24" className="h-5 w-5 sm:h-6 sm:w-6" fill="currentColor">
-      <path d="M10.3 5.5H6.9C5.3 5.5 4 6.8 4 8.4v3.2c0 1.6 1.3 2.9 2.9 2.9h1.7c-.2 1.8-1.4 3.2-3.4 3.8v1.7c3.6-.8 5.8-3.6 5.8-7.4V8.4c0-1.6-1.3-2.9-2.7-2.9Zm9.7 0h-3.4c-1.6 0-2.9 1.3-2.9 2.9v3.2c0 1.6 1.3 2.9 2.9 2.9h1.7c-.2 1.8-1.4 3.2-3.4 3.8v1.7c3.6-.8 5.8-3.6 5.8-7.4V8.4c0-1.6-1.3-2.9-2.7-2.9Z" />
-    </svg>
-  </div>
-);
-
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
-    <div className="relative overflow-visible pt-12 sm:pt-14">
-      {/* Avatar */}
-      <div className="absolute -top-3 left-5 sm:left-8 z-20">
-        <div
-          className="
-            h-24 w-24 sm:h-28 sm:w-28
-            rounded-full
-            flex items-center justify-center
-            shadow-lg
-            transition-transform duration-300
-            group-hover:scale-105
-          "
-          style={{
-            background: 'var(--mainBackground)',
-            border: '1px solid var(--border)',
-          }}
-        >
-          <div
-            className="h-20 w-20 sm:h-24 sm:w-24 rounded-full shadow-md overflow-hidden"
-            style={{
-              background: 'var(--background)',
-              border: '4px solid var(--background)',
-            }}
-          >
-            <Image
-              src={t.avatar}
-              alt={t.name}
-              width={96}
-              height={96}
-              sizes="(max-width: 640px) 80px, 96px"
-              className="h-20 w-20 sm:h-24 sm:w-24 rounded-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Card */}
+    <div className="h-full w-full">
       <div
         className="
-          group
-          relative rounded-[22px]
-          overflow-visible
+          h-full w-full
+          rounded-[22px]
+          bg-white
+          shadow-sm
+          ring-1 ring-black/5
+          px-6 sm:px-8
+          py-10
           flex flex-col
-          sm:h-[480px] md:h-[430px]
-          pb-8
-          transition-all duration-300 ease-out
-          md:hover:-translate-y-3
-          shadow-[0_18px_55px_-40px_rgba(15,23,42,0.45)]
-          hover:shadow-[0_25px_70px_-35px_rgba(15,23,42,0.55)]
+          items-center
+          text-center
+          overflow-hidden
         "
-        style={{
-          background: 'var(--background)',
-          border: '4px solid var(--border)',
-        }}
       >
-
-        <div
-          className="
-            absolute z-30 -translate-y-full
-            text-2xl sm:text-3xl font-extrabold
-            whitespace-nowrap truncate
-            pointer-events-none
-            transition-opacity duration-300
-            group-hover:opacity-95
-          "
-          style={{
-            top: '-10px',
-            left: '180px',
-            right: '16px',
-            color: 'var(--text)',
-          }}
-        >
-          <span className="hidden sm:inline">{t.name}</span>
-          <span className="sm:hidden">{t.name}</span>
-        </div>
-
-        <QuoteBadge />
-
-        {/* Content */}
-        <div className="px-6 sm:px-8 pt-10 sm:pt-11 pr-16 sm:pr-24 flex flex-col flex-1 min-h-0">
-          <p
-            className="
-              text-base py-8 sm:text-lg
-              leading-7 sm:leading-9
-              whitespace-pre-line
-              line-clamp-8 sm:line-clamp-6 md:line-clamp-7
-              flex-1 min-h-0 overflow-hidden
-              transition-opacity duration-300
-              group-hover:opacity-95
-            "
-            style={{ color: 'var(--text2)' }}
+        {/* Avatar (top-center, like feedback) */}
+        <div className="flex justify-center">
+          <div
+            className="rounded-full p-3"
+            style={{ background: 'rgba(224, 208, 160, 0.55)' }}
           >
-            {t.quote}
-          </p>
-
-          <div className="mt-auto pb-5">
-            <div className="h-[52px] sm:h-[56px] flex flex-col justify-end">
-              <p
-                className="text-lg sm:text-xl font-semibold truncate transition-opacity duration-300 group-hover:opacity-95"
-                style={{ color: 'var(--text)' }}
-                title={t.company}
-              >
-                {t.company}
-              </p>
-              <p
-                className="text-sm sm:text-base truncate transition-opacity duration-300 group-hover:opacity-95"
-                style={{ color: 'var(--text2)' }}
-                title={t.position}
-              >
-                {t.position}
-              </p>
+            <div className="h-20 w-20 rounded-full overflow-hidden bg-white">
+              <Image
+                src={t.avatar}
+                alt={t.name}
+                width={96}
+                height={96}
+                sizes="80px"
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
+        </div>
+
+        {/* Company (center title) */}
+        <h3 className="mt-5 text-lg sm:text-xl font-medium" style={{ color: 'var(--text)' }}>
+          {t.company}
+        </h3>
+
+        {/* Quote (clamped so no vertical scrollbar) */}
+        <p
+          className="
+            mt-4
+            w-full
+            text-base sm:text-lg
+            leading-7 sm:leading-8
+            whitespace-pre-line
+            line-clamp-7
+            flex-1
+          "
+          style={{ color: 'var(--text2)' }}
+        >
+          {t.quote}
+        </p>
+
+        {/* Signature (bottom-center) */}
+        <div className="pt-6">
+          <p className="text-base sm:text-lg font-medium" style={{ color: 'var(--text)' }}>
+            {t.name}
+          </p>
+          <p className="mt-1 text-sm sm:text-base" style={{ color: 'var(--text2)' }}>
+            {t.position}
+          </p>
         </div>
       </div>
     </div>
@@ -197,8 +124,8 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 
 export default function Testimonials() {
   return (
-    <section className="w-full py-12 md:py-20 overflow-visible" style={{ background: 'var(--mainBackground)' }}>
-      <div className="max-w-7xl mx-auto px-4 md:px-8 overflow-visible">
+    <section className="w-full py-12 md:py-20" style={{ background: 'var(--mainBackground)' }}>
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-14">
           <p className="font-semibold italic text-2xl text-[#00715D]">Our testimonials</p>
@@ -207,8 +134,8 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        {/* Slider */}
-        <div className="overflow-x-auto overflow-y-visible pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
+        {/* Slider (NO vertical scroll) */}
+        <div className="overflow-x-auto overflow-y-hidden pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
           <div className="flex gap-6 sm:gap-8 md:gap-10 min-w-max items-stretch pr-2">
             {testimonials.map((t) => (
               <div
@@ -219,8 +146,8 @@ export default function Testimonials() {
                   md:w-[540px] md:min-w-[540px]
                   lg:w-[540px] lg:min-w-[540px]
                   flex-shrink-0
-                  overflow-visible
                   snap-center
+                  h-[520px] sm:h-[480px] md:h-[480px]
                 "
               >
                 <TestimonialCard t={t} />

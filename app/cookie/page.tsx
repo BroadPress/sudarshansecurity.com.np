@@ -1,88 +1,131 @@
-import React from 'react'
-import Ribbon from '../../components/Ribbon'
+import React from "react";
+import Ribbon from "../../components/Ribbon";
 
-const cookiePolicy = () => {
+const CookiePolicy = () => {
   return (
-     <div className="h-full">
+    <div className="h-full">
       {/* Header / Ribbon */}
-      <Ribbon name="Cookie Policy" showfont={false}/>
+      <Ribbon name="Cookie Policy" showfont={false} />
 
       {/* Content Section */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 space-y-6">
         <section className="footer p-6 rounded-xl shadow-md space-y-6">
           <p className="about leading-relaxed">
-            At <span className="font-medium">SRIYOG Consulting Pvt. Ltd.</span>, 
-            At SRIYOG Consulting Pvt. Ltd., we value your privacy and are committed
-            to ensuring a transparent and secure browsing experience. This Cookie
-            Policy explains how and why cookies are used on our website, what types
-            of cookies we employ, and the choices you have to manage or disable them.
+            At <span className="font-medium">Sudarshan Security Services Pvt. Ltd.</span>, we
+            respect your privacy and are committed to providing a transparent and secure browsing
+            experience. This Cookie Policy explains what cookies are, how we use them, what types
+            of cookies we may use, and how you can manage or disable them.
           </p>
+
           <div>
             <h2 className="text-2xl font-semibold text-teal-800 mb-2">Introduction</h2>
             <p className="about leading-relaxed mb-2">
-             SRIYOG Consulting uses cookies and similar tracking 
-             technologies on https://www.SRIYOG.com to improve your experience and to 
-             operate our services effectively. This Cookie Policy explains what cookies
-             are, how we use them, the types of cookies we use, and how you can manage
-             or disable them if you prefer.</p>
+              Sudarshan Security Services Pvt. Ltd. uses cookies and similar tracking technologies
+              on our website to enhance your experience, operate our services effectively, and
+              improve site performance. This Cookie Policy explains what cookies are, how we use
+              them, and how you can control them through your browser settings.
+            </p>
           </div>
+
           <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">What are Cookies & Tracking Technologies</h2>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">
+              What are Cookies &amp; Tracking Technologies?
+            </h2>
             <ul className="list-disc list-inside about space-y-1">
-              <li>Cookies are small text files placed on your device by your web browser
-                 when you visit the Website. They store small amounts of data such as
-                  unique identifiers, preference settings, session information, and tracking data.</li>
-              <li>We may also use other tracking technologies (like scripts or similar) that have
-                 the same function as cookies (storing or accessing information on a device).</li>
+              <li>
+                Cookies are small text files stored on your device by your web browser when you
+                visit a website. They may store information such as preference settings, session
+                details, and anonymous identifiers.
+              </li>
+              <li>
+                We may also use similar technologies (such as scripts, pixels, or tags) that
+                perform functions like cookies (storing or accessing information on a device).
+              </li>
             </ul>
           </div>
 
           <div>
             <h2 className="text-2xl font-semibold text-teal-800 mb-2">How We Use Cookies</h2>
             <p className="about leading-relaxed mb-2">
-              We use cookies and tracking technologies for the following purposes:
+              We use cookies and tracking technologies for purposes such as:
             </p>
             <ul className="list-disc list-inside about space-y-1">
-              <li>To provide and maintain our services (e.g., user login, session management, navigation).</li>
-              <li>To remember your preferences and settings (e.g., language, display settings, session state).</li>
-              <li>To monitor and analyze how users use our Website (traffic, page views, performance, errors), in order to improve the Website and our services.</li>
-              <li>For security and fraud prevention (e.g., ensuring session integrity, preventing malicious activity).</li>
+              <li>
+                To provide and maintain our website features (e.g., basic navigation, page
+                functionality).
+              </li>
+              <li>
+                To remember your preferences and settings (e.g., language, display preferences,
+                session state).
+              </li>
+              <li>
+                To monitor and analyze website usage (traffic, page views, performance, and
+                errors) so we can improve our website and services.
+              </li>
+              <li>
+                For security purposes, such as protecting forms and preventing fraudulent or
+                malicious activity.
+              </li>
             </ul>
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Consent and Cookie Settings</h2>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">
+              Consent and Cookie Settings
+            </h2>
             <ul className="list-disc list-inside about space-y-1">
-              <li>When you first visit our Website, you may see a “cookie banner” or notice asking for your consent (depending on region and the types of cookies used).</li>
-              <li>If you consent, cookies beyond strictly necessary ones may be set (performance, preferences, analytics, etc.).</li>
-              <li>You can manage or disable cookies via your browser settings.</li>
+              <li>
+                Depending on your location and applicable laws, you may see a cookie notice/banner
+                requesting your consent for certain categories of cookies.
+              </li>
+              <li>
+                If you consent, cookies beyond strictly necessary ones (such as analytics or
+                preference cookies) may be used.
+              </li>
+              <li>
+                You can manage, block, or delete cookies at any time through your browser settings.
+                Please note that disabling cookies may affect some parts of the website.
+              </li>
             </ul>
           </div>
 
           <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Third-Party Services & Cookies</h2>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">
+              Third-Party Services &amp; Cookies
+            </h2>
             <p className="about leading-relaxed">
-                We may use third-party services — such as analytics tools, marketing/advertising
-                 services, or integrations — which may set cookies on your device. These cookies
-                  are not under our direct control and are governed by each provider’s policy.</p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-semibold text-teal-800 mb-2">Changes to this Cookie Policy</h2>
-            <p className="about leading-relaxed">
-                We may update this Cookie Policy from time to time. When we do,
-                 we will revise the “Last updated” date above.
+              We may use third-party services (such as analytics tools or embedded content) which
+              may set cookies on your device. These cookies are managed by the third-party
+              providers and are subject to their own privacy and cookie policies.
             </p>
           </div>
+
+          <div>
+            <h2 className="text-2xl font-semibold text-teal-800 mb-2">
+              Changes to this Cookie Policy
+            </h2>
+            <p className="about leading-relaxed">
+              We may update this Cookie Policy from time to time. When we do, we will update the
+              effective date on this page. Any changes will become effective when posted.
+            </p>
+          </div>
+
           <div>
             <h2 className="text-2xl font-semibold text-teal-800 mb-2">Contact Us</h2>
-            <p className="about leading-relaxed mb-1">Email: support@sriyog.com</p>
-            <p className="about leading-relaxed mb-1">Phone: +977-XXXXXXXXXX</p>
-            <p className="about leading-relaxed">Address: [SRIYOG Consulting Address], Kathmandu, Nepal</p>
+            <p className="about leading-relaxed mb-1">
+              Email: <span className="font-medium">info@sudarshansecurity.com</span>
+            </p>
+            <p className="about leading-relaxed mb-1">
+              Phone: <span className="font-medium">+977-XXXXXXXXXX</span>
+            </p>
+            <p className="about leading-relaxed">
+              Address: <span className="font-medium">[Company Address], Nepal</span>
+            </p>
           </div>
         </section>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default cookiePolicy
+export default CookiePolicy;

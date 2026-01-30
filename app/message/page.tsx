@@ -80,33 +80,46 @@ function BulletItem({ children }: { children: React.ReactNode }) {
 function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }) {
   return (
     <div
-      className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${reverse ? "md:[&>div:first-child]:order-2 md:[&>div:last-child]:order-1" : ""
-        }`}
+      className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${
+        reverse ? "md:[&>div:first-child]:order-2 md:[&>div:last-child]:order-1" : ""
+      }`}
     >
       {/* LEFT CARD */}
       <div className="relative px-8">
         <div
-          className="rounded-3xl shadow-sm min-h-[250px] md:min-h-[250px] flex items-end justify-end p-10"
+          className="rounded-3xl shadow-sm min-h-[250px] md:min-h-[250px] flex flex-col px-10 pb-10 pt-28 md:pt-36"
           style={{
             background: "var(--background)",
             border: "1px solid var(--border)",
           }}
         >
+          {/* NAME BELOW PHOTO (inside card) */}
+          <div className="w-full text-center">
+            <h2
+              className="text-2xl md:text-3xl font-extrabold leading-tight"
+              style={{ color: "var(--text)" }}
+            >
+              {person.name}
+            </h2>
+            <p className="mt-1 text-sm md:text-base font-semibold" style={{ color: "var(--text2)" }}>
+              {person.role}
+            </p>
+          </div>
 
-          {person.logo ? (
-            <Image
-              src={person.logo}
-              alt="Company mark"
-              width={90}
-              height={90}
-              className="opacity-80 h-22 w-22 rounded-full"
-            />
-          ) : (
-            <div
-              className="h-20 w-20 rounded-full"
-              
-            />
-          )}
+          {/* logo stays bottom-right */}
+          <div className="mt-auto w-full flex justify-end">
+            {person.logo ? (
+              <Image
+                src={person.logo}
+                alt="Company mark"
+                width={90}
+                height={90}
+                className="opacity-80 h-22 w-22 rounded-full"
+              />
+            ) : (
+              <div className="h-20 w-20 rounded-full" />
+            )}
+          </div>
         </div>
 
         {/* avatar (overlapping) */}
@@ -132,41 +145,19 @@ function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }
 
       {/* RIGHT CONTENT */}
       <div className="px-2 md:px-0">
-        <p className="font-semibold text-[#00715D] italic tracking-wide">
-          {person.role}
-        </p>
-
-        <h2
-          className="mt-2 text-4xl md:text-5xl font-extrabold leading-tight"
-          style={{ color: "var(--text)" }}
-        >
-          {person.name}
-        </h2>
-
-        <p
-          className="mt-6 leading-relaxed text-base md:text-lg"
-          style={{ color: "var(--text2)" }}
-        >
+        <p className="mt-6 leading-relaxed text-base md:text-lg" style={{ color: "var(--text2)" }}>
           {person.message}
         </p>
 
         <ul className="mt-8 space-y-4">
           <BulletItem>
-            <a
-              className="hover:underline"
-              style={{ color: "var(--text)" }}
-              href={`tel:${person.phone}`}
-            >
+            <a className="hover:underline" style={{ color: "var(--text)" }} href={`tel:${person.phone}`}>
               {person.phone}
             </a>
           </BulletItem>
 
           <BulletItem>
-            <a
-              className="hover:underline"
-              style={{ color: "var(--text)" }}
-              href={`mailto:${person.email}`}
-            >
+            <a className="hover:underline" style={{ color: "var(--text)" }} href={`mailto:${person.email}`}>
               {person.email}
             </a>
           </BulletItem>
@@ -190,10 +181,20 @@ function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }
 
 export default function MessagePage() {
   return (
-    <main style={{ background: "var(--mainBackground)", color: "var(--text)" }} className="pb-20">
+    <main
+      className="pb-20"
+      style={{
+        background: "var(--mainBackground)",
+        color: "var(--text)",
+        // subtle dotted background (small extra change)
+        backgroundImage:
+          "radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px)",
+        backgroundSize: "18px 18px",
+      }}
+    >
       <Ribbon name="Message" showfont={true} />
 
-      <section className="max-w-7xl mx-auto px-4  md:px-8 py-12 md:py-16">
+      <section className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
         <div className="space-y-[120px]">
           {people.map((person, idx) => (
             <MessageBlock key={person.email} person={person} reverse={idx % 2 === 1} />

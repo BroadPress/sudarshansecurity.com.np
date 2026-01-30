@@ -244,9 +244,9 @@ export default function ContactClient() {
               <div className="flex justify-center pt-2">
                 <button
                   type="submit"
-                  className="h-14 px-10 bg-red-600  hover:bg-[#00715D] rounded-full font-semibold transition  ransition-all duration-300 delay-150 hover:scale-105"
+                  className="h-14 px-10 bg-red-600 text-[#ffffff] border bg-red-600  hover:bg-[#00715D]  rounded-full font-semibold transition  ransition-all duration-300 delay-150 hover:scale-105"
                 >
-                  SEND A MESSAGE
+                  SUBMIT
                 </button>
               </div>
             </form>
