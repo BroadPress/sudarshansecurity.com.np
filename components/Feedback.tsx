@@ -53,9 +53,10 @@ const feedbacks: Feedback[] = [
 function TestimonialCard({ t }: { t: Feedback }) {
   return (
     <div className="h-full w-full">
-      {/* IMPORTANT: h-full so it never overflows the wrapper (no vertical scroll) */}
+      
       <div
         className="
+        h-full
           w-full
           rounded-[22px]
           bg-white
