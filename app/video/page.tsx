@@ -3,48 +3,43 @@
 import React from 'react';
 import Ribbon from '../../components/Ribbon';
 
-const featuredVideo = 'https://www.youtube.com/embed/UCkjoQjbY_s?rel=0';
+const featuredVideo = 'https://www.youtube.com/embed/KhpkqxtoSB4?rel=0';
 
 const videos = [
-  // ✅ Security awareness
   {
-    title: 'Recognize and Report Phishing (CISA)',
-    embedUrl: 'https://www.youtube.com/embed/JlQovysQBn0?rel=0',
+    title: 'Complete Guide to Selecting the Right Security Guard Company',
+    embedUrl: 'https://www.youtube.com/embed/nECnOOoW7PQ?rel=0',
   },
   {
-    title: 'How to Avoid Phishing (CISA)',
-    embedUrl: 'https://www.youtube.com/embed/sg0kQYvTlnc?rel=0',
-  },
-  {
-    title: 'Four Easy Ways to Stay Safe Online',
-    embedUrl: 'https://www.youtube.com/embed/fgd-osFId00?rel=0',
-  },
-  {
-    title: 'Enable Google 2-Step Verification',
-    embedUrl: 'https://www.youtube.com/embed/XcggWXRAitE?rel=0',
+    title: 'Security Guard Duties and Responsibilities (Training)',
+    embedUrl: 'https://www.youtube.com/embed/QZzsxVFKgbE?rel=0',
   },
 
-  // ✅ Office software everyone uses
   {
-    title: 'Microsoft Teams Tutorial in 10 Minutes',
-    embedUrl: 'https://www.youtube.com/embed/VDDPoYOQYfM?rel=0',
+    title: 'Security Customer Service - What You Need to Know',
+    embedUrl: 'https://www.youtube.com/embed/kvu2PVq9vQs?rel=0',
   },
   {
-    title: 'Excel Tutorial for Beginners (15 minutes)',
-    embedUrl: 'https://www.youtube.com/embed/LgXzzu68j7M?rel=0',
+    title: 'Customer Service Basics (Event Security Training)',
+    embedUrl: 'https://www.youtube.com/embed/3fkXsJNFZ4I?rel=0',
   },
   {
-    title: 'Microsoft Word Tutorial (Basics)',
-    embedUrl: 'https://www.youtube.com/embed/Cw6a3b5QoAs?rel=0',
+    title: 'Patrolling and Observation Training for Security Guards',
+    embedUrl: 'https://www.youtube.com/embed/5LJ6fqHRIDo?rel=0',
   },
   {
-    title: 'PowerPoint Tutorial for Beginners',
-    embedUrl: 'https://www.youtube.com/embed/l5Ij7nUy9UQ?rel=0',
+    title: 'Basic Security Guard Training: Access Control',
+    embedUrl: 'https://www.youtube.com/embed/Y6eJzoUG45E?rel=0',
   },
   {
-    title: 'Google Workspace Basics (Overview)',
-    embedUrl: 'https://www.youtube.com/embed/_oYMrYCs2fU?rel=0',
+    title: 'How to Write Reports for Security Officers',
+    embedUrl: 'https://www.youtube.com/embed/Li4cR5fp95c?rel=0',
   },
+  {
+    title: 'Security Guard Training: Communication & De-Escalation',
+    embedUrl: 'https://www.youtube.com/embed/I3qqiZcTK3g?rel=0',
+  },
+
 ];
 
 function VideoPage() {
@@ -57,7 +52,7 @@ function VideoPage() {
       <section className="max-w-7xl mx-auto rounded-md px-4 sm:px-6 py-10 sm:py-12 md:py-10">
         <div className="text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8" style={{ color: 'var(--text)' }}>
-            Featured Security & Productivity Video
+            Featured Security  Video
           </h2>
 
           <div className="flex justify-center">

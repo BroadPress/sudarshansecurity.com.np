@@ -75,9 +75,10 @@ function TestimonialCard({ t }: { t: Testimonial }) {
   }, [isLgUp, t.quote]);
 
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full mt-5">
       <div
         className="
+          group
           h-full w-full
           rounded-[22px]
           bg-white
@@ -89,12 +90,18 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           items-center
           text-center
           overflow-hidden
+
+          transition-all duration-300 ease-out
+          hover:-translate-y-2
+          hover:shadow-xl
+          hover:ring-black/10
+          hover:bg-white
         "
       >
         {/* Avatar */}
         <div className="flex justify-center">
           <div
-            className="rounded-full p-3"
+            className="rounded-full p-3 transition-transform duration-300 ease-out group-hover:scale-[1.02]"
             style={{ background: 'rgba(224, 208, 160, 0.55)' }}
           >
             <div className="h-20 w-20 rounded-full overflow-hidden bg-white">

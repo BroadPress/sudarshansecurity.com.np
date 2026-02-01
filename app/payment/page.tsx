@@ -54,7 +54,7 @@ const Payment = () => {
               <Image
                 width={900}
                 height={900}
-                src="/images/payment/qr-placeholder.png"
+                src="/images/payment/placeholder.png"
                 alt="Payment QR Placeholder"
                 className="w-full h-full object-contain"
               />
@@ -63,7 +63,7 @@ const Payment = () => {
             {/* Optional label */}
             <div className="w-full px-5 py-4 text-center">
               <p className="font-semibold" style={{ color: 'var(--text)' }}>
-                Scan to Pay (Placeholder)
+                Scan to Pay 
               </p>
               <p className="text-sm mt-1" style={{ color: 'var(--text2)' }}>
                 Sudarshan Security Services Pvt. Ltd.

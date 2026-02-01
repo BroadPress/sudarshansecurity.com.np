@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Ribbon from "../../components/Ribbon";
 
 export const metadata: Metadata = {
@@ -15,7 +16,6 @@ type Person = {
   phone: string;
   email: string;
   whatsappLabel?: string;
-  logo?: string;
 };
 
 const people: Person[] = [
@@ -28,7 +28,6 @@ const people: Person[] = [
     phone: "+977-985-202-0058",
     email: "dambar@sudarshansecurity.com.np",
     whatsappLabel: "WhatsApp Message",
-    logo: "/images/testimonials/nameste.jpg",
   },
   {
     role: "General Manager",
@@ -39,7 +38,6 @@ const people: Person[] = [
     phone: "+977-985-205-4100",
     email: "keshab@sudarshansecurity.com.np",
     whatsappLabel: "WhatsApp Message",
-    logo: "/images/testimonials/nameste.jpg",
   },
   {
     role: "Operation Director",
@@ -50,7 +48,6 @@ const people: Person[] = [
     phone: "+977-985-102-4462",
     email: "ramesh@sudarshansecurity.com.np",
     whatsappLabel: "WhatsApp Message",
-    logo: "/images/testimonials/nameste.jpg",
   },
 ];
 
@@ -59,76 +56,50 @@ function toWhatsappLink(phone: string) {
   return `https://wa.me/${digits}`;
 }
 
-function BulletItem({ children }: { children: React.ReactNode }) {
+function ActionLink({
+  href,
+  children,
+  external,
+  className = "",
+}: {
+  href: string;
+  children: ReactNode;
+  external?: boolean;
+  className?: string;
+}) {
   return (
-    <li className="flex items-center gap-3" style={{ color: "var(--text2)" }}>
-      <span
-        className="inline-flex h-6 w-6 items-center justify-center rounded-full text-sm"
-        style={{
-          background: "yellow",
-          color: "white",
-          border: "1px solid var(--border)",
-        }}
-      >
-        ✓
-      </span>
-      <span className="text-base">{children}</span>
-    </li>
+    <a
+      href={href}
+      {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+      className={`inline-flex items-center justify-center  px-4 py-2 text-sm font-semibold transition
+                   hover:shadow-sm ${className}`}
+      
+    >
+      {children}
+    </a>
   );
 }
 
-function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }) {
+function MessageCard({ person }: { person: Person }) {
   return (
-    <div
-      className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center ${
-        reverse ? "md:[&>div:first-child]:order-2 md:[&>div:last-child]:order-1" : ""
-      }`}
+    <article
+      className="group relative w-full max-w-[600px] mx-auto rounded-3xl border shadow-sm hover:shadow-md transition overflow-hidden"
+      style={{
+        background: "var(--background)",
+        borderColor: "var(--border)",
+      }}
     >
-      {/* LEFT CARD */}
-      <div className="relative px-8">
-        <div
-          className="rounded-3xl shadow-sm min-h-[250px] md:min-h-[250px] flex flex-col px-10 pb-10 pt-28 md:pt-36"
-          style={{
-            background: "var(--background)",
-            border: "1px solid var(--border)",
-          }}
-        >
-          {/* NAME BELOW PHOTO (inside card) */}
-          <div className="w-full text-center">
-            <h2
-              className="text-2xl md:text-3xl font-extrabold leading-tight"
-              style={{ color: "var(--text)" }}
-            >
-              {person.name}
-            </h2>
-            <p className="mt-1 text-sm md:text-base font-semibold" style={{ color: "var(--text2)" }}>
-              {person.role}
-            </p>
-          </div>
+      {/* subtle top accent */}
+      <div className="h-1 w-full" style={{ background: "rgba(0,0,0,0.06)" }} />
 
-          {/* logo stays bottom-right */}
-          <div className="mt-auto w-full flex justify-end">
-            {person.logo ? (
-              <Image
-                src={person.logo}
-                alt="Company mark"
-                width={90}
-                height={90}
-                className="opacity-80 h-22 w-22 rounded-full"
-              />
-            ) : (
-              <div className="h-20 w-20 rounded-full" />
-            )}
-          </div>
-        </div>
-
-        {/* avatar (overlapping) */}
-        <div className="absolute -top-12 left-1/2 -translate-x-1/2">
+      <div className="p-6 sm:p-8">
+        {/* Centered Avatar + Name + Role */}
+        <header className="flex flex-col items-center text-center">
           <div
-            className="relative h-36 w-36 md:h-44 md:w-44 rounded-full overflow-hidden shadow"
+            className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-full overflow-hidden border shadow"
             style={{
-              boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
-              outline: "1px solid var(--background)",
+              borderColor: "var(--border)",
+              boxShadow: "0 10px 25px rgba(0,0,0,0.12)",
             }}
           >
             <Image
@@ -136,46 +107,53 @@ function MessageBlock({ person, reverse }: { person: Person; reverse?: boolean }
               alt={person.name}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 144px, 176px"
-              priority={false}
+              sizes="(max-width: 640px) 80px, 96px"
             />
           </div>
-        </div>
-      </div>
 
-      {/* RIGHT CONTENT */}
-      <div className="px-2 md:px-0">
-        <p className="mt-6 leading-relaxed text-base md:text-lg" style={{ color: "var(--text2)" }}>
+          <h2
+            className="mt-4 text-xl sm:text-2xl font-extrabold leading-tight"
+            style={{ color: "var(--text)" }}
+          >
+            {person.name}
+          </h2>
+
+          <p
+            className="mt-1 text-sm sm:text-base font-semibold"
+            style={{ color: "var(--text2)" }}
+          >
+            {person.role}
+          </p>
+        </header>
+
+        {/* Message */}
+        <p
+          className="mt-6 text-[15px] sm:text-base leading-relaxed"
+          style={{ color: "var(--text2)" }}
+        >
           {person.message}
         </p>
 
-        <ul className="mt-8 space-y-4">
-          <BulletItem>
-            <a className="hover:underline" style={{ color: "var(--text)" }} href={`tel:${person.phone}`}>
-              {person.phone}
-            </a>
-          </BulletItem>
+        {/* Contacts: different lines + centered */}
+        <div className="mt-6 flex flex-col items-center gap-3">
+          <ActionLink className="w-full max-w-sm" href={`tel:${person.phone}`}>
+            📞 {person.phone}
+          </ActionLink>
 
-          <BulletItem>
-            <a className="hover:underline" style={{ color: "var(--text)" }} href={`mailto:${person.email}`}>
-              {person.email}
-            </a>
-          </BulletItem>
+          <ActionLink className="w-full max-w-sm" href={`mailto:${person.email}`}>
+            ✉️ {person.email}
+          </ActionLink>
 
-          <BulletItem>
-            <a
-              className="hover:underline"
-              style={{ color: "var(--text)" }}
-              href={toWhatsappLink(person.phone)}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {person.whatsappLabel ?? "WhatsApp Message"}
-            </a>
-          </BulletItem>
-        </ul>
+          <ActionLink
+            className="w-full max-w-sm"
+            href={toWhatsappLink(person.phone)}
+            external
+          >
+            💬 {person.whatsappLabel ?? "WhatsApp Message"}
+          </ActionLink>
+        </div>
       </div>
-    </div>
+    </article>
   );
 }
 
@@ -186,18 +164,17 @@ export default function MessagePage() {
       style={{
         background: "var(--mainBackground)",
         color: "var(--text)",
-        // subtle dotted background (small extra change)
-        backgroundImage:
-          "radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px)",
+        backgroundImage: "radial-gradient(rgba(0,0,0,0.06) 1px, transparent 1px)",
         backgroundSize: "18px 18px",
       }}
     >
       <Ribbon name="Message" showfont={true} />
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
-        <div className="space-y-[120px]">
-          {people.map((person, idx) => (
-            <MessageBlock key={person.email} person={person} reverse={idx % 2 === 1} />
+        {/* Vertically stacked cards */}
+        <div className="space-y-10">
+          {people.map((person) => (
+            <MessageCard key={person.email} person={person} />
           ))}
         </div>
       </section>

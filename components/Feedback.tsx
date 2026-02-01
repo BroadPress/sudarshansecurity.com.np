@@ -50,13 +50,12 @@ const feedbacks: Feedback[] = [
   },
 ];
 
-function TestimonialCard({ t }: { t: Feedback }) {
+function FeedbackCard({ t }: { t: Feedback }) {
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full mt-5">
       <div
         className="
-          h-full
-          w-full
+          h-full w-full
           rounded-[22px]
           bg-white
           shadow-sm
@@ -67,10 +66,17 @@ function TestimonialCard({ t }: { t: Feedback }) {
           items-center
           text-center
           overflow-hidden
+
+          transition-all duration-300 ease-out
+          hover:-translate-y-2
+          hover:shadow-xl
+          hover:ring-black/10
+          hover:bg-white
+          group
         "
       >
         {/* Avatar */}
-        <div className="rounded-full p-3">
+        <div className="rounded-full p-3 transition-transform duration-300 group-hover:scale-[1.03]">
           <div className="h-20 w-20 rounded-full overflow-hidden bg-white">
             <Image
               src={t.avatar}
@@ -85,13 +91,13 @@ function TestimonialCard({ t }: { t: Feedback }) {
 
         {/* Company */}
         <h3
-          className="mt-5 text-lg sm:text-xl font-medium"
-          style={{ color: 'var(--text)' }}
+          className="mt-5 text-lg sm:text-xl font-medium transition-colors duration-300"
+          style={{ color: "var(--text)" }}
         >
           {t.company}
         </h3>
 
-        {/* Quote (clamped so it never causes overflow) */}
+        {/* Quote */}
         <p
           className="
             mt-4
@@ -101,8 +107,9 @@ function TestimonialCard({ t }: { t: Feedback }) {
             line-clamp-7
             flex-1
             w-full
+            transition-colors duration-300
           "
-          style={{ color: 'var(--text2)' }}
+          style={{ color: "var(--text2)" }}
         >
           {t.quote}
         </p>
@@ -110,17 +117,22 @@ function TestimonialCard({ t }: { t: Feedback }) {
         {/* Signature */}
         <div className="pt-0">
           <p
-            className="text-base sm:text-lg font-medium"
-            style={{ color: 'var(--text)' }}
+            className="text-base sm:text-lg font-medium transition-colors duration-300"
+            style={{ color: "var(--text)" }}
           >
             {t.name}
           </p>
           <p
-            className="mt-1 text-sm sm:text-base"
-            style={{ color: 'var(--text2)' }}
+            className="mt-1 text-sm sm:text-base transition-colors duration-300"
+            style={{ color: "var(--text2)" }}
           >
             {t.position}
           </p>
+        </div>
+
+        {/* subtle glow overlay */}
+        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div className="absolute -inset-24 bg-gradient-to-tr from-transparent via-black/5 to-transparent blur-2xl" />
         </div>
       </div>
     </div>
@@ -164,7 +176,7 @@ export default function Feedback() {
                 "
               >
                 
-                <TestimonialCard t={t} />
+                <FeedbackCard t={t} />
               </div>
             ))}
           </div>

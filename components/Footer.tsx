@@ -142,7 +142,6 @@ const Footer = () => {
               { href: "#", src: "/icons/x.svg", alt: "X" },
               { href: "#", src: "/icons/linkedin.svg", alt: "LinkedIn" },
               { href: "#", src: "/icons/youtube.svg", alt: "YouTube" },
-              { href: "#", src: "/icons/trello.svg", alt: "Trello" },
               { href: "#", src: "/icons/viber.svg", alt: "Viber" },
               
             ].map((item) => (

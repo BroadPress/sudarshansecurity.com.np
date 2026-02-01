@@ -28,15 +28,9 @@ const Home = () => {
     document.documentElement.classList.contains("dark");
 
   return (
-    <div className="w-screen  pb-20 bg-[#EDEDF8]" >
+    <div className="w-full overflow-x-hidden pb-20 bg-[#EDEDF8]">
       {/* HERO SECTION (Auto Slider) */}
-      <section
-        className="
-          w-full relative overflow-hidden
-          h-screen [height:100dvh]
-          sm:min-h-[600px] sm:h-auto
-        "
-      >
+      <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh]">
         {/* Slides */}
         <div className="absolute inset-0">
           {HERO_SLIDES.map((src, i) => (
@@ -64,10 +58,10 @@ const Home = () => {
           />
         </div>
 
-        <div className="absolute ml:0 md:ml-16 inset-x-0 bottom-0 z-10">
+        <div className="absolute ml-0 md:ml-16 inset-x-0 bottom-0 z-10">
           <div className="mx-auto w-full max-w-[1600px] px-6 pb-[calc(40px+env(safe-area-inset-bottom))]">
             <div className="flex flex-col text-left w-full sm:w-1/2">
-              <div className="  text-yellow-500 text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 leading-tight opacity-90 text-white">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-3 leading-tight opacity-90 text-white">
                 Welcome to
               </div>
 
@@ -81,7 +75,7 @@ const Home = () => {
 
               <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 md:gap-6">
                 <Link href="/about">
-                  <button className="cursor-pointer bg-transparent  text-white border-2 border-red-800  hover:bg-[#00715D] py-3 md:py-3 px-4 md:px-8 rounded-md font-semibold  hover:text-black hover:border-none transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button className="cursor-pointer bg-transparent text-white border-2 border-red-800 hover:bg-[#00715D] py-3 md:py-3 px-4 md:px-8 rounded-md font-semibold hover:text-black hover:border-none transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     About
                   </button>
                 </Link>
@@ -114,76 +108,76 @@ const Home = () => {
 
       {/* REST SECTION */}
       <section
-        className="w-screen p-2 sm:p-8 md:pl-22 md:pr-32 m-auto h-full pt-24 pb-24 flex items-center justify-center"
+        className="w-full py-24 flex items-center justify-center"
         style={{ background: "var(--mainBackground)" }}
       >
-        <div className="flex flex-col md:flex-row gap-10 px-6 items-center">
-          {/* TEXT */}
-          <motion.div
-            initial={{ opacity: 0, x: -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.25 }}
-            className="md:w-1/2"
-          >
-            <p className="font-mono text-xl text-left" style={{ color: "#00715D" }}>
-              Join us for service
-            </p>
-
-            <p className="font-sans pt-4 font-extrabold text-3xl" style={{ color: "var(--text)" }}>
-              What we stand for
-            </p>
-
-            <p className="pt-8" style={{ color: "var(--text2)" }}>
-              Since 1983, Sudarshan Security has been a leading name in Nepal's
-              security sector. As the first registered security company, we have
-              unmatched experience and knowledge. Our highly trained professionals
-              deliver comprehensive security solutions, including advanced access
-              control, close protection, and 24/7 surveillance. We offer high-quality
-              services for individual, corporate, and major event security needs.
-            </p>
-
-            <p className="pt-4" style={{ color: "var(--text2)" }}>
-              Our ISO 9001:2015 certification reflects our commitment to quality and
-              excellence. With decades of experience, Sudarshan Security is the most
-              reputable and reliable choice for safeguarding what matters most to you.
-            </p>
-
-            <Link href="/contact">
-              <button
-                className="text-center w-42 h-14 p-2 rounded-full mt-11 transition-colors text-[#ffffff] border bg-red-600  hover:bg-[#00715D] "
-              >
-                Hire a service
-              </button>
-            </Link>
-          </motion.div>
-
-          {/* IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
-            viewport={{ once: true, amount: 0.25 }}
-            className="md:w-1/2 w-full"
-          >
-            <div
-              className="rounded-xl overflow-hidden border"
-              style={{ borderColor: "var(--border)", background: "var(--background)" }}
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-16">
+          <div className="flex flex-col md:flex-row gap-10 items-center">
+            {/* TEXT */}
+            <motion.div
+              initial={{ opacity: 0, x: -80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.25 }}
+              className="md:w-1/2 w-full"
             >
-              <Image
-                src="/images/home/img_2.jpg"
-                alt="Join us"
-                width={1000}
-                height={800}
-                className="w-full h-auto object-cover"
-                priority
-              />
-            </div>
-          </motion.div>
+              <p className="font-mono text-xl text-left" style={{ color: "#00715D" }}>
+                Join us for service
+              </p>
+
+              <p className="font-sans pt-4 font-extrabold text-3xl" style={{ color: "var(--text)" }}>
+                What we stand for
+              </p>
+
+              <p className="pt-8" style={{ color: "var(--text2)" }}>
+                Since 1983, Sudarshan Security has been a leading name in Nepal's
+                security sector. As the first registered security company, we have
+                unmatched experience and knowledge. Our highly trained professionals
+                deliver comprehensive security solutions, including advanced access
+                control, close protection, and 24/7 surveillance. We offer high-quality
+                services for individual, corporate, and major event security needs.
+              </p>
+
+              <p className="pt-4" style={{ color: "var(--text2)" }}>
+                Our ISO 9001:2015 certification reflects our commitment to quality and
+                excellence. With decades of experience, Sudarshan Security is the most
+                reputable and reliable choice for safeguarding what matters most to you.
+              </p>
+
+              <Link href="/contact">
+                <button className="text-center w-42 h-14 p-2 rounded-full mt-11 transition-colors text-[#ffffff] border bg-red-600 hover:bg-[#00715D]">
+                  Hire a service
+                </button>
+              </Link>
+            </motion.div>
+
+            {/* IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, x: 80 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
+              viewport={{ once: true, amount: 0.25 }}
+              className="md:w-1/2 w-full"
+            >
+              <div
+                className="rounded-xl overflow-hidden border"
+                style={{ borderColor: "var(--border)", background: "var(--background)" }}
+              >
+                <Image
+                  src="/images/home/img_2.jpg"
+                  alt="Join us"
+                  width={1000}
+                  height={800}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      <section>
+      <section className="w-full">
         <Feedback />
         <CommitmentsSection />
       </section>
