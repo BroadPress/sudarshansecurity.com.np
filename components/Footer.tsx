@@ -1,23 +1,35 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import NewsLetter from "./NewsLetter";
-import Image from 'next/image'
+import Image from "next/image";
+
+type SocialItem = {
+  href: string;
+  src: string;
+  alt: string;
+  extra?: string; // ✅ optional
+};
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const socialItems: SocialItem[] = [
+    { href: "#", src: "/icons/facebook.svg", alt: "Facebook" },
+    { href: "#", src: "/icons/x.svg", alt: "X" },
+    { href: "#", src: "/icons/linkedin.svg", alt: "LinkedIn" },
+    { href: "#", src: "/icons/youtube.svg", alt: "YouTube" },
+    { href: "#", src: "/icons/viber.svg", alt: "Viber" },
+  ];
 
   return (
     <>
       <NewsLetter />
       <footer className="relative footer pt-16 pb-10 border-t z-10">
-
         {/* TOP SECTION */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:justify-between gap-10">
-
           {/* LEFT SIDE */}
           <div className="w-full lg:w-[45%]">
-
             <div className="flex items-center space-x-2">
               <Link href="/">
                 <Image
@@ -34,32 +46,47 @@ const Footer = () => {
               </Link>
             </div>
 
-
-            <p className="text-[15px] leading-relaxed pt-8  mb-4">We as a dedicated security team, works to meet the highest level of customer satisfaction and the best possible protection for our clients and their assets.</p>
-            <p className="text-[15px] leading-relaxed pt-2  mb-4"> Sudarshan Security has been a leading name in Nepal's security sector.</p>
+            <p className="text-[15px] leading-relaxed pt-8 mb-4">
+              We as a dedicated security team, works to meet the highest level of
+              customer satisfaction and the best possible protection for our
+              clients and their assets.
+            </p>
+            <p className="text-[15px] leading-relaxed pt-2 mb-4">
+              Sudarshan Security has been a leading name in Nepal's security
+              sector.
+            </p>
           </div>
 
           {/* RIGHT COLUMNS */}
           <div className="w-full lg:w-[50%] grid grid-cols-2 md:grid-cols-4 gap-x-10 gap-y-8 pt-6">
-
             {/* Browse More */}
             <div>
               <h3 className="font-semibold mb-3 text-[16px]">Browse More</h3>
               <ul className="space-y-2 text-[15px] leading-[1.6] pl-0">
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/vmgo" className="hover:text-green-700">Mission & Vision</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/vmgo" className="hover:text-green-700">
+                    Mission & Vision
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/history" className="hover:text-green-700">History</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/history" className="hover:text-green-700">
+                    History
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/why" className="hover:text-green-700">Why Us</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/why" className="hover:text-green-700">
+                    Why Us
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/certificates" className="hover:text-green-700">Certificates</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/certificates" className="hover:text-green-700">
+                    Certificates
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/timeline" className="hover:text-green-700">Timeline</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/timeline" className="hover:text-green-700">
+                    Timeline
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -68,20 +95,30 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold mb-3 text-[16px]">Resources</h3>
               <ul className="space-y-2 text-[15px] leading-[1.6] pl-0">
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/gallery" className="hover:text-green-700">Gallery</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/gallery" className="hover:text-green-700">
+                    Gallery
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/career" className="hover:text-green-700">Career</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/career" className="hover:text-green-700">
+                    Career
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/qr" className="hover:text-green-700">QR Code</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/qr" className="hover:text-green-700">
+                    QR Code
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/glossary" className="hover:text-green-700">Glossary</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/glossary" className="hover:text-green-700">
+                    Glossary
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/message" className="hover:text-green-700">Message</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/message" className="hover:text-green-700">
+                    Message
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -90,20 +127,30 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold mb-3 text-[16px]">Links</h3>
               <ul className="space-y-2 text-[15px] leading-[1.6] pl-0">
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/calendar" className="hover:text-green-700">Calendar</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/calendar" className="hover:text-green-700">
+                    Calendar
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/faq" className="hover:text-green-700">FAQ</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/faq" className="hover:text-green-700">
+                    FAQ
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/payment" className="hover:text-green-700">Payment</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/payment" className="hover:text-green-700">
+                    Payment
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/internship" className="hover:text-green-700">Internship</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/internship" className="hover:text-green-700">
+                    Internship
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/download" className="hover:text-green-700">Download</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/download" className="hover:text-green-700">
+                    Download
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -112,20 +159,35 @@ const Footer = () => {
             <div>
               <h3 className="font-semibold mb-3 text-[16px]">Explore</h3>
               <ul className="space-y-2 text-[15px] leading-[1.6] pl-0">
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/video" className="hover:text-green-700">Videos</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/video" className="hover:text-green-700">
+                    Videos
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <a href="https://trello.com" target="_blank" className="hover:text-green-700">Trello Board</a>
+                <li className="py-1 cursor-pointer">
+                  <a
+                    href="https://trello.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-green-700"
+                  >
+                    Trello Board
+                  </a>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/location" className="hover:text-green-700">Location</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/location" className="hover:text-green-700">
+                    Location
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/refund" className="hover:text-green-700">Refund Policy</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/refund" className="hover:text-green-700">
+                    Refund Policy
+                  </Link>
                 </li>
-                <li className={`py-1 cursor-pointer `}>
-                  <Link href="/cookie" className="hover:text-green-700">Cookie Policy</Link>
+                <li className="py-1 cursor-pointer">
+                  <Link href="/cookie" className="hover:text-green-700">
+                    Cookie Policy
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -134,80 +196,90 @@ const Footer = () => {
 
         {/* SOCIAL + CONTACT SECTION */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:justify-between gap-8 mt-10">
-
           {/* SOCIAL ICONS */}
           <div className="flex flex-wrap gap-6 justify-center">
-            {[
-              { href: "#", src: "/icons/facebook.svg", alt: "Viber" },
-              { href: "#", src: "/icons/x.svg", alt: "X" },
-              { href: "#", src: "/icons/linkedin.svg", alt: "LinkedIn" },
-              { href: "#", src: "/icons/youtube.svg", alt: "YouTube" },
-              { href: "#", src: "/icons/viber.svg", alt: "Viber" },
-              
-            ].map((item) => (
+            {socialItems.map((item) => (
               <a
-                key={item.alt}
+                key={item.src} // ✅ safer key
                 href={item.href}
                 className="grid place-items-center h-10 w-10 sm:h-11 sm:w-11 rounded-full hover:opacity-60 transition hover:scale-110"
               >
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className={`h-5 w-5 sm:h-6 sm:w-6 object-contain ${item.extra ?? ""}`}
+                  className={`h-5 w-5 sm:h-6 sm:w-6 object-contain ${
+                    item.extra ?? ""
+                  }`}
                 />
               </a>
             ))}
           </div>
 
-
-
           {/* CONTACT BOXES */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-
-            {/* EMAIL + PHONE */}
-            <a href="mailto:info@sriyog.com" className={`flex items-center gap-2 border-2 rounded-lg px-7 py-3 w-full sm:w-auto `}>
+            {/* EMAIL */}
+            <a
+              href="mailto:info@sriyog.com"
+              className="flex items-center gap-2 border-2 rounded-lg px-7 py-3 w-full sm:w-auto"
+            >
               <img src="/icons/email.svg" alt="email" className="h-6 w-6" />
               <span className="text-sm">info@sudarshansecurity.com.np</span>
             </a>
-
-
-           
 
             {/* WHATSAPP */}
             <a
               href="https://wa.me/9779852024365"
               target="_blank"
-              className={`flex items-center gap-2 border-2 rounded-lg px-6 py-3 w-full sm:w-auto `}
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 border-2 rounded-lg px-6 py-3 w-full sm:w-auto"
             >
-              <img src="/icons/whatsapp.svg" alt="whatsapp" className="h-6 w-6" />
+              <img
+                src="/icons/whatsapp.svg"
+                alt="whatsapp"
+                className="h-6 w-6"
+              />
               <span className="text-sm">+ 977-9852054100</span>
             </a>
           </div>
         </div>
 
         {/* HORIZONTAL LINE */}
-        <div className="w-full border-t  mt-14 mb-6"></div>
+        <div className="w-full border-t mt-14 mb-6"></div>
 
         {/* FOOTER BOTTOM */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 lg:mt-12 flex flex-col lg:flex-row justify-center items-center lg:justify-between text-[13px]  gap-3 text-center md:text-left font-semibold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 lg:mt-12 flex flex-col lg:flex-row justify-center items-center lg:justify-between text-[13px] gap-3 text-center md:text-left font-semibold">
           <p className="flex flex-col md:flex-row gap-4 md:gap-1 items-center">
             <span>All Rights Reserved © {currentYear}</span>
             <span className="ml-0 md:ml-3">Sudarshan Security Services</span>
-            <span className="ml-0 md:ml-3">Built with : <a href="https://broadpress.org" target="_blank" className="hover:border-b hover:border-black text-gray-500">BroadPress</a></span>
-
+            <span className="ml-0 md:ml-3">
+              Built with :{" "}
+              <a
+                href="https://broadpress.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:border-b hover:border-black text-gray-500"
+              >
+                BroadPress
+              </a>
+            </span>
           </p>
-          <p> Technology Partner : SRIYOG Consulting</p>
 
+          <p>Technology Partner : SRIYOG Consulting</p>
 
           <div className="flex gap-4 justify-center md:justify-end font-semibold mt-2 lg:mt-0">
-            <Link href="/privacy" className={` cursor-pointer `}>Privacy Policy</Link>
+            <Link href="/privacy" className="cursor-pointer">
+              Privacy Policy
+            </Link>
             <span>|</span>
-            <Link href="/disclaimer" className={` cursor-pointer `}>Disclaimer</Link>
+            <Link href="/disclaimer" className="cursor-pointer">
+              Disclaimer
+            </Link>
             <span>|</span>
-            <Link href="/tos" className={` cursor-pointer `}>Terms of Service</Link>
+            <Link href="/tos" className="cursor-pointer">
+              Terms of Service
+            </Link>
           </div>
         </div>
-
       </footer>
     </>
   );

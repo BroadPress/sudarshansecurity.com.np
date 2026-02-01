@@ -5,8 +5,8 @@ const Sidekick = () => {
   const [show, setShow] = useState(true)
   const [menu, setMenu] = useState(false)
 
-  const wrapperRef = useRef(null)
-  const stripRef = useRef(null)
+  const wrapperRef = useRef<HTMLDivElement | null>(null)
+  const stripRef = useRef<HTMLDivElement | null>(null)
 
   const [menuTop, setMenuTop] = useState(0)
 

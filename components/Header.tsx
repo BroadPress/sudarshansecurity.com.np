@@ -198,11 +198,7 @@ const Header = () => {
           </div>
 
           {/* ✅ pass navLinks to MobileDrawer */}
-          <MobileDrawer
-            setIsOpen={setIsOpen}
-            isOpen={isOpen}
-            navLinks={navLinks}
-          />
+           <MobileDrawer setIsOpen={setIsOpen} isOpen={isOpen} navLinks={navLinks} />
         </nav>
       </div>
     </header>
