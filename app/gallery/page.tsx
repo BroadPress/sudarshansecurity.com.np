@@ -76,7 +76,7 @@ function Gallery() {
                                     width={600}
                                     height={800}
                                     src={item.image}
-                                    alt={item.title}
+                                    alt='image'
                                     className="w-full h-full object-cover" // Image fully covers
                                 />
                                 {/* Photo Count Badge
