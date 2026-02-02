@@ -1,9 +1,7 @@
 @import "tailwindcss";
 
 
-body{
-  line-height: 1.2;
-}
+
 :root {
   --background: #ffffff;
   --mainBackground : #EDEDF8;
@@ -37,6 +35,7 @@ body{
 }
 
 body{
+  line-height: 1.5;
   background: var(--background);
   color: var(--text);
   font-size: var(--app-font-size);

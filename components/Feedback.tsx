@@ -55,6 +55,7 @@ function FeedbackCard({ t }: { t: Feedback }) {
     <div className="h-full w-full mt-5">
       <div
         className="
+          relative
           h-full w-full
           rounded-[22px]
           bg-white
@@ -71,7 +72,6 @@ function FeedbackCard({ t }: { t: Feedback }) {
           hover:-translate-y-2
           hover:shadow-xl
           hover:ring-black/10
-          hover:bg-white
           group
         "
       >
@@ -92,7 +92,7 @@ function FeedbackCard({ t }: { t: Feedback }) {
         {/* Company */}
         <h3
           className="mt-5 text-lg sm:text-xl font-medium transition-colors duration-300"
-          style={{ color: "var(--text)" }}
+          style={{ color: 'var(--text)' }}
         >
           {t.company}
         </h3>
@@ -109,7 +109,7 @@ function FeedbackCard({ t }: { t: Feedback }) {
             w-full
             transition-colors duration-300
           "
-          style={{ color: "var(--text2)" }}
+          style={{ color: 'var(--text2)' }}
         >
           {t.quote}
         </p>
@@ -118,13 +118,13 @@ function FeedbackCard({ t }: { t: Feedback }) {
         <div className="pt-0">
           <p
             className="text-base sm:text-lg font-medium transition-colors duration-300"
-            style={{ color: "var(--text)" }}
+            style={{ color: 'var(--text)' }}
           >
             {t.name}
           </p>
           <p
             className="mt-1 text-sm sm:text-base transition-colors duration-300"
-            style={{ color: "var(--text2)" }}
+            style={{ color: 'var(--text2)' }}
           >
             {t.position}
           </p>
@@ -142,15 +142,13 @@ function FeedbackCard({ t }: { t: Feedback }) {
 export default function Feedback() {
   return (
     <section
-      className="w-full pt-12 py-12 md:py-28"
+      className="w-full overflow-x-hidden pt-12 py-12 md:py-28"
       style={{ background: 'var(--mainBackground)' }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-14">
-          <p className="font-semibold italic text-2xl text-[#00715D]">
-            Feedback
-          </p>
+          <p className="font-semibold italic text-2xl text-[#00715D]">Feedback</p>
           <h2
             className="not-prose mt-3 text-4xl md:text-4xl font-bold tracking-tight"
             style={{ color: 'var(--text)' }}
@@ -159,23 +157,23 @@ export default function Feedback() {
           </h2>
         </div>
 
-        {/* Slider (NO vertical scroll: overflow-y-hidden) */}
-        <div className="overflow-x-auto overflow-y-hidden pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
-          <div className="flex gap-6 sm:gap-8 md:gap-10 min-w-max items-stretch pr-2">
+        {/* ✅ Slider: no negative margins + no 100vw widths */}
+        <div className="w-full overflow-x-auto overflow-y-hidden pb-6 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
+          <div className="flex w-max gap-6 sm:gap-8 md:gap-10 items-stretch pr-4">
             {feedbacks.map((t) => (
               <div
                 key={t.id}
                 className="
-                  w-[calc(100vw-2rem)] max-w-none
-                  sm:w-[400px] sm:max-w-none
-                  md:w-[540px] md:min-w-[540px]
-                  lg:w-[540px] lg:min-w-[540px]
-                  flex-shrink-0
-                  snap-center
+                  flex-none snap-center
+                  w-[min(92vw,420px)]
+                  sm:w-[420px]
+                  md:w-[540px]
+                  md:min-w-[540px]
+                  lg:w-[540px]
+                  lg:min-w-[540px]
                   h-[570px] sm:h-[530px] md:h-[530px]
                 "
               >
-                
                 <FeedbackCard t={t} />
               </div>
             ))}
