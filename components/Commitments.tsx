@@ -11,7 +11,6 @@ function CommitmentCard({ title, description, Icon }: CommitmentCardProps) {
   return (
     <div
       className="
-        group
         w-full max-w-full
         rounded-[28px]
         px-[calc(2rem+20px)] py-[calc(2.5rem+20px)]

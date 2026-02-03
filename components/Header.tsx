@@ -48,7 +48,7 @@ const Header = () => {
     if (e.key === "Enter") handleSearch();
   };
 
-  // ✅ Add links array (for mobile drawer)
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -71,7 +71,7 @@ const Header = () => {
               alt="Sriyog Logo"
               width={800}
               height={600}
-              className="w-[250px] h-auto"
+              className="w-[200px] md:w-[250px] h-auto"
               style={{
                 filter:
                   "brightness(0) saturate(80%) invert(15%) sepia(90%) saturate(3000%) hue-rotate(2deg) brightness(105%) contrast(120%)",
@@ -123,7 +123,7 @@ const Header = () => {
               </Link>
 
               <Link href="/notice">
-                <button className="bg-red-800 cursor-pointer text-[16px] border border-teal-900 text-white px-4 py-1 rounded hover:bg-teal-800">
+                <button className="bg-red-800 cursor-pointer text-[16px] border border-red-900 text-white px-4 py-1 rounded hover:bg-teal-800">
                   Notice
                 </button>
               </Link>
@@ -134,7 +134,7 @@ const Header = () => {
           {/* Mobile Notice button */}
           <div>
             <Link href="/notice">
-              <button className="bg-[#ebebeb] cursor-pointer sm:hidden border-[1.5px] border-teal-800 text-black px-4 py-1 rounded hover:bg-teal-800">
+              <button className="bg-[#ebebeb] cursor-pointer sm:hidden border-[1.5px] border-red-800 hover:border-teal-800 text-black px-4 py-1 rounded hover:bg-teal-800">
                 Notice
               </button>
             </Link>
@@ -197,7 +197,7 @@ const Header = () => {
             </button>
           </div>
 
-          {/* ✅ pass navLinks to MobileDrawer */}
+          {/* MOBILE DRAWER */}
            <MobileDrawer setIsOpen={setIsOpen} isOpen={isOpen} navLinks={navLinks} />
         </nav>
       </div>

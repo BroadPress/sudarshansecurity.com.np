@@ -104,7 +104,7 @@ const Sidekick = () => {
           </div>
 
           <p onClick={() => window.open('https://sriyog.com', '_blank')} className='font-semibold text-[#888888] text-center'>
-            +977-01-4548068
+            +977-9852054100
           </p>
 
           <div onClick={() => window.open('https://sriyog.com', '_blank')} className='cursor-pointer flex items-center w-fit justify-center gap-3 p-1 my-2 rounded-md border-[1.5px] border-[#B3ADAD]'>
@@ -121,7 +121,7 @@ const Sidekick = () => {
             <div className='flex items-center w-fit justify-center gap-3 p-1 my-2 rounded-md border-[1.5px] border-[#B3ADAD] cursor-pointer'>
               <img onClick={() => window.open('https://sriyog.com', '_blank')} src='/icons/whatsapp.svg' alt='' className='w-4 h-4' />
               <p onClick={() => window.open('https://sriyog.com', '_blank')} className='text-xs text-[#888888] pt'>
-                +977 98520-24-365
+                +977-9852054100
               </p>
             </div>
           </div>

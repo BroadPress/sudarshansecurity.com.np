@@ -172,7 +172,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, setIsOpen, navLinks
               </Link>
 
               <Link href="/notice" onClick={closeDrawer} className="block">
-                <button className="w-full bg-teal-900 text-white px-6 py-2.5 rounded-lg hover:bg-teal-800 transition-colors duration-200">
+                <button className="w-full bg-red-800 text-white px-6 py-2.5 rounded-lg hover:bg-teal-800 transition-colors duration-200">
                   Notice
                 </button>
               </Link>

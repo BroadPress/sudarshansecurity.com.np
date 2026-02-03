@@ -129,24 +129,7 @@ const AboutClient = () => {
             className="mt-6 text-lg leading-relaxed max-w-xl mx-auto md:mx-0"
               style={{ color: 'var(--text2)' }}
             >We provide a complete range of professional protection and support services, including trained Security Guards for day-to-day safety, discreet V.I.P. Scout Service for advance checks and route/security assessments, and reliable Personal Bodyguard solutions tailored to individual needs. Our Unarmed Security Service focuses on visible deterrence, access control, visitor management, and incident reporting to maintain a secure environment without the use of weapons. For gatherings of any size, our Event Management Services ensure smooth coordination and strong crowd control, helping your event stay organized, safe, and stress-free from start to finish.</p>
-{/* 
-            <div className="mt-8 flex justify-start ml-4 md:ml-0">
-              <ul className="space-y-4 text-left">
-                {features.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-0.5">
-                      <CheckIcon />
-                    </span>
-                    <span
-                      className="font-medium leading-6"
-                      style={{ color: 'var(--text)' }}
-                    >
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div> */}
+
           </div>
         </div>
       </section>

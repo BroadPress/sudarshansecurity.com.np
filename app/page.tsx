@@ -121,7 +121,7 @@ const Home = () => {
               viewport={{ once: true, amount: 0.25 }}
               className="md:w-1/2 w-full"
             >
-              <p className="font-mono text-xl text-left" style={{ color: "#00715D" }}>
+              <p className="italic text-xl text-left" style={{ color: "#00715D" }}>
                 Join us for service
               </p>
 

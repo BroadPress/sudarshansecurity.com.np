@@ -102,7 +102,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
         <div className="flex justify-center">
           <div
             className="rounded-full p-3 transition-transform duration-300 ease-out group-hover:scale-[1.02]"
-            style={{ background: 'rgba(224, 208, 160, 0.55)' }}
+            // style={{ background: 'rgba(224, 208, 160, 0.55)' }}
           >
             <div className="h-20 w-20 rounded-full overflow-hidden bg-white">
               <Image
