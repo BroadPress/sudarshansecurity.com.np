@@ -65,8 +65,8 @@ export default function Timeline() {
 
             return (
               <div key={index} className="relative flex items-center">
-                {/* Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-5 h-5 border-2 header rounded-full shadow-md"></div>
+                {/* Timeline dot (hidden on mobile) */}
+                <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 border-2 header rounded-full shadow-md"></div>
 
                 {/* Card */}
                 <div

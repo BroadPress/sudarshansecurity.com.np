@@ -122,10 +122,11 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, setIsOpen, navLinks
           )}
         </button>
       </div>
+      
 
       {/* Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black/40 z-40" onClick={closeDrawer} aria-hidden="true" />
+        <div className="fixed w-screen inset-0 bg-black/40 z-40" onClick={closeDrawer} aria-hidden="true" />
       )}
 
       {/* Drawer (WHITE BACKGROUND) */}

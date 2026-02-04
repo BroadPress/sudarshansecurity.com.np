@@ -12,7 +12,7 @@ const cardData = [
   {
     id: 2,
     title: "Facebook",
-    image: "/images/qr/facebook.jpg",
+    image: "/images/qr/facebook.png",
     link: "https://www.facebook.com/sriyogconsulting",
     description: "Follow our latest updates and technology solutions.",
   },

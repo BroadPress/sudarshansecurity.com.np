@@ -83,7 +83,7 @@ function ActionLink({
 function MessageCard({ person }: { person: Person }) {
   return (
     <article
-      className="group relative w-full max-w-[600px] mx-auto rounded-3xl border shadow-sm hover:shadow-md transition overflow-hidden"
+      className="group relative w-full max-w-[560px] mx-auto rounded-3xl border shadow-sm hover:shadow-md transition overflow-hidden"
       style={{
         background: "var(--background)",
         borderColor: "var(--border)",
@@ -119,8 +119,9 @@ function MessageCard({ person }: { person: Person }) {
           </h2>
 
           <p
-            className="mt-1 text-sm sm:text-base font-semibold"
+            className=" mt-1 text-sm sm:text-base font-semibold"
             style={{ color: "var(--text2)" }}
+            
           >
             {person.role}
           </p>
@@ -128,7 +129,7 @@ function MessageCard({ person }: { person: Person }) {
 
         {/* Message */}
         <p
-          className="mt-6 text-[15px] sm:text-base leading-relaxed"
+          className="cardText mt-6 text-[15px] sm:text-base leading-relaxed"
           style={{ color: "var(--text2)" }}
         >
           {person.message}

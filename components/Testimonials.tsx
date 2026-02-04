@@ -125,6 +125,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
         {/* Quote */}
         <p
           className="
+          cardText
             mt-4
             w-full
             text-base sm:text-lg

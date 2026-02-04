@@ -41,7 +41,7 @@ function CommitmentCard({ title, description, Icon }: CommitmentCardProps) {
       </div>
 
       <p
-        className="text-center text-[16px] sm:text-[17px] leading-8"
+        className="  text-center text-[16px] sm:text-[17px] leading-8"
         style={{ color: "var(--text2)" }}
       >
         {description}

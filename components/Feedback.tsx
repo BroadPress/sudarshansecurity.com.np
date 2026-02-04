@@ -100,6 +100,7 @@ function FeedbackCard({ t }: { t: Feedback }) {
         {/* Quote */}
         <p
           className="
+          cardText
             mt-4
             text-base sm:text-lg
             leading-7 sm:leading-8

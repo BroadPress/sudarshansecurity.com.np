@@ -75,16 +75,68 @@ const Home = () => {
 
               <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 md:gap-6">
                 <Link href="/about">
-                  <button className="cursor-pointer bg-transparent text-white border-2 border-red-800 hover:bg-[#00715D] py-3 md:py-3 px-4 md:px-8 rounded-md font-semibold hover:text-black hover:border-none transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[130px] shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    About
+                  <button
+                    className="
+    group relative overflow-hidden
+    cursor-pointer bg-transparent text-white
+    border-2 border-red-800
+    py-3 md:py-3 px-4 md:px-8
+    w-full sm:w-auto min-w-[130px]
+    font-semibold shadow-md
+    rounded-md
+    transition-[border-radius,transform,box-shadow,color,border-color] duration-300 ease-out
+     hover:text-black hover:border-transparent hover:shadow-lg hover:-translate-y-0.5
+  "
+                  >
+                    <span className="relative z-10">About</span>
+                    {/* Curved animated background */}
+                    <span
+                      aria-hidden="true"
+                      className="
+      absolute inset-0 z-0
+      bg-[#00715D]
+      translate-y-full
+      transition-transform duration-500 ease-out
+      group-hover:translate-y-0
+    "
+                    />
                   </button>
+
                 </Link>
 
                 <Link href="/contact">
-                  <button className="cursor-pointer bg-red-800 text-white px-4 md:px-10 py-3 border-2 border-red-800 rounded-md font-semibold hover:bg-[#00715D] hover:border-none transition-all duration-300 ease-in-out w-full sm:w-auto min-w-[150px] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                    Book Service
+                  <button
+                    className="
+      group relative overflow-hidden
+      cursor-pointer
+      bg-red-800 text-white
+      border-2 border-red-800
+      hover:border-[#00715D]
+      py-3 md:py-3 px-4 md:px-10
+      w-full sm:w-auto min-w-[150px]
+      font-semibold shadow-lg
+      rounded-md
+      transition-[transform,box-shadow] duration-300 ease-out
+      hover:shadow-xl hover:-translate-y-0.5
+    "
+                  >
+                    <span className="relative z-10">Book Service</span>
+
+                    {/* Slide-up hover background */}
+                    <span
+                      aria-hidden="true"
+                      className="
+        absolute inset-0 z-0
+        bg-[#00715D]
+        translate-y-full
+        transition-transform duration-500 ease-out
+        group-hover:translate-y-0
+      "
+                    />
                   </button>
                 </Link>
+
+
               </div>
 
               {/* Dots */}

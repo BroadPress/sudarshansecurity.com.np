@@ -422,13 +422,13 @@ export default function Notice() {
               <div className="rounded-2xl border border-gray-200 shadow-sm p-5">
                 <h4 className="text-lg font-semibold mb-3">Popular Downloads</h4>
                 <div className="grid gap-2 text-sm">
-                  <a className="hover:underline" href="/downloads/company-profile.pdf">
+                  <a className="hover:underline" href="/downloads">
                     → Company Profile (PDF)
                   </a>
-                  <a className="hover:underline" href="/downloads/service-request-form.pdf">
+                  <a className="hover:underline" href="/contact">
                     → Service Request Form
                   </a>
-                  <a className="hover:underline" href="/downloads/job-application-form.pdf">
+                  <a className="hover:underline" href="/contact">
                     → Job Application Form
                   </a>
                 </div>
