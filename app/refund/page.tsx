@@ -58,7 +58,7 @@ export default function RefundPolicy() {
             </h2>
             <p className="about leading-relaxed mb-2">
               To request a refund, contact our support team at{" "}
-              <span className="font-medium">support@sudarshansecurity.com</span> within{" "}
+              <span className="font-medium">support@sudarshansecurity.com.np</span> within{" "}
               <span className="font-medium">7 days</span> of the payment date. Please include your invoice/receipt,
               payment reference, reason for the request, and any supporting documents.
             </p>

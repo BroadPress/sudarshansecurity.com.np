@@ -123,11 +123,9 @@ function SudarshanInternshipForm() {
           <div className="mb-5 text-center">
             <h2>This from will not work . Please send us email.</h2>
             <h2 className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--text)' }}>
-              Internship Application — Sudarshan Security Services Pvt. Ltd.
+              Internship Application 
             </h2>
-            <p className="mt-1 text-sm md:text-base" style={{ color: 'var(--text2)' }}>
-              Technology Partner: <span className="font-semibold">SRIYOG Consulting</span>
-            </p>
+            
           </div>
 
           <form onSubmit={handleSubmit} className="card2 shadow-md rounded-lg p-5">

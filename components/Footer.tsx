@@ -207,9 +207,8 @@ const Footer = () => {
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className={`h-5 w-5 sm:h-6 sm:w-6 object-contain ${
-                    item.extra ?? ""
-                  }`}
+                  className={`h-5 w-5 sm:h-6 sm:w-6 object-contain ${item.extra ?? ""
+                    }`}
                 />
               </a>
             ))}
@@ -248,9 +247,17 @@ const Footer = () => {
 
         {/* FOOTER BOTTOM */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 lg:mt-12 flex flex-col lg:flex-row justify-center items-center lg:justify-between text-[13px] gap-3 text-center md:text-left font-semibold">
+        
           <p className="flex flex-col md:flex-row gap-4 md:gap-1 items-center">
-            <span>All Rights Reserved © {currentYear}</span>
+            <span className="hidden md:inline">All Rights Reserved © {currentYear}</span>
+
+            
+
             <span className="ml-0 md:ml-3">Sudarshan Security Services</span>
+
+            {/* separator only on md+ */}
+            <span className="hidden md:inline mx-2">|</span>
+
             <span className="ml-0 md:ml-3">
               Built with :{" "}
               <a
@@ -263,6 +270,7 @@ const Footer = () => {
               </a>
             </span>
           </p>
+
 
           <p>Technology Partner : SRIYOG Consulting</p>
 

@@ -40,6 +40,12 @@ const videos = [
     embedUrl: 'https://www.youtube.com/embed/I3qqiZcTK3g?rel=0',
   },
 
+  {
+  title:
+    'Security Guard De-escalation Training: Body Language, Verbal Skills, Reactionary Gap, & Safety Tips',
+  embedUrl: 'https://www.youtube.com/embed/PtCoqlnDXlg?rel=0',
+},
+
 ];
 
 function VideoPage() {

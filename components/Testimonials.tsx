@@ -66,12 +66,106 @@ function useMediaQuery(query: string) {
 }
 
 
+// function TestimonialCard({ t }: { t: Testimonial }) {
+//   return (
+//     <div className="w-full pb-8">
+//       <div
+//         className="
+//           relative w-full
+//           rounded-[26px]
+//           px-5 sm:px-8 md:px-10
+//           pt-8 sm:pt-10
+//           pb-8 sm:pb-10
+//           flex flex-col items-center text-center
+//           shadow-sm
+//           transition-all duration-300 ease-out
+//           hover:-translate-y-1 hover:shadow-lg
+//         "
+//         style={{
+//           background: "var(--feedback-card-bg)",
+//           border: "1px solid var(--feedback-card-border)",
+//         }}
+//       >
+//         {/* Avatar */}
+//         <div className="mb-5 sm:mb-6 shrink-0">
+//           <div
+//             className="h-24 w-24 rounded-full p-[3px]"
+//             style={{ background: "var(--feedback-avatar-ring)" }}
+//           >
+//             <div
+//               className="h-full w-full rounded-full p-[6px]"
+//               style={{ background: "var(--background)" }}
+//             >
+//               <div className="h-full w-full rounded-full overflow-hidden">
+//                 <Image
+//                   src={t.avatar}
+//                   alt={t.name}
+//                   width={96}
+//                   height={96}
+//                   sizes="96px"
+//                   className="h-full w-full object-cover"
+//                 />
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Quote block (NO SCROLL — expands naturally) */}
+//         <div className="w-full px-1">
+//           <span
+//             aria-hidden="true"
+//             className="block text-5xl leading-none -mb-2 text-left"
+//             style={{ color: "var(--feedback-quote)" }}
+//           >
+//             &ldquo;
+//           </span>
+
+//           <p
+//             className="
+//               cardText
+//               mt-2
+//               text-[15px] sm:text-[17px] md:text-[18px]
+//               leading-7 sm:leading-8
+//               whitespace-pre-line
+//               break-words
+//             "
+//             style={{ color: "var(--text2)" }}
+//           >
+//             {t.quote}
+//           </p>
+
+//           <span
+//             aria-hidden="true"
+//             className="block text-5xl leading-none mt-4"
+//             style={{ color: "var(--feedback-quote)" }}
+//           >
+//             &rdquo;
+//           </span>
+//         </div>
+
+//         {/* Signature */}
+//         <div className="mt-5 sm:mt-6 shrink-0">
+//           <p
+//             className="text-xl sm:text-2xl font-semibold"
+//             style={{ color: "var(--feedback-accent)" }}
+//           >
+//             {t.name}
+//           </p>
+//           <p className="mt-1 text-sm sm:text-base" style={{ color: "var(--text2)" }}>
+//             {t.position}
+//           </p>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
-    <div className="h-full w-full pb-8">
+    <div className="w-full pb-8">
       <div
         className="
-          relative h-full w-full
+          relative w-full
           rounded-[26px]
           px-5 sm:px-8 md:px-10
           pt-8 sm:pt-10
@@ -80,23 +174,21 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           shadow-sm
           transition-all duration-300 ease-out
           hover:-translate-y-1 hover:shadow-lg
-          overflow-hidden
-          min-h-0
         "
         style={{
-          background: "var(--feedback-card-bg)",
-          border: "1px solid var(--feedback-card-border)",
+          background: 'var(--feedback-card-bg)',
+          border: '1px solid var(--feedback-card-border)',
         }}
       >
         {/* Avatar */}
         <div className="mb-5 sm:mb-6 shrink-0">
           <div
             className="h-24 w-24 rounded-full p-[3px]"
-            style={{ background: "var(--feedback-avatar-ring)" }}
+            style={{ background: 'var(--feedback-avatar-ring)' }}
           >
             <div
               className="h-full w-full rounded-full p-[6px]"
-              style={{ background: "var(--background)" }}
+              style={{ background: 'var(--background)' }}
             >
               <div className="h-full w-full rounded-full overflow-hidden">
                 <Image
@@ -112,16 +204,8 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           </div>
         </div>
 
-        {/* Quote block (scrolls if needed, always stays inside card) */}
-        <div className="flex-1 w-full min-h-0 overflow-y-auto px-1">
-          <span
-            aria-hidden="true"
-            className="block text-5xl leading-none -mb-2 text-left"
-            style={{ color: "var(--feedback-quote)" }}
-          >
-            &ldquo;
-          </span>
-
+        {/* Quote block (INLINE quotes) */}
+        <div className="w-full px-1">
           <p
             className="
               cardText
@@ -131,29 +215,37 @@ function TestimonialCard({ t }: { t: Testimonial }) {
               whitespace-pre-line
               break-words
             "
-            style={{ color: "var(--text2)" }}
+            style={{ color: 'var(--text2)' }}
           >
-            {t.quote}
-          </p>
+            <span
+              aria-hidden="true"
+              className="inline-block mr-2 align-top text-4xl leading-none"
+              style={{ color: 'var(--feedback-quote)' }}
+            >
+              &ldquo;
+            </span>
 
-          <span
-            aria-hidden="true"
-            className="block text-5xl leading-none mt-4"
-            style={{ color: "var(--feedback-quote)" }}
-          >
-            &rdquo;
-          </span>
+            {t.quote}
+
+            <span
+              aria-hidden="true"
+              className="inline-block ml-2 align-bottom text-4xl leading-none"
+              style={{ color: 'var(--feedback-quote)' }}
+            >
+              &rdquo;
+            </span>
+          </p>
         </div>
 
         {/* Signature */}
         <div className="mt-5 sm:mt-6 shrink-0">
           <p
             className="text-xl sm:text-2xl font-semibold"
-            style={{ color: "var(--feedback-accent)" }}
+            style={{ color: 'var(--feedback-accent)' }}
           >
             {t.name}
           </p>
-          <p className="mt-1 text-sm sm:text-base" style={{ color: "var(--text2)" }}>
+          <p className="mt-1 text-sm sm:text-base" style={{ color: 'var(--text2)' }}>
             {t.position}
           </p>
         </div>
@@ -182,7 +274,7 @@ export default function Testimonials() {
         <div className="overflow-x-auto overflow-y-hidden pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
           <div className="flex gap-6 sm:gap-8 md:gap-10 min-w-max items-stretch pr-2">
             {testimonials.map((t) => (
-             <div
+              <div
                 key={t.id}
                 className="
     flex-none snap-center
@@ -190,11 +282,13 @@ export default function Testimonials() {
     sm:w-[420px]
     md:w-[540px] md:min-w-[540px]
     lg:w-[540px] lg:min-w-[540px]
-    h-[570px] sm:h-[530px] md:h-[530px]
+    h-auto
+    min-h-[530px]
   "
               >
                 <TestimonialCard t={t} />
               </div>
+
             ))}
           </div>
         </div>

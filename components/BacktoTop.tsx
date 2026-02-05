@@ -21,7 +21,7 @@ const BacktoTop = () => {
   return (
     <>
     {scrolled &&
-    <div className='fixed top-[67%] sm:top-[80%] right-4 z-20 rounded-full bg-[#888888] scale-[0.8] border-2 border-[#ebebeb]'>
+    <div className='fixed top-[67%] sm:top-[80%] right-4 z-20 rounded-full bg-[#888888] scale-[0.8] border-2 border-[#ebebeb] mt-8'>
       <div>
         <img onClick={scrollToTop} src="/icons/next-arrow.svg" className='h-12 w-12 -rotate-90 cursor-pointer hover:scale-[1.1] transition-all duration-200' alt="" />
       </div>
