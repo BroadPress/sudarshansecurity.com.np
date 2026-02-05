@@ -66,7 +66,7 @@ function useMediaQuery(query: string) {
 }
 
 
-function TestimonialCard({ t }: { t: Feedback }) {
+function TestimonialCard({ t }: { t: Testimonial }) {
   return (
     <div className="h-full w-full pb-8">
       <div
