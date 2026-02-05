@@ -121,7 +121,7 @@ function SudarshanInternshipForm() {
         <div className="w-full max-w-7xl mx-auto flex flex-col px-5 py-8">
           {/* Branding */}
           <div className="mb-5 text-center">
-            <h2>This from will not work . please send us email.</h2>
+            <h2>This from will not work . Please send us email.</h2>
             <h2 className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--text)' }}>
               Internship Application — Sudarshan Security Services Pvt. Ltd.
             </h2>

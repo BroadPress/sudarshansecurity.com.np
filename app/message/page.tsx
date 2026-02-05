@@ -83,80 +83,85 @@ function ActionLink({
 function MessageCard({ person }: { person: Person }) {
   return (
     <article
-      className="group relative w-full max-w-[560px] mx-auto rounded-3xl border shadow-sm hover:shadow-md transition overflow-hidden"
-      style={{
-        background: "var(--background)",
-        borderColor: "var(--border)",
-      }}
+      className="
+        w-full max-w-6xl mx-auto
+        flex flex-col md:flex-row
+        md:items-start items-center
+        gap-6 md:gap-10
+        py-10
+      "
+      style={{ color: "var(--text)" }}
     >
-      {/* subtle top accent */}
-      <div className="h-1 w-full" style={{ background: "rgba(0,0,0,0.06)" }} />
+      {/* Left: Big circular photo */}
+      <div className="shrink-0">
+        <div
+          className="
+            relative
+            w-28 h-28
+            sm:w-32 sm:h-32
+            md:w-44 md:h-44
+            rounded-full overflow-hidden
+            border
+            shadow
+          "
+          style={{
+            borderColor: "var(--border)",
+            boxShadow: "0 14px 30px rgba(0,0,0,0.12)",
+          }}
+        >
+          <Image
+            src={person.image}
+            alt={person.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 128px, 176px"
+          />
+        </div>
+      </div>
 
-      <div className="p-6 sm:p-8">
-        {/* Centered Avatar + Name + Role */}
-        <header className="flex flex-col items-center text-center">
-          <div
-            className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-full overflow-hidden border shadow"
-            style={{
-              borderColor: "var(--border)",
-              boxShadow: "0 10px 25px rgba(0,0,0,0.12)",
-            }}
-          >
-            <Image
-              src={person.image}
-              alt={person.name}
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 80px, 96px"
-            />
-          </div>
-
-          <h2
-            className="mt-4 text-xl sm:text-2xl font-extrabold leading-tight"
-            style={{ color: "var(--text)" }}
-          >
-            {person.name}
-          </h2>
-
-          <p
-            className=" mt-1 text-sm sm:text-base font-semibold"
-            style={{ color: "var(--text2)" }}
-            
-          >
-            {person.role}
-          </p>
-        </header>
-
-        {/* Message */}
+      {/* Right: Message + Name/Role */}
+      <div className="flex-1 w-full">
         <p
-          className="cardText mt-6 text-[15px] sm:text-base leading-relaxed"
+          className="text-[15px] sm:text-base leading-relaxed text-justify"
           style={{ color: "var(--text2)" }}
         >
           {person.message}
         </p>
 
-        {/* Contacts: different lines + centered */}
-        <div className="mt-6 flex flex-col items-center gap-3">
-          <ActionLink className="w-full max-w-sm" href={`tel:${person.phone}`}>
-            📞 {person.phone}
-          </ActionLink>
+        {/* Name + Role (under the message like screenshot) */}
+        <div className="mt-6">
+          <p className="font-bold text-sm" style={{ color: "var(--text)" }}>
+            {person.name}
+          </p>
+          <p className="text-xs font-semibold" style={{ color: "var(--text2)" }}>
+            {person.role}
+          </p>
+        </div>
 
-          <ActionLink className="w-full max-w-sm" href={`mailto:${person.email}`}>
-            ✉️ {person.email}
-          </ActionLink>
-
+        {/* Optional: contacts (nice inline row) */}
+        <div className="mt-5 flex flex-col sm:flex-row sm:flex-wrap gap-3">
           <ActionLink
-            className="w-full max-w-sm"
+            className="rounded-full border"
+            href={`tel:${person.phone}`}
+            children={`📞 ${person.phone}`}
+          />
+          <ActionLink
+            className="rounded-full border"
+            href={`mailto:${person.email}`}
+            children={`✉️ ${person.email}`}
+          />
+          <ActionLink
+            className="rounded-full border"
             href={toWhatsappLink(person.phone)}
             external
-          >
-            💬 {person.whatsappLabel ?? "WhatsApp Message"}
-          </ActionLink>
+            children={`💬 ${person.whatsappLabel ?? "WhatsApp Message"}`}
+          />
         </div>
       </div>
     </article>
   );
 }
+
 
 export default function MessagePage() {
   return (

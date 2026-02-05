@@ -17,7 +17,7 @@ const TermsofServices = () => {
           </p>
 
           <p className="about leading-relaxed">
-            Welcome to <span className="font-medium">Sudarshan Security Services Pvt. Ltd.</span> (“SSS”,
+            Welcome to <span className="font-medium">Sudarshan Security Services Pvt. Ltd.</span> (“Sudarshan Security Services”,
             “we”, “us”, or “our”). Please read these Terms and Conditions (“Terms”) carefully before
             using our website, digital platforms, communication channels, or any related services
             (collectively, the “Service”).

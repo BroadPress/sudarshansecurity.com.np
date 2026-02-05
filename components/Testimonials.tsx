@@ -65,86 +65,95 @@ function useMediaQuery(query: string) {
   return matches;
 }
 
-function TestimonialCard({ t }: { t: Testimonial }) {
-  const isLgUp = useMediaQuery('(min-width: 1024px)');
 
-  // lg+ => convert double line breaks to single line break
-  const displayQuote = useMemo(() => {
-    if (!isLgUp) return t.quote; // keep same for smaller screens
-    return t.quote.replace(/\n\s*\n+/g, '\n'); // \n\n -> \n
-  }, [isLgUp, t.quote]);
-
+function TestimonialCard({ t }: { t: Feedback }) {
   return (
-    <div className="h-full w-full mt-5">
+    <div className="h-full w-full pb-8">
       <div
         className="
-          group
-          h-full w-full
-          rounded-[22px]
-          bg-white
+          relative h-full w-full
+          rounded-[26px]
+          px-5 sm:px-8 md:px-10
+          pt-8 sm:pt-10
+          pb-8 sm:pb-10
+          flex flex-col items-center text-center
           shadow-sm
-          ring-1 ring-black/5
-          px-6 sm:px-8
-          py-10
-          flex flex-col
-          items-center
-          text-center
-          overflow-hidden
-
           transition-all duration-300 ease-out
-          hover:-translate-y-2
-          hover:shadow-xl
-          hover:ring-black/10
-          hover:bg-white
+          hover:-translate-y-1 hover:shadow-lg
+          overflow-hidden
+          min-h-0
         "
+        style={{
+          background: "var(--feedback-card-bg)",
+          border: "1px solid var(--feedback-card-border)",
+        }}
       >
         {/* Avatar */}
-        <div className="flex justify-center">
+        <div className="mb-5 sm:mb-6 shrink-0">
           <div
-            className="rounded-full p-3 transition-transform duration-300 ease-out group-hover:scale-[1.02]"
-            // style={{ background: 'rgba(224, 208, 160, 0.55)' }}
+            className="h-24 w-24 rounded-full p-[3px]"
+            style={{ background: "var(--feedback-avatar-ring)" }}
           >
-            <div className="h-20 w-20 rounded-full overflow-hidden bg-white">
-              <Image
-                src={t.avatar}
-                alt={t.name}
-                width={96}
-                height={96}
-                sizes="80px"
-                className="h-full w-full object-cover"
-              />
+            <div
+              className="h-full w-full rounded-full p-[6px]"
+              style={{ background: "var(--background)" }}
+            >
+              <div className="h-full w-full rounded-full overflow-hidden">
+                <Image
+                  src={t.avatar}
+                  alt={t.name}
+                  width={96}
+                  height={96}
+                  sizes="96px"
+                  className="h-full w-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Company */}
-        <h3 className="mt-5 text-lg sm:text-xl font-medium" style={{ color: 'var(--text)' }}>
-          {t.company}
-        </h3>
+        {/* Quote block (scrolls if needed, always stays inside card) */}
+        <div className="flex-1 w-full min-h-0 overflow-y-auto px-1">
+          <span
+            aria-hidden="true"
+            className="block text-5xl leading-none -mb-2 text-left"
+            style={{ color: "var(--feedback-quote)" }}
+          >
+            &ldquo;
+          </span>
 
-        {/* Quote */}
-        <p
-          className="
-          cardText
-            mt-4
-            w-full
-            text-base sm:text-lg
-            leading-7 sm:leading-8
-            whitespace-pre-line
-            line-clamp-7
-            flex-1
-          "
-          style={{ color: 'var(--text2)' }}
-        >
-          {displayQuote}
-        </p>
+          <p
+            className="
+              cardText
+              mt-2
+              text-[15px] sm:text-[17px] md:text-[18px]
+              leading-7 sm:leading-8
+              whitespace-pre-line
+              break-words
+            "
+            style={{ color: "var(--text2)" }}
+          >
+            {t.quote}
+          </p>
+
+          <span
+            aria-hidden="true"
+            className="block text-5xl leading-none mt-4"
+            style={{ color: "var(--feedback-quote)" }}
+          >
+            &rdquo;
+          </span>
+        </div>
 
         {/* Signature */}
-        <div className="pt-6">
-          <p className="text-base sm:text-lg font-medium" style={{ color: 'var(--text)' }}>
+        <div className="mt-5 sm:mt-6 shrink-0">
+          <p
+            className="text-xl sm:text-2xl font-semibold"
+            style={{ color: "var(--feedback-accent)" }}
+          >
             {t.name}
           </p>
-          <p className="mt-1 text-sm sm:text-base" style={{ color: 'var(--text2)' }}>
+          <p className="mt-1 text-sm sm:text-base" style={{ color: "var(--text2)" }}>
             {t.position}
           </p>
         </div>
@@ -152,6 +161,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
     </div>
   );
 }
+
 
 export default function Testimonials() {
   return (
@@ -172,17 +182,16 @@ export default function Testimonials() {
         <div className="overflow-x-auto overflow-y-hidden pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
           <div className="flex gap-6 sm:gap-8 md:gap-10 min-w-max items-stretch pr-2">
             {testimonials.map((t) => (
-              <div
+             <div
                 key={t.id}
                 className="
-                  w-[calc(100vw-2rem)] max-w-none
-                  sm:w-[400px] sm:max-w-none
-                  md:w-[540px] md:min-w-[540px]
-                  lg:w-[540px] lg:min-w-[540px]
-                  flex-shrink-0
-                  snap-center
-                  h-[520px] sm:h-[480px] md:h-[480px]
-                "
+    flex-none snap-center
+    w-[min(92vw,420px)]
+    sm:w-[420px]
+    md:w-[540px] md:min-w-[540px]
+    lg:w-[540px] lg:min-w-[540px]
+    h-[570px] sm:h-[530px] md:h-[530px]
+  "
               >
                 <TestimonialCard t={t} />
               </div>

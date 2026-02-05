@@ -39,146 +39,124 @@ const feedbacks: Feedback[] = [
     company: 'Company Name',
     position: 'Position',
   },
-  {
-    id: 4,
-    name: 'Geeta Bhattarai',
-    avatar: '/images/feedback/nameste.jpg',
-    quote:
-      'Sudarshan Security is reliable, disciplined, and always responsive. Their guards are well-trained and punctual, and the supervision team regularly checks performance. We feel safer and more confident with their service.',
-    company: 'Company Name',
-    position: 'Position',
-  },
 ];
 
 function FeedbackCard({ t }: { t: Feedback }) {
   return (
-    <div className="h-full w-full mt-5">
+    <div className="h-full w-full">
       <div
         className="
-          relative
-          h-full w-full
-          rounded-[22px]
-          bg-white
+          relative h-full w-full
+          rounded-[26px]
+          px-5 sm:px-7 md:px-8
+          py-6 sm:py-7
+          flex flex-col items-center text-center
           shadow-sm
-          ring-1 ring-black/5
-          px-6 sm:px-8
-          py-10
-          flex flex-col
-          items-center
-          text-center
-          overflow-hidden
-
           transition-all duration-300 ease-out
-          hover:-translate-y-2
-          hover:shadow-xl
-          hover:ring-black/10
-          group
+          hover:-translate-y-1 hover:shadow-lg
+          overflow-hidden
+          min-h-[410px] sm:min-h-[390px] lg:min-h-[370px]
         "
+        style={{
+          background: "var(--feedback-card-bg)",
+          border: "1px solid var(--feedback-card-border)",
+        }}
       >
         {/* Avatar */}
-        <div className="rounded-full p-3 transition-transform duration-300 group-hover:scale-[1.03]">
-          <div className="h-20 w-20 rounded-full overflow-hidden bg-white">
-            <Image
-              src={t.avatar}
-              alt={t.name}
-              width={96}
-              height={96}
-              sizes="80px"
-              className="h-full w-full object-cover"
-            />
+        <div className="mb-4 sm:mb-5 shrink-0">
+          <div className="h-24 w-24 rounded-full p-[3px]">
+            <div
+              className="h-full w-full rounded-full p-[6px]"
+              style={{ background: "var(--background)" }}
+            >
+              <div className="h-full w-full rounded-full overflow-hidden">
+                <Image
+                  src={t.avatar}
+                  alt={t.name}
+                  width={96}
+                  height={96}
+                  sizes="96px"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Company */}
-        <h3
-          className="mt-5 text-lg sm:text-xl font-medium transition-colors duration-300"
-          style={{ color: 'var(--text)' }}
-        >
-          {t.company}
-        </h3>
-
-        {/* Quote */}
-        <p
-          className="
-          cardText
-            mt-4
-            text-base sm:text-lg
-            leading-7 sm:leading-8
-            whitespace-pre-line
-            line-clamp-7
-            flex-1
-            w-full
-            transition-colors duration-300
-          "
-          style={{ color: 'var(--text2)' }}
-        >
-          {t.quote}
-        </p>
-
-        {/* Signature */}
-        <div className="pt-0">
+        {/* ✅ Quote (inline quotes + keeps content inside card on all screens) */}
+        <div className="flex-1 w-full min-h-0 overflow-y-auto px-1">
           <p
-            className="text-base sm:text-lg font-medium transition-colors duration-300"
-            style={{ color: 'var(--text)' }}
+            className="
+              cardText
+              text-[15px] sm:text-[16px] md:text-[17px]
+              leading-7 sm:leading-8
+              whitespace-pre-line break-words
+            "
+            style={{ color: "var(--text2)" }}
           >
-            {t.name}
-          </p>
-          <p
-            className="mt-1 text-sm sm:text-base transition-colors duration-300"
-            style={{ color: 'var(--text2)' }}
-          >
-            {t.position}
+            <span
+              aria-hidden="true"
+              className="inline-block align-top text-4xl leading-none mr-2"
+              style={{ color: "var(--feedback-quote)" }}
+            >
+              &ldquo;
+            </span>
+
+            {t.quote}
+
+            <span
+              aria-hidden="true"
+              className="inline-block align-bottom text-4xl leading-none ml-2"
+              style={{ color: "var(--feedback-quote)" }}
+            >
+              &rdquo;
+            </span>
           </p>
         </div>
 
-        {/* subtle glow overlay */}
-        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div className="absolute -inset-24 bg-gradient-to-tr from-transparent via-black/5 to-transparent blur-2xl" />
+        {/* Signature */}
+        <div className="mt-4 sm:mt-5 shrink-0">
+          <p
+            className="text-xl sm:text-2xl font-semibold"
+            style={{ color: "var(--feedback-accent)" }}
+          >
+            {t.name}
+          </p>
+          <p className="mt-1 text-sm sm:text-base" style={{ color: "var(--text2)" }}>
+            {t.position}
+          </p>
         </div>
       </div>
     </div>
   );
 }
 
+
 export default function Feedback() {
+  const items = feedbacks.slice(0, 3);
+
   return (
-    <section
-      className="w-full overflow-x-hidden pt-12 py-12 md:py-28"
-      style={{ background: 'var(--mainBackground)' }}
-    >
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+    <section className="w-full py-12 md:py-20" style={{ background: 'var(--mainBackground)' }}>
+   <div className="mx-4 sm:mx-6 lg:mx-12 xl:mx-[140px] 2xl:mx-[160px]">
+
         {/* Heading */}
-        <div className="text-center mb-8 md:mb-14">
+        <div className="text-center mb-8 md:mb-12">
           <p className="font-semibold italic text-2xl text-[#00715D]">Feedback</p>
           <h2
-            className="not-prose mt-3 text-4xl md:text-4xl font-bold tracking-tight"
+            className="not-prose mt-2 text-3xl md:text-4xl font-bold tracking-tight"
             style={{ color: 'var(--text)' }}
           >
             What they&apos;re talking about SSS
           </h2>
         </div>
 
-        {/* ✅ Slider: no negative margins + no 100vw widths */}
-        <div className="w-full overflow-x-auto overflow-y-hidden pb-6 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
-          <div className="flex w-max gap-6 sm:gap-8 md:gap-10 items-stretch pr-4">
-            {feedbacks.map((t) => (
-              <div
-                key={t.id}
-                className="
-                  flex-none snap-center
-                  w-[min(92vw,420px)]
-                  sm:w-[420px]
-                  md:w-[540px]
-                  md:min-w-[540px]
-                  lg:w-[540px]
-                  lg:min-w-[540px]
-                  h-[570px] sm:h-[530px] md:h-[530px]
-                "
-              >
-                <FeedbackCard t={t} />
-              </div>
-            ))}
-          </div>
+        {/* ✅ 10px gap between cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 items-stretch">
+          {items.map((t) => (
+            <div key={t.id} className="h-full">
+              <FeedbackCard t={t} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

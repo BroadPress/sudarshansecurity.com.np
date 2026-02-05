@@ -8,6 +8,12 @@
   --border : #e1e1e1;
    --app-font-size: 1rem;
   --black:white;
+  --feedback-card-bg: #f3f3f3;
+  --feedback-card-border: rgba(0, 0, 0, 0.06);
+  --feedback-quote: rgba(0, 0, 0, 0.28);
+  --feedback-accent: #39a866; /* green name */
+  --feedback-avatar-ring: rgba(0, 0, 0, 0.10);
+
 }
 
 .dark{
@@ -17,12 +23,19 @@
   --text2 : #a5a5a5;
   --border : #e1e1e1;
   --black: black;
+   --feedback-card-bg: #262626;
+  --feedback-card-border: rgba(255, 255, 255, 0.08);
+  --feedback-quote: rgba(255, 255, 255, 0.22);
+  --feedback-accent: #4fe39a;
+  --feedback-avatar-ring: rgba(255, 255, 255, 0.10);
 }
 
 ::-webkit-scrollbar{
   scrollbar-width: none;
   scroll-behavior: smooth;
 }
+
+
 
 .showScroll{
   --overflow : auto;

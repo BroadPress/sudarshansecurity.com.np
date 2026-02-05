@@ -85,55 +85,58 @@ const Home = () => {
     font-semibold shadow-md
     rounded-md
     transition-[border-radius,transform,box-shadow,color,border-color] duration-300 ease-out
-     hover:text-black hover:border-transparent hover:shadow-lg hover:-translate-y-0.5
+    hover:text-black hover:border-transparent hover:shadow-lg hover:-translate-y-0.5
   "
                   >
                     <span className="relative z-10">About</span>
-                    {/* Curved animated background */}
+
+                    {/* Curved fill starts from bottom-center and expands */}
                     <span
                       aria-hidden="true"
                       className="
       absolute inset-0 z-0
       bg-[#00715D]
-      translate-y-full
-      transition-transform duration-500 ease-out
-      group-hover:translate-y-0
+      [clip-path:circle(0%_at_50%_100%)]
+      transition-[clip-path] duration-500 ease-out
+      group-hover:[clip-path:circle(150%_at_50%_100%)]
     "
                     />
                   </button>
+
 
                 </Link>
 
                 <Link href="/contact">
                   <button
                     className="
-      group relative overflow-hidden
-      cursor-pointer
-      bg-red-800 text-white
-      border-2 border-red-800
-      hover:border-[#00715D]
-      py-3 md:py-3 px-4 md:px-10
-      w-full sm:w-auto min-w-[150px]
-      font-semibold shadow-lg
-      rounded-md
-      transition-[transform,box-shadow] duration-300 ease-out
-      hover:shadow-xl hover:-translate-y-0.5
-    "
+    group relative overflow-hidden
+    cursor-pointer
+    bg-red-800 text-white
+    border-2 border-red-800
+    hover:border-[#00715D]
+    py-3 md:py-3 px-4 md:px-10
+    w-full sm:w-auto min-w-[150px]
+    font-semibold shadow-lg
+    rounded-md
+    transition-[transform,box-shadow] duration-300 ease-out
+    hover:shadow-xl hover:-translate-y-0.5
+  "
                   >
                     <span className="relative z-10">Book Service</span>
 
-                    {/* Slide-up hover background */}
+                    {/* Curved fill from bottom-center */}
                     <span
                       aria-hidden="true"
                       className="
-        absolute inset-0 z-0
-        bg-[#00715D]
-        translate-y-full
-        transition-transform duration-500 ease-out
-        group-hover:translate-y-0
-      "
+      absolute inset-0 z-0
+      bg-[#00715D]
+      [clip-path:circle(0%_at_50%_100%)]
+      transition-[clip-path] duration-500 ease-out
+      group-hover:[clip-path:circle(160%_at_50%_100%)]
+    "
                     />
                   </button>
+
                 </Link>
 
 

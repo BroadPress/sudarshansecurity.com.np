@@ -118,7 +118,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, setIsOpen, navLinks
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
         >
           {isOpen ? '' : (
-            <Image src="/icons/hamburger.svg" alt="" width={40} height={40} className="w-10 h-10" />
+            <Image src="/icons/hamburger.svg" alt="" width={40} height={40} className="w-10 h-10 theme-icon" />
           )}
         </button>
       </div>
