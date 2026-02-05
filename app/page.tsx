@@ -28,7 +28,7 @@ const Home = () => {
     document.documentElement.classList.contains("dark");
 
   return (
-    <div className="w-full overflow-x-hidden mb-20 bg-[#EDEDF8]">
+    <div className="w-full overflow-x-hidden  bg-[#EDEDF8]">
       {/* HERO SECTION (Auto Slider) */}
       <section className="w-full relative overflow-hidden h-[80vh] sm:h-[80vh]">
         {/* Slides */}
