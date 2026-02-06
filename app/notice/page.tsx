@@ -406,8 +406,8 @@ export default function Notice() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-500">Phone</span>
-                    <a className="hover:underline" href="tel:+977014000000">
-                      +977-01-4000000
+                    <a className="hover:underline" href="tel:+977-9852054100">
+                      +977-9852054100
                     </a>
                   </div>
                   <div className="flex items-center justify-between">

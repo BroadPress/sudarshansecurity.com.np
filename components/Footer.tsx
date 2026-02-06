@@ -218,7 +218,7 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* EMAIL */}
             <a
-              href="mailto:info@sriyog.com"
+              href="mailto:info@sudarshansecurity.com.np"
               className="flex items-center gap-2 border-2 rounded-lg px-7 py-3 w-full sm:w-auto"
             >
               <img src="/icons/email.svg" alt="email" className="h-6 w-6" />
@@ -227,7 +227,7 @@ const Footer = () => {
 
             {/* WHATSAPP */}
             <a
-              href="https://wa.me/9779852024365"
+              href="https://wa.me/977-9852054100"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 border-2 rounded-lg px-6 py-3 w-full sm:w-auto"

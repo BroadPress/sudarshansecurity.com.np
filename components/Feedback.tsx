@@ -55,11 +55,13 @@ function FeedbackCard({ t }: { t: Feedback }) {
           transition-all duration-300 ease-out
           hover:-translate-y-1 hover:shadow-lg
           overflow-hidden
-          min-h-[410px] sm:min-h-[390px] lg:min-h-[370px]
+          min-h-[420px] sm:min-h-[400px] lg:min-h-[380px]   /* ✅ +10px */
         "
         style={{
-          background: "var(--feedback-card-bg)",
-          border: "1px solid var(--feedback-card-border)",
+          background: 'var(--feedback-card-bg)',
+          // ✅ softer/lighter border
+          border:
+            '1px solid color-mix(in srgb, var(--feedback-card-border) 45%, transparent)',
         }}
       >
         {/* Avatar */}
@@ -67,7 +69,7 @@ function FeedbackCard({ t }: { t: Feedback }) {
           <div className="h-24 w-24 rounded-full p-[3px]">
             <div
               className="h-full w-full rounded-full p-[6px]"
-              style={{ background: "var(--background)" }}
+              style={{ background: 'var(--background)' }}
             >
               <div className="h-full w-full rounded-full overflow-hidden">
                 <Image
@@ -83,8 +85,8 @@ function FeedbackCard({ t }: { t: Feedback }) {
           </div>
         </div>
 
-        {/* ✅ Quote (inline quotes + keeps content inside card on all screens) */}
-        <div className="flex-1 w-full min-h-0 overflow-y-auto px-1">
+        {/* ✅ Quote (NOT scrollable) */}
+        <div className="flex-1 w-full px-1">
           <p
             className="
               cardText
@@ -92,12 +94,12 @@ function FeedbackCard({ t }: { t: Feedback }) {
               leading-7 sm:leading-8
               whitespace-pre-line break-words
             "
-            style={{ color: "var(--text2)" }}
+            style={{ color: 'var(--text2)' }}
           >
             <span
               aria-hidden="true"
               className="inline-block align-top text-4xl leading-none mr-2"
-              style={{ color: "var(--feedback-quote)" }}
+              style={{ color: 'var(--text)' }} // ✅ darker quote
             >
               &ldquo;
             </span>
@@ -107,7 +109,7 @@ function FeedbackCard({ t }: { t: Feedback }) {
             <span
               aria-hidden="true"
               className="inline-block align-bottom text-4xl leading-none ml-2"
-              style={{ color: "var(--feedback-quote)" }}
+              style={{ color: 'var(--text)' }} // ✅ darker quote
             >
               &rdquo;
             </span>
@@ -118,11 +120,11 @@ function FeedbackCard({ t }: { t: Feedback }) {
         <div className="mt-4 sm:mt-5 shrink-0">
           <p
             className="text-xl sm:text-2xl font-semibold"
-            style={{ color: "var(--feedback-accent)" }}
+            style={{ color: 'var(--feedback-accent)' }}
           >
             {t.name}
           </p>
-          <p className="mt-1 text-sm sm:text-base" style={{ color: "var(--text2)" }}>
+          <p className="mt-1 text-sm sm:text-base" style={{ color: 'var(--text2)' }}>
             {t.position}
           </p>
         </div>
@@ -131,14 +133,12 @@ function FeedbackCard({ t }: { t: Feedback }) {
   );
 }
 
-
 export default function Feedback() {
   const items = feedbacks.slice(0, 3);
 
   return (
     <section className="w-full py-12 md:py-20" style={{ background: 'var(--mainBackground)' }}>
-   <div className="mx-4 sm:mx-6 lg:mx-12 xl:mx-[140px] 2xl:mx-[160px]">
-
+      <div className="mx-4 sm:mx-6 lg:mx-12 xl:mx-[140px] 2xl:mx-[160px]">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-12">
           <p className="font-semibold italic text-2xl text-[#00715D]">Feedback</p>
@@ -150,7 +150,6 @@ export default function Feedback() {
           </h2>
         </div>
 
-        {/* ✅ 10px gap between cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 items-stretch">
           {items.map((t) => (
             <div key={t.id} className="h-full">

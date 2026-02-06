@@ -25,7 +25,7 @@ const people: Person[] = [
     image: "/images/team/1.png",
     message:
       "With more than two decades of experience in the field of private security arrangement, having defence background. It is an important part of human being and all type of industrial and commercial sectors. The Sudarshan Security Services Pvt. Ltd. is a professional security company. Has been providing more than 1500 security personnels all over Nepal in the various aspects of industries, commercial banks, finance companies, hotel premises, school compound etc.",
-    phone: "+977-985-202-0058",
+    phone: "+977-9852020058",
     email: "dambar@sudarshansecurity.com.np",
     whatsappLabel: "WhatsApp Message",
   },
@@ -35,7 +35,7 @@ const people: Person[] = [
     image: "/images/team/2.png",
     message:
       "Being a General Manager of Sudarshan Security Services, Pvt. Ltd. with an experience of more than two decades. I enjoy to manage the best manpower. We always find satisfaction into providing the security personnel’s minor, major problems quickly & positively is my main goal. Past experience always plays productive role on my further steps to the Sudarshan Security Services, Pvt. Ltd. forever.",
-    phone: "+977-985-205-4100",
+    phone: "+977-9852054100",
     email: "keshab@sudarshansecurity.com.np",
     whatsappLabel: "WhatsApp Message",
   },
@@ -45,7 +45,7 @@ const people: Person[] = [
     image: "/images/team/4.png",
     message:
       "Sudarshan Security Services, Pvt. Ltd. express glory for creating employment for more than 2200 men & women within the native land. Producing & providing capable man power is our main goal. Being sage & providing safety is our Moto. Its may glory to be part of Sudarshan Security Services, Pvt. Ltd. as an operation officer. I regard, my past experience of Deputy Superintendent of Police will be fruitful for this company. As an Operation Officer, my effort will always spend to manage the dedicated manpower of the clients.",
-    phone: "+977-985-102-4462",
+    phone: "+977-9851024462",
     email: "ramesh@sudarshansecurity.com.np",
     whatsappLabel: "WhatsApp Message",
   },

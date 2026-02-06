@@ -1,17 +1,17 @@
 'use client';
 
-import React from "react";
-import Ribbon from "../../components/Ribbon";
+import React from 'react';
+import Ribbon from '../../components/Ribbon';
 
 const PrivacyPolicy = () => {
   return (
-    <div className="h-full">
+    <div className="min-h-screen bg-[#fff]">
       {/* Header / Ribbon */}
       <Ribbon name="Privacy Policy" showfont={false} />
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 space-y-6">
-        <section className="footer p-6 rounded-xl shadow-md space-y-6">
+      <main className="max-w-7xl mx-auto px-4 md:px-8 pb-14">
+        <section className="footer mt-6 p-6 sm:p-8 rounded-3xl shadow-md space-y-6 bg-white">
           <p className="text leading-relaxed">
             <span className="font-medium">Effective Date:</span> 1st June, 2025
           </p>
@@ -29,7 +29,7 @@ const PrivacyPolicy = () => {
           <p className="about leading-relaxed">
             By using our Service or communicating with us, you agree to the
             collection and use of information in accordance with this Privacy
-            Policy. Any terms used here have the same meaning as in our Terms &
+            Policy. Any terms used here have the same meaning as in our Terms &amp;
             Conditions unless specified otherwise.
           </p>
 
@@ -52,7 +52,7 @@ const PrivacyPolicy = () => {
             </h2>
 
             <h3 className="text-lg font-medium text-teal-600 mt-3">
-              Personal & Business Information
+              Personal &amp; Business Information
             </h3>
             <p className="about leading-relaxed">
               When you request a quote, sign a service agreement, or contact us,
@@ -69,7 +69,7 @@ const PrivacyPolicy = () => {
             </ul>
 
             <h3 className="text-lg font-medium text-teal-600 mt-4">
-              Service & Operational Data
+              Service &amp; Operational Data
             </h3>
             <p className="about leading-relaxed">
               To deliver and manage security services, we may collect or create
@@ -95,7 +95,7 @@ const PrivacyPolicy = () => {
           {/* SECTION 3 */}
           <div>
             <h2 className="text-2xl font-semibold text-teal-800 mb-2">
-              Cookies & Tracking Technologies
+              Cookies &amp; Tracking Technologies
             </h2>
             <p className="about leading-relaxed">
               We use cookies and similar technologies to operate our website and
@@ -131,7 +131,7 @@ const PrivacyPolicy = () => {
           {/* SECTION 5 */}
           <div>
             <h2 className="text-2xl font-semibold text-teal-800 mb-2">
-              Sharing & Disclosure of Data
+              Sharing &amp; Disclosure of Data
             </h2>
             <p className="about leading-relaxed">
               We do not sell your personal data. We may share data only when
@@ -219,7 +219,7 @@ const PrivacyPolicy = () => {
           {/* SECTION 11 */}
           <div>
             <h2 className="text-2xl font-semibold text-teal-800 mb-2">
-              Your Rights & Choices
+              Your Rights &amp; Choices
             </h2>
             <p className="about leading-relaxed">
               Depending on applicable laws, you may request access, correction,
@@ -245,14 +245,21 @@ const PrivacyPolicy = () => {
               Contact Us
             </h2>
             <p className="about leading-relaxed mb-1">
-              Email: info@sudarshansecurity.com.np
+              Email:{' '}
+              <a
+                href="mailto:info@sudarshansecurity.com.np"
+                className="text-teal-700 hover:underline underline-offset-4"
+              >
+                info@sudarshansecurity.com.np
+              </a>
             </p>
             <p className="about leading-relaxed">
-              Address: Sudarshan Security Services Pvt. Ltd., Kathmandu, Nepal
+              Address: Sudarshan Security Services Pvt. Ltd., Hospital Road,
+              Itahari, Sub-Metropolitan City, Ward no.9 Sunsari, Nepal
             </p>
           </div>
         </section>
-      </div>
+      </main>
     </div>
   );
 };

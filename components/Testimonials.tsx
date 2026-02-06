@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
 type Testimonial = {
   id: number;
@@ -18,7 +18,7 @@ const testimonials: Testimonial[] = [
     name: 'Sumnima Rai',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. \n\nTheir commitment to customer service and professionalism has become their standard operating procedure.',
+      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. \nTheir commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
     name: 'Samir Poudel',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. \n\nTheir commitment to customer service and professionalism has become their standard operating procedure.',
+      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. \nTheir commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
@@ -36,156 +36,50 @@ const testimonials: Testimonial[] = [
     name: 'Rakesh Mehta',
     avatar: '/images/testimonials/nameste.jpg',
     quote:
-      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. \n\nTheir commitment to customer service and professionalism has become their standard operating procedure.',
-    company: 'Company Name',
-    position: 'Position',
-  },
-  {
-    id: 4,
-    name: 'Geeta Bhattarai',
-    avatar: '/images/testimonials/nameste.jpg',
-    quote:
-      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. \n\nTheir commitment to customer service and professionalism has become their standard operating procedure.',
+      'The best way to describe this organization is "Excellent Service!" They have consistently provided us with excellent service for many years. \nTheir commitment to customer service and professionalism has become their standard operating procedure.',
     company: 'Company Name',
     position: 'Position',
   },
 ];
 
-function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(false);
+// ✅ ensures there is at most ONE line break in the whole quote
+function normalizeQuote(q: string) {
+  const cleaned = q.replace(/\r\n/g, '\n').trim();
+  const parts = cleaned.split(/\n+/).map((s) => s.trim()).filter(Boolean);
 
-  useEffect(() => {
-    const mq = window.matchMedia(query);
-    const update = () => setMatches(mq.matches);
-    update();
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
-  }, [query]);
+  if (parts.length <= 1) return cleaned;
 
-  return matches;
+  // first line stays, everything else becomes a single continuation (no extra line breaks)
+  return `${parts[0]}\n${parts.slice(1).join(' ')}`;
 }
 
-
-// function TestimonialCard({ t }: { t: Testimonial }) {
-//   return (
-//     <div className="w-full pb-8">
-//       <div
-//         className="
-//           relative w-full
-//           rounded-[26px]
-//           px-5 sm:px-8 md:px-10
-//           pt-8 sm:pt-10
-//           pb-8 sm:pb-10
-//           flex flex-col items-center text-center
-//           shadow-sm
-//           transition-all duration-300 ease-out
-//           hover:-translate-y-1 hover:shadow-lg
-//         "
-//         style={{
-//           background: "var(--feedback-card-bg)",
-//           border: "1px solid var(--feedback-card-border)",
-//         }}
-//       >
-//         {/* Avatar */}
-//         <div className="mb-5 sm:mb-6 shrink-0">
-//           <div
-//             className="h-24 w-24 rounded-full p-[3px]"
-//             style={{ background: "var(--feedback-avatar-ring)" }}
-//           >
-//             <div
-//               className="h-full w-full rounded-full p-[6px]"
-//               style={{ background: "var(--background)" }}
-//             >
-//               <div className="h-full w-full rounded-full overflow-hidden">
-//                 <Image
-//                   src={t.avatar}
-//                   alt={t.name}
-//                   width={96}
-//                   height={96}
-//                   sizes="96px"
-//                   className="h-full w-full object-cover"
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Quote block (NO SCROLL — expands naturally) */}
-//         <div className="w-full px-1">
-//           <span
-//             aria-hidden="true"
-//             className="block text-5xl leading-none -mb-2 text-left"
-//             style={{ color: "var(--feedback-quote)" }}
-//           >
-//             &ldquo;
-//           </span>
-
-//           <p
-//             className="
-//               cardText
-//               mt-2
-//               text-[15px] sm:text-[17px] md:text-[18px]
-//               leading-7 sm:leading-8
-//               whitespace-pre-line
-//               break-words
-//             "
-//             style={{ color: "var(--text2)" }}
-//           >
-//             {t.quote}
-//           </p>
-
-//           <span
-//             aria-hidden="true"
-//             className="block text-5xl leading-none mt-4"
-//             style={{ color: "var(--feedback-quote)" }}
-//           >
-//             &rdquo;
-//           </span>
-//         </div>
-
-//         {/* Signature */}
-//         <div className="mt-5 sm:mt-6 shrink-0">
-//           <p
-//             className="text-xl sm:text-2xl font-semibold"
-//             style={{ color: "var(--feedback-accent)" }}
-//           >
-//             {t.name}
-//           </p>
-//           <p className="mt-1 text-sm sm:text-base" style={{ color: "var(--text2)" }}>
-//             {t.position}
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 function TestimonialCard({ t }: { t: Testimonial }) {
+  const quote = normalizeQuote(t.quote);
+
   return (
-    <div className="w-full pb-8">
+    <div className="h-full w-full">
       <div
         className="
-          relative w-full
+          relative h-full w-full
           rounded-[26px]
-          px-5 sm:px-8 md:px-10
-          pt-8 sm:pt-10
-          pb-8 sm:pb-10
+          px-5 sm:px-7 md:px-8
+          py-6 sm:py-7
           flex flex-col items-center text-center
           shadow-sm
           transition-all duration-300 ease-out
           hover:-translate-y-1 hover:shadow-lg
+          overflow-hidden
+          min-h-[520px] sm:min-h-[500px] lg:min-h-[470px]   /* ✅ increased height for bigger testimonials */
         "
         style={{
           background: 'var(--feedback-card-bg)',
-          border: '1px solid var(--feedback-card-border)',
+          border:
+            '1px solid color-mix(in srgb, var(--feedback-card-border) 45%, transparent)',
         }}
       >
         {/* Avatar */}
-        <div className="mb-5 sm:mb-6 shrink-0">
-          <div
-            className="h-24 w-24 rounded-full p-[3px]"
-            style={{ background: 'var(--feedback-avatar-ring)' }}
-          >
+        <div className="mb-4 sm:mb-5 shrink-0">
+          <div className="h-24 w-24 rounded-full p-[3px]">
             <div
               className="h-full w-full rounded-full p-[6px]"
               style={{ background: 'var(--background)' }}
@@ -204,33 +98,35 @@ function TestimonialCard({ t }: { t: Testimonial }) {
           </div>
         </div>
 
-        {/* Quote block (INLINE quotes) */}
-        <div className="w-full px-1">
+        {/* ✅ Quote (NOT scrollable) */}
+        <div className="flex-1 w-full px-1">
           <p
             className="
               cardText
-              mt-2
-              text-[15px] sm:text-[17px] md:text-[18px]
+              text-[15px] sm:text-[16px] md:text-[17px]
               leading-7 sm:leading-8
-              whitespace-pre-line
-              break-words
+              whitespace-pre-line break-words
             "
-            style={{ color: 'var(--text2)' }}
+            style={{
+              color: 'var(--text2)',
+              textAlign: 'justify',
+              textJustify: 'inter-word',
+            }}
           >
             <span
               aria-hidden="true"
-              className="inline-block mr-2 align-top text-4xl leading-none"
-              style={{ color: 'var(--feedback-quote)' }}
+              className="inline-block align-top text-4xl leading-none mr-2"
+              style={{ color: 'var(--text)' }}
             >
               &ldquo;
             </span>
 
-            {t.quote}
+            {quote}
 
             <span
               aria-hidden="true"
-              className="inline-block ml-2 align-bottom text-4xl leading-none"
-              style={{ color: 'var(--feedback-quote)' }}
+              className="inline-block align-bottom text-4xl leading-none ml-2"
+              style={{ color: 'var(--text)' }}
             >
               &rdquo;
             </span>
@@ -238,7 +134,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
         </div>
 
         {/* Signature */}
-        <div className="mt-5 sm:mt-6 shrink-0">
+        <div className="mt-4 sm:mt-5 shrink-0">
           <p
             className="text-xl sm:text-2xl font-semibold"
             style={{ color: 'var(--feedback-accent)' }}
@@ -254,43 +150,29 @@ function TestimonialCard({ t }: { t: Testimonial }) {
   );
 }
 
-
 export default function Testimonials() {
+  const items = useMemo(() => testimonials, []);
+
   return (
     <section className="w-full py-12 md:py-20" style={{ background: 'var(--mainBackground)' }}>
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="mx-4 sm:mx-6 lg:mx-12 xl:mx-[140px] 2xl:mx-[160px]">
         {/* Heading */}
-        <div className="text-center mb-8 md:mb-14">
+        <div className="text-center mb-8 md:mb-12">
           <p className="font-semibold italic text-2xl text-[#00715D]">Our testimonials</p>
           <h2
-            className="mt-3 text-4xl md:text-4xl font-bold tracking-tight"
+            className="not-prose mt-2 text-3xl md:text-4xl font-bold tracking-tight"
             style={{ color: 'var(--text)' }}
           >
             What they&apos;re talking about sudarshan
           </h2>
         </div>
 
-        {/* Slider */}
-        <div className="overflow-x-auto overflow-y-hidden pb-6 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory scroll-smooth lg:max-w-[1120px] lg:mx-auto">
-          <div className="flex gap-6 sm:gap-8 md:gap-10 min-w-max items-stretch pr-2">
-            {testimonials.map((t) => (
-              <div
-                key={t.id}
-                className="
-    flex-none snap-center
-    w-[min(92vw,420px)]
-    sm:w-[420px]
-    md:w-[540px] md:min-w-[540px]
-    lg:w-[540px] lg:min-w-[540px]
-    h-auto
-    min-h-[530px]
-  "
-              >
-                <TestimonialCard t={t} />
-              </div>
-
-            ))}
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 items-stretch">
+          {items.map((t) => (
+            <div key={t.id} className="h-full">
+              <TestimonialCard t={t} />
+            </div>
+          ))}
         </div>
       </div>
     </section>
